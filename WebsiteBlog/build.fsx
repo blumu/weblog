@@ -1,6 +1,6 @@
 ﻿/// Given a typical setup (with 'FSharp.Formatting' referenced using NuGet),
 // the following will include binaries and load the literate script
-#load @"..\packages\FSharp.Formatting.2.12.0\/FSharp.Formatting.fsx"
+#load @"..\packages\FSharp.Formatting\FSharp.Formatting.fsx"
 open System.IO
 open FSharp.Literate
 
