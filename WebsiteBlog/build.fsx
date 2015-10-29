@@ -27,7 +27,7 @@ let projInfo =
     "project-title", "title"
     "project-summary", "William Blum's site http://william.famille-blum.org"
 //    "project-github", githubLink
-//    "project-nuget", "http://nuget.org/packages/FSharp.Formatting"
+    "project-nuget", "https://github.com/blumu/weblog"
     "root", __SOURCE_DIRECTORY__
     ]
 let website = __SOURCE_DIRECTORY__ + "../output"
@@ -138,4 +138,4 @@ let watch () =
   watcher.Dispose()
   source.Cancel()
 
-watch ()
+watch () 
