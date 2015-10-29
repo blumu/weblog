@@ -1,0 +1,11 @@
+# Ignore SimpleBlog counters
+*.bak
+Thumbs.db
+*.log
+bin/
+debug/
+obj/
+release/
+packages/
+.suo
+output/

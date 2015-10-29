@@ -1,0 +1,5 @@
+FSharp.Compiler.Service
+FSharp.Formatting
+FSharp.Formatting.CommandTool
+FSharpVSPowerTools.Core
+Fake
