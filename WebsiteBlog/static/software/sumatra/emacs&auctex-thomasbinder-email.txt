@@ -1,0 +1,40 @@
+The following email was sent to me by Thomas Binder.
+It contains explanation on how to make SumatraPDF work with emacs+Auctex.
+
+=============================================
+from Thomas Binder
+to	William Blum
+date	Mon, Oct 13, 2008 at 10:25 AM
+subject	WG: Emacs and Sumatra new message on a problem
+mailed-by	helios-kliniken.de
+
+Thomas Binder schrieb am 13.10.2008 20:25
+
+I have discovered another problem and I propose to mention it on Your website:
+
+1. History: I took the directory containing my <morphokurs.tex> with me and I worked on it during the weekend. Back to office I synchronized the directories, recompiled the text on the desktop and:
+
+--> forward and reverse search gave completely erroneous behavior (jump to a wrong line).
+
+I deleted all secondary files (<clean all> within Emacs/Auctex), no change of misbehavior.
+
+Then I deleted the subdirectory <auto>, which is generated once the text is changed by editing. I recompiled and:
+
+--> forward and reverse search work as they should do.
+
+2. Workaround: if forward and/or inverse search function with false results:
+
+--> delete secondary files AND the <auto> subdirectory.
+
+3. I do not understand why sumatra-forward and SumatraPdf behave like that, maybe You know a real solution instead of a workaround.
+
+(deleting this <auto> subdir helped in other cases too, but I do not enough remember the situations).
+
+Sincerely
+
+Thomas Binder
+
+
+Addendum
+
+Another way may be to change anything in the Latex source and then to recompile, because this causes generating a new <auto> subdir and/or to change the contents, solely recompiling the source without editing it does not write changes in <auto>.

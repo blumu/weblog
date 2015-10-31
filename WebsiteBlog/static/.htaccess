@@ -1,0 +1,6 @@
+ErrorDocument 404 /404.html
+Redirect permanent  /~william/ http://william.famille-blum.org/
+Redirect permanent  /cracklock/ http://william.famille-blum.org/softwares/cracklock/
+Redirect permanent  /mscthesis/ http://william.famille-blum.org/research/
+Redirect permanent  /softwares/ http://william.famille-blum.org/software/
+Redirect permanent  /index.html http://william.famille-blum.org/blog/index.php

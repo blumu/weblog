@@ -1,0 +1,724 @@
+Index: src/FileWatch.cc
+===================================================================
+--- src/FileWatch.cc	(revision 0)
++++ src/FileWatch.cc	(revision 0)
+@@ -0,0 +1,270 @@
++// By william blum, 2008
++#include "SumatraPDF.h"
++#include "FileWatch.h"
++#include "file_util.h"
++#include <sys/types.h>
++#include <sys/stat.h>
++#include <crtdbg.h>
++#include <time.h>
++
++
++// Get the directory name from a full file path and copy it to pszDir
++bool GetDirectory (PCTSTR pszFile, PTSTR pszDir, size_t wMaxSize)
++{
++    PCTSTR pszBaseName = FilePath_GetBaseName(pszFile);
++
++    if (EINVAL == _tcsncpy_s(pszDir, wMaxSize, pszFile, pszBaseName-pszFile))
++        return false;
++
++    // Is the file located in the root directory?
++    if (pszDir[pszBaseName-pszFile-2] == ':') {
++        // add the backslash at the end
++        pszDir[pszBaseName-pszFile-1] = '\\';
++        pszDir[pszBaseName-pszFile] = '\0';
++    }
++    return true;
++}
++
++
++// Abort simultaneously all the watching thread and wait until they are all stopped.
++void SimultaneousSyncronousAbort(int nfw, FileWatcher **fw){
++   // Preparing to exit the program: ask the children thread to terminate
++    HANDLE *hp = new HANDLE[nfw];
++    int k = 0;
++    for(int i=0; i<nfw;i++) {
++        if (fw[i]->hWatchingThread) {
++            // send a message to the stop the watching thread
++            SetEvent(fw[i]->hEvtStopWatching);
++            hp[k++] = fw[i]->hWatchingThread;
++        }
++    }
++    // wait for the two threads to end
++    WaitForMultipleObjects(k, hp, TRUE, INFINITE);
++    for(int i=0; i<nfw;i++) {
++        if (fw[i]->hWatchingThread) {
++            CloseHandle(fw[i]->hWatchingThread);
++            fw[i]->hWatchingThread = NULL;
++        }
++    }
++    delete hp;
++}
++
++
++//
++bool FileWatcher::IsThreadRunning()
++{
++    return this->hWatchingThread && ( WaitForSingleObject(this->hWatchingThread, 0) == WAIT_TIMEOUT );
++}
++
++// Ask for the thread to stop and waith until it ends
++void FileWatcher::SyncronousAbort()
++{
++    SetEvent(hEvtStopWatching);
++    WaitForSingleObject(this->hWatchingThread, INFINITE);
++    CloseHandle(this->hWatchingThread);
++    this->hWatchingThread = NULL;
++}
++
++
++void FileWatcher::RestartThread(){
++    // if the thread already exists then stop it
++    if (IsThreadRunning())
++        SyncronousAbort();
++
++    DWORD watchingthreadID;
++
++    // reset the hEvtStopWatching event so that it can be set if
++    // some thread requires the watching thread to stop
++    ResetEvent(hEvtStopWatching);
++
++    this->hWatchingThread = CreateThread( NULL, 0,
++        (LPTHREAD_START_ROUTINE) WatchingThread,
++        this,
++        0,
++        &watchingthreadID);
++}
++
++void FileWatcher::Clean()
++{
++    if (this->overl.hEvent) {
++        CloseHandle(this->overl.hEvent); 
++        this->overl.hEvent = NULL;
++    }
++    if (this->hDir) {
++        CloseHandle(this->hDir);
++        this->hDir = NULL;
++    }
++}
++
++
++void FileWatcher::Init(PCTSTR filefullpath)
++{
++    // if the thread already exists then stop it
++    if (IsThreadRunning())
++        SyncronousAbort();
++
++    _tcscpy_s(this->szFilepath, _countof(this->szFilepath), filefullpath);
++    this->pszFilename = FilePath_GetBaseName(this->szFilepath);
++    GetDirectory(filefullpath, this->szDir, _countof(this->szDir));
++    
++    int res = _tstat(filefullpath, &this->timestamp);
++
++    this->callbackparam = NULL;
++    this->pCallback = NULL;
++
++    this->hDir = CreateFile(
++        this->szDir, // pointer to the directory containing the tex files
++        FILE_LIST_DIRECTORY,                // access (read-write) mode
++        FILE_SHARE_READ|FILE_SHARE_DELETE|FILE_SHARE_WRITE,  // share mode
++        NULL, // security descriptor
++        OPEN_EXISTING, // how to create
++        FILE_FLAG_BACKUP_SEMANTICS  | FILE_FLAG_OVERLAPPED , // file attributes
++        NULL // file with attributes to copy 
++      );
++  
++    memset(&this->overl, 0, sizeof(this->overl));
++    this->overl.hEvent = CreateEvent(NULL,FALSE,FALSE,NULL);
++    this->curBuffer = 0;
++
++    // watch the directory
++    DWORD BytesReturned;
++    ReadDirectoryChangesW(
++         this->hDir, /* handle to directory */
++         &this->buffer[this->curBuffer], /* read results buffer */
++         sizeof(this->buffer[this->curBuffer]), /* length of buffer */
++         FALSE, /* monitoring option */
++         FILE_NOTIFY_CHANGE_CREATION|
++         FILE_NOTIFY_CHANGE_LAST_WRITE, /* filter conditions */
++         &BytesReturned, /* bytes returned */
++         &this->overl, /* overlapped buffer */
++         NULL); /* completion routine */
++
++}
++
++// Start watching a file for changes
++void FileWatcher::StartWatchThread(PCTSTR filefullpath, WATCHCALLBACK cb, LPARAM param)
++{
++    Init(filefullpath);
++   
++    this->callbackparam = param;
++    this->pCallback = cb;
++
++    RestartThread();
++}
++
++// Thread responsible of watching the directory containg the file to be watched for modifications
++void WINAPI FileWatcher::WatchingThread( void *param )
++{
++    FileWatcher *fw = (FileWatcher *)param;
++
++    if (!fw || fw->hDir == NULL) // if no directory to watch then leave
++        return;
++ 
++    // Main loop
++    HANDLE hp[2] = { fw->hEvtStopWatching, fw->overl.hEvent};
++    while( 1 ) {
++        DWORD dwRet = 0;
++        DWORD dwObj = WaitForMultipleObjects(_countof(hp), hp, FALSE, INFINITE ) - WAIT_OBJECT_0;
++        _ASSERT( dwObj >= 0 && dwObj <= _countof(hp) );
++        if (dwObj == 0) { // the user asked to quit the program
++            break;
++        } else if (dwObj == 1) {
++        } else {
++            // BUG!
++            break;
++        }
++        if (fw->ReadDir() && fw->pCallback)
++            fw->pCallback(fw->szFilepath, fw->callbackparam);
++    }
++
++    fw->Clean();
++}
++
++
++// Call ReadDirectoryChangesW to check if the file has changed since the last call.
++bool FileWatcher::HasChanged(DWORD waittime)
++{
++    if (overl.hEvent == NULL)
++        return false;
++
++    DWORD dwObj = WaitForSingleObject(overl.hEvent, waittime);
++    if (dwObj == WAIT_OBJECT_0) {
++        return ReadDir();
++    }
++    return false;
++}
++
++// Call the ReadDirectory API and determine if the file being watched has been modified since the last call. 
++// Returns true if it is the case.
++bool FileWatcher::ReadDir()
++{
++    // Read the asyncronous result of the previous call to ReadDirectory
++    DWORD dwNumberbytes;
++    GetOverlappedResult(this->hDir, &this->overl, &dwNumberbytes, FALSE);
++
++    // Switch the 2 buffers
++    this->curBuffer =  1- this->curBuffer;
++
++    // start a new asynchronous call to ReadDirectory in the alternate buffer
++    DWORD BytesReturned;
++    ReadDirectoryChangesW(
++         this->hDir, /* handle to directory */
++         &this->buffer[this->curBuffer], /* read results buffer */
++         sizeof(this->buffer[this->curBuffer]), /* length of buffer */
++         FALSE, /* monitoring option */
++         FILE_NOTIFY_CHANGE_CREATION|
++         FILE_NOTIFY_CHANGE_LAST_WRITE, /* filter conditions */
++         &BytesReturned, /* bytes returned */
++         &this->overl, /* overlapped buffer */
++         NULL); /* completion routine */
++
++
++    //////////////
++    // Browse the list of FILE_NOTIFY_INFORMATION entries
++    FILE_NOTIFY_INFORMATION *pFileNotify;
++    pFileNotify = (PFILE_NOTIFY_INFORMATION)&this->buffer[1-this->curBuffer];
++    while( pFileNotify ) {
++        pFileNotify->FileName[min(pFileNotify->FileNameLength/sizeof(WCHAR), _MAX_FNAME-1)] = 0;
++
++        PTSTR pFilename;
++        #ifdef _UNICODE
++            pFilename = pFileNotify->FileName;
++        #else
++            // Convert the filename from unicode string to oem string
++            TCHAR oemfilename[_MAX_FNAME];
++            wcstombs( oemfilename, pFileNotify->FileName, _MAX_FNAME );
++            pFilename = oemfilename;
++        #endif
++
++        // is it the file that is being watched?
++        if (stricmp(pFilename, this->pszFilename) == 0) {
++            if (pFileNotify->Action != FILE_ACTION_MODIFIED) {
++			    // file touched but not modified
++            }
++            else {
++                // Check that the timestamp has change (this is necessary because the ReadDirectory API 
++                // reports duplicates)
++                struct _stat newstamp;
++
++                // compare the old and new time stamps
++                if (_tstat(this->szFilepath, &newstamp) == 0
++                    && difftime(newstamp.st_mtime, this->timestamp.st_mtime) > 0) {
++                    this->timestamp = newstamp;
++
++                    return true; // the file has changed!
++                }
++                else {
++                    // false positive: this file notification entry is a duplicate.
++                    ;
++                }
++            }
++        }
++
++        // step to the next entry if there is one
++        if (pFileNotify->NextEntryOffset)
++            pFileNotify = (FILE_NOTIFY_INFORMATION*) ((PBYTE)pFileNotify + pFileNotify->NextEntryOffset) ;
++        else
++            pFileNotify = NULL;
++    }
++    return false;
++}
+\ No newline at end of file
+Index: src/FileWatch.h
+===================================================================
+--- src/FileWatch.h	(revision 0)
++++ src/FileWatch.h	(revision 0)
+@@ -0,0 +1,76 @@
++// By william blum, 2008
++#pragma once
++
++
++typedef void (__cdecl *WATCHCALLBACK) (PTSTR filename, LPARAM param);
++
++// information concerning a directory being watched
++class FileWatcher {
++public:
++    // Watching file modifications using a loop
++    void Init(PCTSTR filefullpath);
++    bool HasChanged(DWORD waittime = 0);
++    void Clean();
++
++    // Watching file modification via a thread
++    void StartWatchThread(PCTSTR filefullpath, WATCHCALLBACK cb, LPARAM param);
++    bool IsThreadRunning();
++    void SyncronousAbort();
++
++    PCTSTR filepath() { return szFilepath; }
++
++    FileWatcher() {
++        hDir = NULL;
++        memset(&this->overl, 0, sizeof(this->overl));
++        curBuffer = 0;
++        pszFilename = NULL;
++        hWatchingThread = NULL;
++        hEvtStopWatching = NULL;
++        // create the event used to abort the "watching" thread
++        hEvtStopWatching = CreateEvent(NULL,TRUE,FALSE,NULL);
++        pCallback = NULL;
++        callbackparam = NULL;
++        szFilepath[0]='0';
++    }
++
++    ~FileWatcher() {
++        if( IsThreadRunning() )
++            SyncronousAbort();
++        else
++            Clean();
++
++        if( hEvtStopWatching )
++        {
++            CloseHandle(hEvtStopWatching);
++            hEvtStopWatching = NULL;
++        }
++    }
++
++private:
++    bool ReadDir();
++    
++    static void WINAPI WatchingThread( void *param );
++    void RestartThread();
++
++public:
++    HANDLE  hDir; // handle of the directory to watch
++    TCHAR   szFilepath[_MAX_PATH]; // path to the file watched
++    PCTSTR  pszFilename; // pointer in szFilepath to the file part of the path
++    TCHAR   szDir[_MAX_PATH]; // path to the directory
++    OVERLAPPED overl; // object used for asynchronous API calls
++    BYTE buffer [2][512*sizeof(FILE_NOTIFY_INFORMATION )]; 
++        // a double buffer where the Windows API ReadDirectory will store the list
++        // of files that have been modified.
++    int curBuffer; // current buffer used (alternate between 0 and 1)
++    
++    HANDLE hWatchingThread; // handle of the watching thread
++    
++    HANDLE hEvtStopWatching; // this event is fired when the watching thread needs to be aborted
++
++    WATCHCALLBACK pCallback;// function called when a file change is detected
++    LPARAM callbackparam;   // parameter to pass to the callback function
++
++    struct _stat timestamp; // last modification time stamp of the file
++
++};
++
+Index: src/SumatraPDF.cpp
+===================================================================
+--- src/SumatraPDF.cpp	(revision 662)
++++ src/SumatraPDF.cpp	(working copy)
+@@ -35,6 +35,8 @@
+ #include "WinUtil.hpp"
+ #include <windowsx.h>
+ 
++#define THREAD_BASED_FILEWATCH
++
+ #ifdef CRASHHANDLER
+ #include "client\windows\handler\exception_handler.h"
+ #endif
+@@ -240,6 +242,7 @@
+ static void UpdateToolbarFindText(WindowInfo *win);
+ static void UpdateToolbarToolText(void);
+ static void OnMenuFindMatchCase(WindowInfo *win);
++static bool RefreshPdfDocument(const char *fileName, WindowInfo *win, DisplayState *state, bool reuseExistingWindow, bool autorefresh);
+ 
+ #define SEP_ITEM "-----"
+ 
+@@ -1177,6 +1180,26 @@
+     return ok;
+ }
+ 
++static void WindowInfo_Refresh(WindowInfo* win, bool autorefresh) {
++    PCTSTR fname = win->watcher.filepath();
++    DisplayState ds;
++    DisplayState_Init(&ds);
++    if (!win->dm || !displayStateFromDisplayModel(&ds, win->dm))
++        return;
++    UpdateDisplayStateWindowPos(win, &ds);
++    RefreshPdfDocument(fname, win, &ds, true, autorefresh);
++}
++
++
++static void WindowInfo_RefreshUpdatedFiles(bool autorefresh) {
++    WindowInfo* curr = gWindowList;
++    while (curr) {
++        if (curr->watcher.HasChanged())
++            WindowInfo_Refresh(curr, autorefresh);
++        curr = curr->next;
++    }
++}
++
+ static bool WindowInfo_Dib_Init(WindowInfo *win) {
+     assert(NULL == win->dibInfo);
+     win->dibInfo = (BITMAPINFO*)malloc(sizeof(BITMAPINFO) + 12);
+@@ -1671,34 +1694,19 @@
+     }
+ }
+ 
+-static WindowInfo* LoadPdf(const char *fileName)
++static bool RefreshPdfDocument(const char *fileName, WindowInfo *win, DisplayState *state, bool reuseExistingWindow, bool autorefresh)
+ {
+-    assert(fileName);
+-    if (!fileName) return NULL;
++ 
+ 
+-    FileHistoryList *   fileFromHistory = NULL;
+-    fileFromHistory = FileHistoryList_Node_FindByFilePath(&gFileHistoryRoot, fileName);
+-
+-    WindowInfo *        win;
+-    bool reuseExistingWindow = false;
+-    if ((1 == WindowInfoList_Len()) && (WS_SHOWING_PDF != gWindowList->state)) {
+-        win = gWindowList;
+-        reuseExistingWindow = true;
+-    } else {
+-        win = WindowInfo_CreateEmpty();
+-        if (!win)
+-            return NULL;
+-     }
+-
+-    /* TODO: need to get rid of that, but not sure if that won't break something
++  /* TODO: need to get rid of that, but not sure if that won't break something
+        i.e. GetCanvasSize() caches size of canvas and some code might depend
+        on this being a cached value, not the real value at the time of calling */
+     win->GetCanvasSize();
+     SizeD totalDrawAreaSize(win->winSize());
+-    if (fileFromHistory) {
+-        SetCanvasSizeToDxDy(win, fileFromHistory->state.windowDx, fileFromHistory->state.windowDy);
+-        totalDrawAreaSize = SizeD(fileFromHistory->state.windowDx, fileFromHistory->state.windowDy);
+-        WinSetCanvasPos(win, fileFromHistory->state.windowX, fileFromHistory->state.windowY);
++    if (!reuseExistingWindow && state) {
++        SetCanvasSizeToDxDy(win, state->windowDx, state->windowDy);
++        totalDrawAreaSize = SizeD(state->windowDx, state->windowDy);
++        WinSetCanvasPos(win, state->windowX, state->windowY);
+     }
+ #if 0 // not ready yet
+     else {
+@@ -1718,7 +1726,7 @@
+     WinResizeClientArea(win->hwndCanvas, totalDrawAreaSize.dxI(), totalDrawAreaSize.dyI());
+ #endif
+ 
+-    /* In theory I should get scrollbars sizes using Win32_GetScrollbarSize(&scrollbarYDx, &scrollbarXDy);
++       /* In theory I should get scrollbars sizes using Win32_GetScrollbarSize(&scrollbarYDx, &scrollbarXDy);
+        but scrollbars are not part of the client area on windows so it's better
+        not to have them taken into account by DisplayModelSplash code.
+        TODO: I think it's broken anyway and DisplayModelSplash needs to know if
+@@ -1730,13 +1738,15 @@
+     int startPage = 1;
+     int scrollbarYDx = 0;
+     int scrollbarXDy = 0;
+-    if (fileFromHistory) {
+-        startPage = fileFromHistory->state.pageNo;
+-        displayMode = fileFromHistory->state.displayMode;
+-        offsetX = fileFromHistory->state.scrollX;
+-        offsetY = fileFromHistory->state.scrollY;
++    if (state) {
++        startPage = state->pageNo;
++        displayMode = state->displayMode;
++        offsetX = state->scrollX;
++        offsetY = state->scrollY;
+     }
+ 
++    DisplayModel *previousmodel = win->dm;
++
+     if (gGlobalPrefs.m_useFitz) {
+         win->dm = DisplayModelFitz_CreateFromFileName(fileName, 
+             totalDrawAreaSize, scrollbarYDx, scrollbarXDy, displayMode, startPage, win);
+@@ -1751,19 +1761,27 @@
+         if (!reuseExistingWindow && WindowInfoList_ExistsWithError()) {
+                 /* don't create more than one window with errors */
+                 WindowInfo_Delete(win);
+-                return NULL;
++                return false;
+         }
+-        win->state = WS_ERROR_LOADING_PDF;
+         DBG_OUT("failed to load file %s\n", fileName);
+-        goto Exit;
++        win->needrefresh = true;
++        // it is an automatic refresh and there is an error while reading the pdf
++        // then fallback to the previous state
++        if(autorefresh) {
++            win->dm = previousmodel;
++        }
++        else {
++            win->state = WS_ERROR_LOADING_PDF;
++            goto Exit;
++        }
+     }
++    else {
++        delete previousmodel;
++        win->needrefresh = false;
++    }
+ 
+     win->dm->setAppData((void*)win);
+ 
+-    if (!fileFromHistory) {
+-        AddFileToHistory(fileName);
+-        RebuildProgramMenus();
+-    }
+ 
+     RECT rect;
+     GetClientRect(win->hwndFrame, &rect);
+@@ -1772,10 +1790,10 @@
+     /* TODO: if fileFromHistory, set the state based on gFileHistoryList node for
+        this entry */
+     win->state = WS_SHOWING_PDF;
+-    if (fileFromHistory) {
+-        zoomVirtual = fileFromHistory->state.zoomVirtual;
+-        rotation = fileFromHistory->state.rotation;
+-        win->dm->_showToc = fileFromHistory->state.showToc;
++    if (state) {
++        zoomVirtual = state->zoomVirtual;
++        rotation = state->rotation;
++        win->dm->_showToc = state->showToc;
+     }
+ 
+     UINT menuId = MenuIdFromVirtualZoom(zoomVirtual);
+@@ -1791,19 +1809,18 @@
+     win->dm->goToPage(startPage, offsetY, offsetX);
+ 
+     /* only resize the window if it's a newly opened window */
+-    if (!reuseExistingWindow && !fileFromHistory)
++    if (!reuseExistingWindow ) //&& !fileFromHistory)
+         WindowInfo_ResizeToPage(win, startPage);
+ 
+     if (reuseExistingWindow) {
+-
+         WindowInfo_RedrawAll(win);
+-        OnMenuFindMatchCase(win);
++        OnMenuFindMatchCase(win); 
+     }
+     WindowInfo_UpdateFindbox(win);
+ 
+ Exit:
+     if (!reuseExistingWindow)
+-        WindowInfoList_Add(win);
++            WindowInfoList_Add(win);
+     MenuToolbarUpdateStateForAllWindows();
+     assert(win);
+     DragAcceptFiles(win->hwndFrame, TRUE);
+@@ -1814,9 +1831,57 @@
+     UpdateWindow(win->hwndCanvas);
+     if (win->dm && win->dm->_showToc)
+         win->ShowTocBox();
+-    return win;
++    if( win->state == WS_ERROR_LOADING_PDF) {
++        WindowInfo_RedrawAll(win);
++        return false;
++    }
++    else
++        return true;
+ }
+ 
++void on_file_change(PTSTR filename, LPARAM param)
++{
++    WindowInfo_Refresh((WindowInfo *) param, true);
++}
++
++
++static WindowInfo* LoadPdf(const char *fileName)
++{
++    assert(fileName);
++    if (!fileName) return NULL;
++
++    WindowInfo *        win;
++    bool reuseExistingWindow = false;
++    if ((1 == WindowInfoList_Len()) && (WS_SHOWING_PDF != gWindowList->state)) {
++        win = gWindowList;
++        reuseExistingWindow = true;
++    } else {
++        win = WindowInfo_CreateEmpty();
++        if (!win)
++            return NULL;
++    }
++
++// define THREAD_BASED_FILEWATCH in order to use the thread-based implementation of 
++// file change detection.
++#ifdef THREAD_BASED_FILEWATCH
++    if (!win->watcher.IsThreadRunning())
++        win->watcher.StartWatchThread(fileName, &on_file_change, (LPARAM)win);
++#else
++    win->watcher.Init(fileName);
++#endif
++
++   FileHistoryList *fileFromHistory = FileHistoryList_Node_FindByFilePath(&gFileHistoryRoot, fileName);
++   if (RefreshPdfDocument(fileName, win, fileFromHistory ? &fileFromHistory->state : NULL, reuseExistingWindow, false)) {
++        if (!fileFromHistory) {
++            AddFileToHistory(fileName);
++            RebuildProgramMenus();
++        }
++        return win;
++   }
++   else
++        return NULL;
++}
++
+ static HFONT Win32_Font_GetSimple(HDC hdc, char *fontName, int fontSize)
+ {
+     HFONT       font_dc;
+@@ -1849,7 +1914,8 @@
+     DeleteObject(font);
+ }
+ 
+-void DisplayModel::pageChanged(void)
++// The 'status' string is appended to the title of the window.
++void DisplayModel::pageChanged()
+ {
+     WindowInfo *win = (WindowInfo*)appData();
+     assert(win);
+@@ -1871,7 +1937,11 @@
+         SetWindowText(win->hwndPageTotal, buf);
+         hr = StringCchPrintfA(buf, dimof(buf), "%d", currPageNo);
+         SetWindowText(win->hwndPageBox, buf);
+-        win_set_text(win->hwndFrame, baseName);
++        if( win->needrefresh )
++            hr = StringCchPrintfA(buf, dimof(buf), "(Press R to refresh) %s", baseName);
++        else
++            hr = StringCchPrintfA(buf, dimof(buf), "%s", baseName);
++        win_set_text(win->hwndFrame, buf);
+     }
+ }
+ 
+@@ -3251,6 +3321,12 @@
+ 
+     win->state = WS_ABOUT;
+ 
++#ifdef THREAD_BASED_FILEWATCH
++    win->watcher.SyncronousAbort();
++#else
++    win->watcher.Clean();
++#endif
++
+     if (lastWindow && !quitIfLast) {
+         /* last window - don't delete it */
+         if (win->dm->_showToc) {
+@@ -4197,7 +4273,8 @@
+     } else if ('-' == key) {
+             win->dm->zoomBy(ZOOM_OUT_FACTOR);
+     } else if ('r' == key) {
+-        ReloadPdfDocument(win);
++        //ReloadPdfDocument(win);
++        WindowInfo_Refresh(win, false);
+     } else if ('/' == key) {
+         win->FindStart();
+     }
+@@ -6039,13 +6116,29 @@
+     if (registerForPdfExtentions)
+         RegisterForPdfExtentions(win ? win->hwndFrame : NULL);
+ 
++#ifdef THREAD_BASED_FILEWATCH
+     while (GetMessage(&msg, NULL, 0, 0)) {
+         if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg)) {
+             TranslateMessage(&msg);
+             DispatchMessage(&msg);
+         }
+     }
+-
++#else
++    while(1){
++        if (PeekMessage(&msg, NULL, 0, 0, PM_NOREMOVE)) {
++            if (GetMessage(&msg, NULL, 0, 0)) {
++                if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg)) {
++                    TranslateMessage(&msg);
++                    DispatchMessage(&msg);
++                }
++            }
++        }
++        else 
++            WindowInfo_RefreshUpdatedFiles();
++            Sleep(50);
++    }
++#endif
++    
+ Exit:
+     WindowInfoList_DeleteAll();
+     FileHistoryList_Free(&gFileHistoryRoot);
+Index: src/SumatraPDF.h
+===================================================================
+--- src/SumatraPDF.h	(revision 662)
++++ src/SumatraPDF.h	(working copy)
+@@ -34,6 +34,7 @@
+ #include "win_util.h"
+ #include "DisplayModelSplash.h"
+ #include "DisplayModelFitz.h"
++#include "FileWatch.h"
+ 
+ /* TODO: Currently not used. The idea is to be able to switch between different
+    visual styles. Because I can. */
+@@ -110,6 +111,7 @@
+         mouseAction = MA_IDLE;
+         memzero(&animState, sizeof(animState));
+         memzero(&selectionRect, sizeof(selectionRect));
++        needrefresh=false;
+     }
+     void GetCanvasSize() { 
+         GetClientRect(hwndCanvas, &m_canvasRc);
+@@ -123,6 +125,7 @@
+     WindowInfo *    next;
+     WinState        state;
+     WinState        prevState;
++    bool            needrefresh; // true if the view of the PDF is not syncronized with the content of the file on disk
+ 
+     DisplayModel *  dm;
+     HWND            hwndFrame;
+@@ -181,6 +184,9 @@
+      * to user coordinates for each page which has not empty intersection with it */
+     SelectionOnPage *selectionOnPage;
+ 
++    // file change watcher
++    FileWatcher     watcher;
++
+     bool _tocLoaded;
+ 
+     void ShowTocBox();

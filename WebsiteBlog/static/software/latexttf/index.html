@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Unicode Truetype font installer for LaTeX</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+    _uacct = "UA-77730-1";
+    urchinTracker();
+    </script>
+    <link href="../../perso.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body id="threecolumn">
+<div id="container">
+    <?php
+    $cursection="software"; $cursubsection="TrueType for LaTeX";
+    include("../../common/arround.html");
+    ?>
+
+    <div id="main-content">
+
+    <h1 id="page-title">Unicode Truetype font installer for LaTeX</h1>
+    <img src="nishinaguoren.png" alt="Example of chinese symbols typset with LaTeX" width="208" height="42" style="float: right;margin-right:10px;" />
+
+    <p class="description" > This tool consists of <a href="ttffortex.cmd">a batch file [ttffortex.cmd]</a> that simplifies the installation of TrueType fonts for LaTeX
+	for use with <a href ="http://en.wikipedia.org/wiki/Utf8">Unicode UTF-8</a> encoding. 
+<br /><br />
+Note that this script has only been tested with the MikTek distribution.
+    </p>
+
+    <h2>Download</h2>
+    <p> 
+    The latest version can be downloaded<a href="ttffortex.zip"> <img src="/common/download.gif" alt="Download" width="16" height="16" border="0" vspace="0" hspace="0" align="bottom"/> here.</a> <br/>
+    </p>
+ 
+
+<h2>Quick documentation</h2><br/>
+
+<h3>Command line arguments</h3>
+	<p>
+	The command syntax and options are explained when you execute ttffortex.cmd with no parameter. As an example, if you want to install the True-type font Cyberbit.ttf located in 
+	the Windows's font directory then just type:
+	</p>
+<pre>
+ttffortex C:\WINDOWS\Fonts\Cyberbit.ttf
+</pre>
+	<p>
+	By default, the script detects automatically where MikTeX is installed on your machine. If you want to install the font to a specific directory (for instance a per-user localtexmf folder) then just pass 
+	it as a second parameter to ttffortex.
+	</p>
+
+<h3>Using TrueType fonts with Unicode encoding in pdflatex</h3>
+			<p>
+            After installing the TrueType fonts that you need with ttffortex.cmd, you can start creating .tex document that contain unicode characters using your favourite Unicode editor (Notepad for instance) in UTF8 encoding mode. Before compiling it, make sure that you have a copy of <a href="ttfucs.sty">this file</a> and <a href="utf8ttf.def"> that one</a> in
+            some directory accessible by latex (the directory where your .tex file is located for instance).            
+			<br />
+            You will also need to add the following lines in the preamble of the .tex file:
+            <br />
+			</p>
+<pre>
+\usepackage[utf8ttf]{inputenc}
+\usepackage{ttfucs}
+\DeclareTruetypeFont{shortfontname}{fontname}
+</pre>
+			<p>
+            One instance of the <span class="source">\DeclareTruetypeFont{shortfontname}{fontname}</span> command is required for each font that you want to use in your document
+            where <span class="source">fontname</span> is the name of a Truetype font and 
+			<span class="source">shortfontname</span> is the string consisting of the 6 first letters of <span class="source">fontname</span>.
+            In the body of the document you can change the current font to one that has been declared in the preamble using the command
+            <span class="source">\TruetypeFont{fontname}</span>.
+            <br /><br />
+            The advantage of using UTF8 encoding compared to other encodings such as BIG5 and GB, is that you do not need to change the windows system code page or install any third-party software in order to see the symbols in your editor. Consequently you can view document containing text in different languages (Arabic, Chinese, Korean, ...).
+            <br /><br />
+			</p>
+
+<h3>Examples</h3>
+	<p>
+	The file <a href="hanzi_pdflatex_utf8.tex">hanzi_pdflatex_utf8.tex</a> is an example of latex source containing Chinese characters. Running pdflatex on it produces the following
+	<a href="hanzi_pdflatex_utf8.pdf">output</a>.
+	<br />
+	</p>
+
+	</div>
+
+	<?php include("../../common/footer.html"); ?>
+</div>
+</body>
+</html>

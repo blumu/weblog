@@ -1,0 +1,145 @@
+// -*- ASCII:EDT -*-
+// Acrobat: Open PDF Document ...
+
+// Open the file in the last viewed page as if the GoBack
+// menu command has been executed
+
+// Full Acrobat implements reliable DDE...
+
+// Acrobat Reader simulates wm_Command message:
+//   the problem is that the message code changes between Acrobat Reader
+//   versions (if the menu has been changed)...
+
+//  Full description of all DDE Functions implemented by Acrobat (only
+//  some are also supported by Acrobat Reader as indicated for each one):
+//
+//   https://partners.adobe.com/asn/acrobat/sdk/reg/Documentation/Core_API/CoreAPIReference.pdf
+
+Requires(20061213); // Requires this build of WinEdt to work properly
+
+// If you prefer some other application (eg. GSView)
+// to be associated with pdf files uncomment the following:
+//   Run('%$("GSView"); "%P\%N.pdf"','%P',0,0,'%N.pdf - GSview',1,1);
+//   ShellExecute("Open", "%N.pdf","","%P",1);
+// Exit;
+
+  PushTagsandRegisters;
+
+// ===============================================================
+
+// GSView?
+
+  FindInString(`%$('AcroRead');`,'GSView',1,2,1000,1);
+  IfOK(!"Relax;",!"JMP('not_gs')");
+  Run('%$("AcroRead"); "%P\%N.pdf"','%P',0,0,'%N.pdf - GSview',1,1);
+  RestoreRegisters(1111111111);
+  Exit;
+
+:not_gs:: ========================================================
+
+// Foxit?
+
+  FindInString(`%$('AcroRead');`,'Foxit',1,2,1000,1);
+  IfOK(!"Relax;",!"JMP('not_foxit')");
+  Run('%$("AcroRead"); "%P\%N.pdf"');
+  RestoreRegisters(1111111111);
+  Exit;
+
+:not_foxit:: ========================================================
+
+// Sumatra?
+
+  FindInString(`%$('AcroRead');`,'Sumatra',1,2,1000,1);
+  IfOK(!"Relax;",!"JMP('not_sumatra')");
+  Run(`%$("AcroRead"); -reuse-instance -inverse-search "\"%B\WinEdt.exe\" \"[Open(|%%f|);SelPar(%%l,8);]\"" "%P\%N.pdf"`,`%P`);
+  //  open a DDE session with sumatra
+  DDEOpen('',"SUMATRA","control",1);
+  // send a DDE command to open the PDF file (in the same window if it is already opened by SumatraPDF) and set the focus to the corresponding window.
+  DDEExe('[Open("%P\%N.pdf",0,1)]');
+  DDEClose;
+
+//   IfOK(!|DDEExe('[Open("%P\%N.pdf",0,1)]');>
+//          DDEClose;|,>
+//          |Run(`%$("AcroRead"); -inverse-search "\"%B\WinEdt.exe\" \"[Open(\"%%f\";SelPar(%%l,8);]\"" "%P\%N.pdf"`,`%P`);| );
+
+  RestoreRegisters(1111111111);
+  Exit;
+
+:not_sumatra:: =====================================================
+
+// Adobe is associated with pdf files...
+
+// Shift Key should not be down or else Adobe Reader will fail
+// to process messages sent from this macro
+// Wait until Shift (VK_SHIFT=16) is released ...
+ProcessMessages;
+LetRegNum(0,0);
+Loop(!|>
+  LetRegNum(0,%!0+1);>
+  IfNum(%!0,99,'>',!"Stop;");>
+  ProcessMessages;>
+  IfKeyDown(16,0,0,!"Wait(33);",!"Stop;");>
+  ProcessMessages;>
+  IfKeyDown(16,0,1,!"Wait(33);",!"Stop;");>
+  ProcessMessages;>
+|);
+ProcessMessages;
+
+// Prompt("%$('Acro-Title');"); // For Debugging Purpose...
+
+  // The file is Locked (Probably already opened in Acrobat):
+  // just start the viewer and let it stay where it is...
+  IfFileLocked("%P\%N.pdf", 11111,"JMP('Exit');");
+
+  // If not running then just start it and don't DDE anything...
+  SendMessage("%$('Acro-Title');", $0000, $0000); // Dummy Message
+  IfOK(!"Relax;","JMP('Exit');");
+
+  // No Restoring of Position ...
+  IfStr("%$('Acro-BackMenuItem');",'0','=','JMP("Exit");');
+
+  // Reader or Full Acrobat
+  FindInString(`%$('AcroRead')`,'Acrobat.exe',1,2,1000,1);
+  IfOK(!"JMP('ACROBAT');"); // Full Acrobat
+
+// Adobe Reader ==================================================
+  // GoBack: Menu ID AcroRd32.exe (version dependent): see Execution Modes...
+  SendMessage("%$('Acro-Title'); - [%N.pdf]", $0000, $0000);
+  IfOK(!|SendMessage("%$('Acro-Title'); - [%N.pdf]", $0111, "%$('Acro-BackMenuItem');");JMP("Exit");|);
+  SendMessage("%N.pdf - %$('Acro-Title');", $0000, $0000);
+  IfOK(!|SendMessage("%N.pdf - %$('Acro-Title');", $0111, "%$('Acro-BackMenuItem');");JMP("Exit");|);
+  SendMessage("%$('Acro-Title');", $0111, $0000);
+  IfOK(!|SendMessage("%$('Acro-Title');", $0111, "%$('Acro-BackMenuItem');");JMP("Exit");|);
+  JMP("Exit");
+
+:ACROBAT:: -------------------------------------------------------
+  // Full Acrobat ...
+  DDEOpen('%$("AcroRead");',"acroview","control");
+  DDEExe('[MenuitemExecute("GoBack")]');
+  DDEClose;
+
+:Exit:: ----------------------------------------------------------
+  // Just in case ...
+  Run('%$("AcroRead"); "%P\%N.pdf"');
+  ProcessMessages;
+  // DDE: Required for Adobe 8!
+  //  DDEOpen('%$("AcroRead")',"acroview","control",0);
+  //  DDEExe('[FileOpen("%P\%N.pdf")]');
+  //  DDEExe('[DocOpen("%P\%N.pdf")]');
+  //  DDEExe('[DocOpen("%P\%N.pdf")]');
+  //  DDEExe('[FileOpen("%P\%N.pdf")]');
+  //  DDEExe('[AppShow()]');
+  //  DDEClose;
+  //  ProcessMessages;
+  //
+  //  // Fix Focus:
+  //  SendMessage("%$('Acro-Title');", $0000, $0000);
+  //  IfOK(!|SetFocus("%$('Acro-Title');");|);
+  //  SendMessage("%N.pdf - %$('Acro-Title');", $0000, $0000);
+  //  IfOK(!|SetFocus("%N.pdf - %$('Acro-Title');");|);
+  //  SendMessage("%$('Acro-Title'); - [%N.pdf]", $0000, $0000);
+  //  IfOK(!|SetFocus("%$('Acro-Title'); - [%N.pdf]");|);
+  //  ProcessMessages;
+  PopTagsandRegisters;
+
+End;

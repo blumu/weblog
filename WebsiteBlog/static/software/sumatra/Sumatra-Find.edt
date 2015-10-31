@@ -1,0 +1,48 @@
+// -*- ASCII:EDT -*-
+// %b\Exec\Sumatra-Find.edt
+// by William Blum
+// last modification 25 June 2008
+/////////////////////////
+
+// -------------------------------------------------------------------
+//       ***   Forward search for PDF documents   ***
+//    (For SumatraPDF)
+//
+//   If the document is compiled with the `pdfsync' package,
+//   the PDF file will be opened on the page corresponding to
+//   the current location of the caret.
+// -------------------------------------------------------------------
+
+Requires(20061121); // 5.5 beta 3, because of %#?
+
+PushTagsandRegisters;
+
+:open_PDF::
+StopWorking;
+
+//FindInString("%$('AcroRead');","Sumatra");
+//IfOK(!`Run('%$("AcroRead"); "%P\%N.pdf"','%P');>
+//       PopTagsandRegisters;>
+//       Exit;`);
+
+// Make sure SumatraPDF is launched (using the flag -reuse-instance)
+Run('%$("AcroRead"); -reuse-instance -inverse-search "\"%B\WinEdt.exe\" \"[Open(|%%f|);SelPar(%%l,8);]\""', '%P');
+//Run('C:\src\sumatra\obj-rel\SumatraPDF.exe -reuse-instance','%P');
+//  open a DDE session with sumatra
+DDEOpen('',"SUMATRA","control",1);>
+// send a DDE command to perform forward-search
+// the format of the DDE command is [ForwardSearch("<pdffilepath>","<sourcefilepath>",<line>,<column>[,<newwindow>, <setfocus>])]
+//    if newwindow = 1 then a new window is created even if the file is already open
+//    if focus = 1 then the focus is set to the window
+// e.g. [ForwardSearch("c:\file.pdf","c:\folder\source.tex",298,0)]
+DDEExe('[ForwardSearch("%P\%N.pdf","%q%n%t",%!l,0,0,0)]');>
+DDEClose;>
+PopTagsandRegisters;>
+Exit;`, '');
+
+
+
+:fallback::
+PopTagsandRegisters;
+Exe("%B\Exec\Acrobat OpenDoc.edt");
+Exit;

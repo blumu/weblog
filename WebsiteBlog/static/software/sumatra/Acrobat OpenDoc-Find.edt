@@ -1,0 +1,263 @@
+// -*- ASCII:EDT -*-
+// %b\Exec\Acrobat OpenDoc-Find.edt
+// (schlicht 20070213)
+/////////////////////////
+
+// ----------------------------------------------------------------------------
+//           ***   Forward search for PDF documents   ***
+//   (Adobe Reader, Acrobat Professional, Sumatra PDF Viewer, Foxit Reader)
+//
+// If the document is compiled either
+//  * with a recent pdftex (>= 1.40.8) called with `--synctex=-1', or
+//  * with older pdftex versions using the `pdfsync' package (less reliable),
+// the PDF file will be opened on the page corresponding to the current
+// location of the caret.
+// Otherwise, or in case the page couldn't be figured out, the default macro
+// "Acrobat OpenDoc.edt" will be executed, jumping back to the last viewed page.
+// ----------------------------------------------------------------------------
+
+Requires(20061121); // 5.5 beta 3, because of %#?
+
+
+PushTagsandRegisters;
+Assign("SYNC_page");
+// --synctex or pdfsync?
+//IfFileExists("%O\%N.synctex",>
+IfFileExists("%P\%N.synctex",>
+   !"Assign('SYNC_method','synctex');",>
+//   !"IfFileExists('%O\%N.pdfsync',>
+   !"IfFileExists('%P\%N.pdfsync',>
+      !'Assign(''SYNC_method'',''pdfsync'');',>
+      !'JMP(''fallback'');');");
+
+GetPreamble("\begin{document}",5);
+
+// don't bother checking whether the pdfsync package was really loaded
+// --- pdfsync --------------------------------------------------------
+//IfStr("%$('SYNC_method');","synctex","=","JMP('done_usepackage');");
+//// FIXME: \usepackage{whatever,%%>  pdfsync}
+//FindInString("%!5","<@{^{\\|%%}}\\usepackage@{ |>}@{\[\(@{>|^{\]}}\)\]}@{ |>}\{@{>| |^{pdfsync|%%|\}}}pdfsync",8,9,11);
+//IfOK("","JMP('open_PDF');");
+//FindInString(",%#0,",",off,",8,9);
+//IfOK("JMP('open_PDF');");
+//:done_usepackage::
+// --------------------------------------------------------------------
+
+IfFileOlder("%O\%N.%$('SYNC_method');","%f",>
+   "StartWorking('PDF sync file is not up to date!');",>
+   "StartWorking('PDF sync: getting current page...');");
+
+// --------------------------------------------------------------------
+// The free Sumatra PDF viewer <http://blog.kowalczyk.info/software/sumatrapdf/>
+// has built-in support for forward and inverse (!) search.
+// It supports both pdfsync and synctex.
+FindInString("%$('AcroRead');","Sumatra");
+IfOK(!`>
+//   IfStr("%$('SYNC_method');","pdfsync","<>","JMP('fallback');");>
+   // Make sure SumatraPDF is launched (using the flag -reuse-instance)
+   Run('%$("AcroRead"); -reuse-instance -inverse-search "\"%B\WinEdt.exe\" \"[Open(|%%f|);SelPar(%%l,8);]\""', '%P');>
+   //  open a DDE session with sumatra
+   DDEOpen('',"SUMATRA","control",1);>
+   // send a DDE command to perform forward-search
+   DDEExe('[ForwardSearch("%P\%N.pdf","%q%n%t",%!l,0,0,1)]');>
+   DDEClose;>
+   PopTagsandRegisters;>
+   Exit;`, '');
+
+//   SendMessage("%N.pdf", $0000, $0000); // Dummy Message <>
+//   SetFocus("%N.pdf"); // some focus problems if not already started <>
+//   Wait(66);>
+//   SetFocus("%N.pdf");>
+//   PopTagsandRegisters;>
+//   Exit;`, '');
+// --------------------------------------------------------------------
+
+GetDocAsASCII(0,"%O\%N.%$('SYNC_method');",0,0);
+
+// get current file
+// --------------------------------------------------------------------
+// synctex: each file is assigned a number
+// pdfsync: files are marked with parentheses (needs more massaging)
+JMP("do_file");
+:rem_dtx_synctex::
+ FindInString('%!0',':%N%T',8,9);
+ IfOK(!'ReplaceInString(''%!0'','''',%!8,%!9,0,0);');
+Return;
+:rem_dtx_pdfsync::
+ FindInString('%!0','%\(%N%T%\',8,9,10);
+ IfOK(!'ReplaceInString(''%!0'','''',0,%!9,0,0);');
+Return;
+:main_file_synctex::
+ // get file no. (non-regex)
+ FindInString("%!0",':%N%T',8,9);
+ IfOK(!">
+    FindInString('%!0','Input:',6,7,1110,%!8);>
+    ExtractByIndex(5,'%!0',%!7+1,%!8-1);>
+    Assign('SYNC_file','%!5');",>
+  !"Prompt('synctex: File symbol not found. Something''s wrong.');JMP('open_PDF');");
+Return;
+:main_file_pdfsync::
+ Relax;
+Return;
+:not_main_file_synctex::
+ FindInString("%!0",':%n%t',8,9);
+ IfOK(!"// included file <>
+    FindInString('%!0','Input:',6,7,1110,%!8);>
+    ExtractByIndex(5,'%!0',%!7+1,%!8-1);>
+    Assign('SYNC_file','%!5');",>
+  !"JMP('open_PDF');");// not related to main file
+Return;
+:not_main_file_pdfsync::
+ FindInString("%!0",'<(\"?%n?@{\"?%t?}>',8,9,11);
+ IfOK(>
+   !"ReplaceInString('%!0','',0,%!9,0,0);",// included file <>
+   !"JMP('open_PDF');");// not related to main file
+Return;
+:do_file::
+IfStr("%F","%f","=",>
+ !`// inside the preamble? <>
+   GetLength(5,"%!5");>
+   SetCLStart(0);>
+   CLToIndex(1,%l,6);>
+   IfNum(%!5,%!6,">","Assign('SYNC_page','1');JMP('open_PDF');");>
+   IfisMode("DTX","%!M",>
+    !"// DTX files include themselves, we don't want the first instance <>
+      Call('rem_dtx_%$(|SYNC_method|);');",>
+    !"// after \end{document}? <>
+      GetPreamble('\end{document}',5);>
+      GetLength(5,'%!5');>
+      SetCLStart(0);>
+      CLToIndex(1,%l,6);>
+      IfNum(%!5,%!6,'<','Assign(''SYNC_page'',''99999'');JMP(''open_PDF'');');>
+   ");>
+   Call("main_file_%$('SYNC_method');");`,>
+ !`Call("not_main_file_%$('SYNC_method');");`>
+);
+
+// --- pdfsync --------------------------------------------------------
+IfStr("%$('SYNC_method');","synctex","=","JMP('done_include');");
+// remove included files
+LetRegNum(5,0); // stack count
+LetRegNum(6,0); // begin index
+LetRegNum(9,-1);
+Loop(!`>
+   SetOK(1);>
+   FindInString("%!0","<\((|)\)",8,9,1011,%!9+1);>
+   IfOK(!">
+      IfStr('%#0','(','=',>
+       !'IfNum(%!5,0,''='',''LetRegNum(6,%!8);'');>
+         LetRegNum(5,%!5+1);',>
+       !'LetRegNum(5,%!5-1);');",>
+    !"Break;");// my first Break; ! <>
+   // end of included file:
+   IfNum(%!5,0,"=",!">
+      ReplaceInString('%!0','',%!6,%!9+2,0,0);>
+      LetRegNum(9,'%!6-1');>
+   ");>
+   // end of %f, remove rest:
+   IfNum(%!5,-1,"=",!"ExtractByIndex(0,'%!0',0,%!8-2);");>
+`);
+:done_include::
+
+// get record from current line
+// --------------------------------------------------------------------
+// synctex: find first line "[(gkhvx\$]<file no.>,<line no.>:*"
+// pdfsync: find first line "l <record no.> <line no.>", remember <record no.>
+LetRegNum(5,%l);
+LetRegNum(9,0);
+IfStr("%$('SYNC_method');","pdfsync","=","JMP('line_pdfsync');");
+Loop(!`>
+   //StartWorking("trying line %!5");>
+   FindInString("%!0","%$('SYNC_file');,%!5:",8,9,1010,%!9);>
+   IfOK(!"// is it really a record? (look at previous character) <>
+      ExtractByIndex(7,'%!0',%!8-1,%!8-1);>
+      FindInString('%!7','[(gkhvx\$]',1,2,11);>
+      IfOK('Stop;');",>
+    !"IfNum(%!5,%l+50,'=',!'JMP(''open_PDF'');',!'LetRegNum(9,0);LetRegNum(5,%!5+1);');");>
+`);
+JMP("done_line");
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+:line_pdfsync::
+Loop(!`>
+   //StartWorking("trying line %!5");>
+   // instead of the straight-forward:
+   //FindInString("%!0","<l \(+[0-9]\) %!5>",8,9,11);>
+   //IfOK(!"LetRegNum(6,'%#0');Stop;",>
+   // we do a non-regex search, which is much faster:
+   FindInString("%!0"," %!5%\",8,9,10);>
+   IfOK(!"// is it really an "l" record? <>
+      FindInString('%!0','%\',6,7,1110,%!8);>
+      ExtractByIndex(7,'%!0',%!7+1,%!8);>
+      FindInString('%!7','l \(+[0-9]\) ',7,8,11);>
+      IfOK(!'LetRegNum(6,''%#0'');Stop;',>
+           !'ReplaceInString(|%!0|,||,%!6,%!9,0,0);');",>
+    !"IfNum(%!5,%l+100,'=','JMP(''open_PDF'');',!'LetRegNum(5,%!5+1);');");>
+`);
+LetRegNum(5,%!6);
+:done_line::
+
+// get page from record
+// --------------------------------------------------------------------
+// synctex: search backwards for "{<page no.>"
+// pdfsync: find position "p <record no.> *", then search backwards for "s <page no.>"
+IfStr("%$('SYNC_method');","pdfsync","=","JMP('page_pdfsync');");
+FindInString("%!0","<\{\(+$Numeric$\)>",8,9,1111,%!9);
+IfOK(!"Assign('SYNC_page','%#0');","Prompt('synctex: Page not found. Something''s wrong.',3,1);");
+JMP("done_page");
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+:page_pdfsync::
+// have to read it anew
+GetDocAsASCII(0,"%O\%N.pdfsync",0,0);
+Loop(!`>
+   // get position from current record
+   FindInString("%!0","%\p %!5 ",8,9,10);>
+   IfOK(!"// get page from current position <>
+      FindInString('%!0','<s \(+[0-9]\)>',8,9,1111,%!9);>
+      IfOK(!'Assign(|SYNC_page|,|%#0|);');>
+      Stop;",>
+    !"IfNum(%!5,%!6+50,'=','JMP(''open_PDF'');',!'LetRegNum(5,%!5+1);');");>
+`);
+:done_page::
+
+// --------------------------------------------------------------------
+:open_PDF::
+StopWorking;
+IfStr("%$('SYNC_page');","","=","JMP('fallback');");
+
+FindInString("%$('AcroRead');","Foxit");
+IfOK(!`Run('%$("AcroRead"); "%P\%N.pdf" -n %$("SYNC_page"); ','%P');>
+       PopTagsandRegisters;>
+       Exit;`);
+
+Run('%$("AcroRead"); "%P\%N.pdf"','%P');
+LetRegNum(0,"%$('SYNC_page');-1"); // Acrobat pages are 0-based
+DDEOpen('%$("AcroRead");',"acroview","control");
+  DDEExe('[DocOpen("%P\%N.pdf")]');
+  DDEExe('[DocOpen("%P\%N.pdf")]');
+  DDEExe('[FileOpen("%P\%N.pdf")]');
+  DDEExe('[DocGoTo("%P\%N.pdf","%!0")]');
+//DDEExe('[DocScrollTo("%P\%N.pdf","0","%$(|SYNC_y|);")]'); // no good, as it depends on zoom factor...
+  DDEExe('[AppShow()]');
+DDEClose;
+
+ProcessMessages;
+// Fix Focus:
+SendMessage("%$('Acro-Title');", $0000, $0000);
+IfOK(!|SetFocus("%$('Acro-Title');");|);
+SendMessage("%N.pdf - %$('Acro-Title');", $0000, $0000);
+IfOK(!|SetFocus("%N.pdf - %$('Acro-Title');");|);
+SendMessage("%$('Acro-Title'); - [%N.pdf]", $0000, $0000);
+IfOK(!|SetFocus("%$('Acro-Title'); - [%N.pdf]");|);
+ProcessMessages;
+
+PopTagsandRegisters;
+Exit;
+
+// --------------------------------------------------------------------
+:fallback::
+PopTagsandRegisters;
+Exe("%b\Exec\Acrobat OpenDoc.edt");
+Exit;
+
+// --------------------------------------------------------------------
+$Id: Acrobat\040OpenDoc-Find.edt,v 1.6 2007-03-29 16:22:49+02 schlicht Exp schlicht $

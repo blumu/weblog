@@ -1,0 +1,6 @@
+# Ignore SimpleBlog counters
+blog/content/counter/hits.txt
+blog/content/counter/counterip.txt
+*.bak
+Thumbs.db
+*.log

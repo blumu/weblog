@@ -1,0 +1,88 @@
+/* publications */
+
+
+p.publicationTitle
+{ 
+  display: block;
+  margin: 0;
+  padding-top: 0px;
+  padding-bottom: 0.2em;
+  text-align: left;
+  color: #002147;
+  font-weight: bold;
+  font-size: 90%;
+ }
+
+p.publicationAuthors
+{ 
+  display: block;
+  margin: 0;
+  padding-top: 0px;
+  padding-bottom: 0.2em;
+  color: #002147;
+  text-align: left;
+  font-style: italic;
+  font-size: 90%;
+ }
+
+p.publicationDetails, p.publicationOrder
+{ 
+  display: block;
+  margin: 0;
+  padding-top: 0px;
+  padding-bottom: 0.2em;
+  text-align: left;
+  color: #002147;
+  font-size: 90%;
+ }
+
+td.publicationOrderCell
+{
+   vertical-align: top;
+   width: 30px;
+}
+
+td.bodycell p.publicationNote
+{ 
+  display: block;
+  margin: 0;
+  padding-top: 0px;
+  padding-bottom: 0.2em;
+  text-align: left;
+  color: #002147;
+  font-size: 90%;
+ }
+
+td.bodycell p.publicationlinks
+{ 
+  display: block;
+  margin: 0;
+  padding-top: 0px;
+  padding-bottom: 0.8em;
+  text-align: left;
+  font-size: 90%; 
+  padding-top: 0em;
+  color: #887B1B;
+}
+
+td.publicationInfo
+{
+  margin: 0;
+  vertical-align: top;
+  width: 10em;
+  text-align: left;
+  padding-top: 0;
+  color: #887B1B;
+  font-weight: bold;
+}
+
+td.publicationDetails
+{
+  margin: 0;
+  vertical-align: top;
+  padding-top: 0;
+  text-align: left;
+  color: #887B1B;
+  font-weight: normal;
+}
+

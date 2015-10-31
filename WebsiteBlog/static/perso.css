@@ -1,0 +1,614 @@
+subsectionlink{
+	color: #005FA9;
+	text-decoration: none;
+	font-size: 80%;
+}
+.source { font-family: "Courier New", Courier, mono; }
+.date {	color: #660000; }
+
+
+  #g_title p, #g_description p {
+    margin: 0;
+  }
+
+code {
+	background-color: #f9f9f9;
+}
+pre {
+	padding: 1em;
+	border: 1px dashed #2f6fab;
+	color: black;
+	background-color: #f9f9f9;
+	line-height: 1.1em;
+}
+
+.bibtex pre {
+	padding: 1em;
+    margin: 0em 0em 1em 0em;
+	border: 1px dashed #2f6fab;
+	color: black;
+	font-size: 80%;    
+	background-color: #f9f9f9;
+	line-height: 1.1em;
+}
+
+.bibtex  h5 {
+	background: transparent;
+	padding: 0 1em 0 .5em;
+	display: inline;
+	height: 1em;
+	text-transform: lowercase;
+	font-size: 80%;
+	font-weight: normal;
+	white-space: nowrap;
+}
+
+
+
+  /*
+
+  	-- -- -- -- -- -- --
+  	Browser Fixes
+  	-- -- -- -- -- -- --
+  	
+  	This file uses CSS filtering methods to fix various
+  	layout bugs.
+
+  	Each of the following three imported files is a
+  	separate, browser-specific CSS file that keeps all
+  	hacks out of the main style sheet.
+  	
+  	Over time, as supporting these browsers no longer
+  	remains a priority, cleaning up the hacks is as
+  	easy as deleting the @import statement below, or
+  	simply no longer linking this file from the HTML.
+  	
+  */
+
+  /*
+    fix ie6 "peekaboo bug" using the "holly hack".
+    Note, this style only gets applied to ie6
+  */
+  * html .wrapper {
+    height: 0.1%;
+  }
+
+  /*
+   * IE5 mac - overrides the IE/Win hack
+   */
+
+  /*\*//*/
+
+  * html #threecolumn div {
+  	height: auto;
+  }
+
+  /**/
+
+
+  /*
+   * IE5/Win-specific CSS -ensures #container wraps all content on window resize
+   */
+
+  @media tty {
+   i{content:"\";/*" "*/}} * html #container { height: 1%; } /*";}
+  }/* */
+  /* Styling for editable elements. Eventually, this will be part of the style. */
+  .editable {
+    border: 1px dashed blue;
+  }
+
+  #footer {
+    clear: both;
+  }
+
+  /* Extra divs hidden by default. The custom CSS can override this though */
+  #extraDiv1, #extraDiv2, #extraDiv3, #extraDiv4, #extraDiv5, #extraDiv6 {
+    display: none;
+  }
+
+
+/*body { } */
+  #container {
+	width: 100%;
+    text-align: left;
+    margin: 0 0 auto;
+  }
+  #main-content {
+	/* margin: 0 10em .6em -12.2em;*/
+	margin-left: 200px;
+	border-left: 1px solid gray;
+	/*margin-right: 200px;*/
+	border-right: 1px solid gray;
+/*    min-width: 500px;*/
+  }
+  #sidebar {
+    float: left;
+	position:relative;
+    width: 120px;
+  }
+  #sidebar-alternate {
+	float: right;
+	position:relative;
+	margin-left: 0px;
+    width: 120px;
+  }
+  #footer {
+	margin-top: 1.25em;
+	background: #bbb url(/common/footer-bg.png) repeat-x left top;
+	clear: both;
+  }
+   
+
+  
+  /** BEGIN CUSTOM SKIN **/
+  /* general layout */
+
+  body {
+    font-family: Verdana, "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, sans-serif;
+    font-size: small;
+	line-height: 1.166;	
+/*   margin: 2em; */
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;    
+    padding: 0em;
+    border-top: 0em;
+/*    border-top: 1em solid #e2e6ec; */
+    /*background: #e2e6ec ;*/
+	background:url(/common/bg_stripes.png)
+/*url(/-/includes/style/madison/madison-one/container-fill.gif) center repeat-y; */
+  }
+  body div#container {
+    padding: 0em;
+    margin-top: 0em;
+    border-top: 1px solid #e2e6ec; /* a hack: without it Firefox adds top margin in layouts with sidebar */
+/*    background: url(/-/includes/style/madison/madison-one/container-top.gif) top no-repeat; */
+  }
+  div#container div.wrapper {
+    padding: 0em;
+    margin: 0em;
+  }
+  div#header {
+	margin-left: 1em;
+	margin-right: 1em;
+	margin-top: 0.5em;
+	margin-bottom: 1em;
+	padding: 0em 0em 0em 0em;
+/*    _padding-bottom: 1em; */ /* hack for IE6 */
+  }
+  div#header div.wrapper {
+    padding: 0em;
+    margin: 0em;
+  }
+
+   #header div.menu {
+    top: 5px;
+	left: 100px;
+    text-align: right;
+    white-space: nowrap;
+  }
+  
+  div.search input {
+      font-size: 93%;
+      width: 110px;
+    }
+    div.search input.button { width: auto; margin-left: 5px; }
+  
+  div#main-content {
+    line-height: 100%;
+    color: #3f3f3f;
+/*    background: url(/-/includes/style/madison/madison-one/content-top.gif) top no-repeat; */
+    background: white;
+	color: black;
+	border: 1px solid #aaa; 
+	/*border-right: none; */
+	line-height: 1.5em;
+  }
+  
+  div#sidebar,div#sidebar-alternate {
+    font-size: 83%;
+    line-height: 100%;
+    color: #3f3f3f;
+/*    background: url(/-/includes/style/madison/madison-one/content-top.gif) top no-repeat;*/
+    padding: 0em;
+    /*margin: 0em;*/
+    padding-top: 0em;
+  }
+  div#footer {
+    margin-top: 2em;
+/*    background: url(/-/includes/style/madison/madison-one/content-top.gif) top no-repeat; */
+    padding: 1em 35px;
+/*    color: #7f7f7f; */
+  }
+  div#footer hr { /* I don't like this, but I have no idea why that <hr> is there */
+    display: none;
+  }
+
+  /* adjusting widths for different layouts */
+
+  body#onecolumn div#main-content {
+    padding: 0em 35px;
+    width: 648px; 
+  }
+  
+  body#twocolumn-right div#main-content {
+    padding: 0em 25px;
+    width: 420px;
+    margin-left: 10px;
+  }
+  body#twocolumn-right div#sidebar {
+    padding-right: 15px;
+    width: 215px;
+  }
+  
+  
+  body#twocolumn-left div#main-content {
+    padding: 10px 1em;
+	margin-left: 170px; 
+    margin-right: 20px; 
+	margin-top: 0px;
+  }
+  body#twocolumn-left div#sidebar {
+	margin-top: 0px;
+	margin-left: 10px;
+    padding-left: 15px;
+    width: 125px;
+	clear:both;
+	
+  }
+  
+
+  
+  
+  body#threecolumn div#main-content {
+    padding: 10px 1em;
+	margin-left: 150px; 
+    margin-right: 150px; 
+	margin-top: 0px;
+  }
+  body#threecolumn div#sidebar {
+    width: 125px;
+	margin-top: 0px;
+    margin-left: 1.2em;
+    padding-left: 0em;
+    display: inline;
+	/* position:absolute; */
+  }
+  body#threecolumn div#sidebar-alternate {
+    padding-right: 0em;
+    margin-right: 1em;
+    width: 125px;
+	margin-top: 0px;
+	display: inline;
+  }
+
+  /* general styles: headings */
+  p.description {
+    font-family: Verdana, "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, sans-serif;
+    color: black; /*#666633  headline_txt_color */
+    margin: 2px 0px 2px 0px;
+  }
+  h1, h2, h3, h4, h5, h6{
+    font-family: Verdana, "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, sans-serif;
+    color: black; /*#666633  headline_txt_color */
+    /*text-shadow: #bbb 2px 2px 1px;*/
+    margin: 2px 0px 2px 0px;
+  }
+  h1 {
+    font-size: 160%;
+    font-weight: bold;
+    border-bottom: 1px solid #b3e6e6;
+    padding-bottom: 0.2em;
+    display: inline; /* so that the underline spans only text width, and not the entire page */
+    line-height: 300%; /* for padding below, the above line took away other possibilities */
+  }
+  h2 {
+    font-size: 130%;
+    font-weight: normal;
+    border-bottom: 2px solid #b3e6e6;
+    padding-bottom: 0.2em;
+    display: inline; /* so that the underline spans only text width, and not the entire page */
+    line-height: 300%; /* for padding below, the above line took away other possibilities */
+  }
+  h3 {
+    font-size: 120%;
+    font-weight: normal;
+    border-bottom: 1px solid #0000FF;
+    padding-bottom: 0.2em;
+    display: inline;   /* so that the underline spans only text width, and not the entire page */
+    line-height: 200%; /* for padding below, the above line took away other possibilities */
+  }
+  h4 {
+    font-size: 120%;
+    font-weight: bold;
+   /* border-bottom: 1px solid #b3e6e6; */
+    padding-bottom: 0.2em;
+    display: inline; /* so that the underline spans only text width, and not the entire page */
+    line-height: 200%; /* for padding below, the above line took away other possibilities */
+  }
+  h5 {
+    font-size: 100%;
+    font-weight: bold;
+    display: inline;
+  }
+  h6 {
+    font-size: 100%;
+    font-weight: normal;
+    color: black;
+    display: inline;
+  }
+  hr {
+    background: white;
+    height: 1px;
+    border: 0em;
+    border-top: 1px solid #b3e6e6;
+    margin: 1em 0em;
+  }
+  
+
+
+  /* general styles: links */
+ /* a {
+    color: #125ebc;
+    text-decoration: none;
+    border: none;
+     this underline is further away from the text = more legibility
+    border-bottom: 1px solid #125ebc;
+  }
+  a:visited {
+    color: #005FA9;
+    text-decoration: none;
+    border: none;
+      color: #638bbc; 
+     this underline is further away from the text = more legibility 
+    border-bottom: 1px solid #638bbc; 
+  }*/
+	a img, :link img, :visited img {
+	border: none;border-bottom: 0;
+	} 
+
+	a {
+		text-decoration: none;
+		color: #005FA9;
+		background: none;
+	 border: none;
+
+	}
+	/*a:visited {
+		color: #5a3696;
+	}*/
+	a:active {
+		color: #faa700;
+	}
+	a img:hover {
+		text-decoration: none;
+		border-bottom: 0;
+	}
+	a:hover {
+		color: #faa700;
+		text-decoration: none;
+	}
+	a.stub {
+		/*color: #772233;*/
+	}
+	a.new {
+	/*	color: #ba0000;*/
+	}
+
+	/*a.new:visited {
+		color: #a55858;
+	}*/
+
+
+
+  /* general styles: lists */
+  ul, ol {
+    margin-left: 1.8em;
+    padding: 0em;
+  }
+  dt {
+    margin-left: 1.8em;
+  }
+  blockquote {
+    margin-left: 1.8em;
+  }
+
+  /* general styles: tables */
+/*  table {
+    border-collapse: collapse; 
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: -0.6em;
+    margin-right: -0.6em;
+  }
+
+  table td,table th {
+    padding: 0.3em 0.6em;
+    vertical-align: top;
+    text-align: left;
+  }
+  table th {
+    border-bottom: 1px solid #b3e6e6;
+  }
+  */
+  table caption {
+    text-align: left;
+    font-weight: normal;
+    color: #4FBBBB;
+    padding: 0em;
+    /*_padding: 0em 0.6em;*/ /* hack for IE6: it understands padding differently here */
+  }
+
+  /* specific styles */
+  h1#page-title {
+    font-size: 180%;
+    font-weight: normal;
+    color: #125ebc;
+    letter-spacing: -1px;
+    display: block;
+    border: 0em;
+    padding: 0em;
+    margin: 0em;
+    line-height: 100%;
+  }
+  div#g_description {
+    font-size: 140%;
+    font-weight: normal;
+    color: #125ebc;
+  }
+
+  /* correcting horizontal margins for different layouts */
+
+  body#twocolumn-left div#header {
+    padding-left: 25px;
+  }
+
+  /** END CUSTOM SKIN **/
+
+
+/*
+** general portlet styles (elements in the quickbar)
+*/
+.portlet {
+	border: none;
+	margin: 0 0 .5em;
+	padding: 0;
+	float: none;
+/*width: 18em;*/
+	overflow: hidden;
+}
+.portlet h4 {
+	font-size: 95%;
+	font-weight: normal;
+	white-space: nowrap;
+}
+.portlet h5 {
+	background: transparent;
+	padding: 0 1em 0 .5em;
+	display: inline;
+	height: 1em;
+	text-transform: lowercase;
+	font-size: 91%;
+	font-weight: normal;
+	white-space: nowrap;
+}
+.portlet h6 {
+	background: #ffae2e;
+	border: 1px solid #2f6fab;
+	border-style: solid solid none solid;
+	padding: 0 1em 0 1em;
+	text-transform: lowercase;
+	display: block;
+	font-size: 1em;
+	height: 1.2em;
+	font-weight: normal;
+	white-space: nowrap;
+}
+.pBody {
+	font-size: 95%;
+	background-color: white;
+	color: black;
+	border-collapse: collapse;
+	border: 1px solid #aaa;
+	padding: 0 .8em .3em .5em;
+}
+.portlet h1,
+.portlet h2,
+.portlet h3,
+.portlet h4 {
+	margin: 0;
+	padding: 0;
+}
+.portlet ul {
+	line-height: 1.5em;
+	list-style-type: square;
+	list-style-image: url(common/bullet.gif);
+	font-size: 95%;
+}
+.portlet li {
+	padding: 0;
+	margin: 0;
+}
+
+
+
+
+
+
+table.mytable {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+#mytable {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+caption {
+	padding: 0 0 5px 0;
+	width: 700px;	 
+	font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	text-align: right;
+}
+
+#mytable th {
+	font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #4f6b72;
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+	background: #CAE8EA url(images/bg_header.jpg) no-repeat;
+}
+
+#mytable th.nobg {
+	border-top: 0;
+	border-left: 0;
+	border-right: 1px solid #C1DAD7;
+	background: none;
+}
+
+#mytable td {
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	background: #fff;
+	padding: 6px 6px 6px 12px;
+	color: #4f6b72;
+}
+
+
+#mytable td.alt {
+	background: #F5FAFA;
+	color: #797268;
+}
+
+#mytable td.nobg {
+	border-right: 0;
+	border-bottom: 0;
+	background: none;
+	padding: 0px 0px 0px 0px;
+	color: #4f6b72;
+}
+
+#mytable th.filename {
+	border-left: 1px solid #C1DAD7;
+	border-top: 0;
+	background: #fff url(images/bullet1.gif) no-repeat;
+	font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+#mytable th.filenamealt {
+	border-left: 1px solid #C1DAD7;
+	border-top: 0;
+	background: #f5fafa url(images/bullet2.gif) no-repeat;
+	font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #797268;
+}
