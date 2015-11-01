@@ -71,8 +71,9 @@ let copyFiles () =
 
 let subdirs =
     [ 
-        @"posts",                   "", @"templates\mydocpage.cshtml" 
+        @"posts",                    "",                    @"templates\mydocpage.cshtml" 
         @"pages\software\cracklock", @"software\cracklock", @"templates\cracklock.cshtml" 
+        @"pages\research\",          @"research",           @"templates\researchref.cshtml" 
     
     ]
 
