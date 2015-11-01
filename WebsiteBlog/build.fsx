@@ -16,6 +16,8 @@ open Fake.FileHelper
 /// Return path relative to the current file location
 let relative subdir = Path.Combine(__SOURCE_DIRECTORY__, subdir)
 
+let websiteRoot = __SOURCE_DIRECTORY__ @@ "output"
+
 let projInfo =
   [ "page-description", "William Blum's personal website"
     "page-author", "William Blum"
@@ -28,29 +30,17 @@ let projInfo =
     "project-summary", "William Blum's site http://william.famille-blum.org"
 //    "project-github", githubLink
     "project-nuget", "https://github.com/blumu/weblog"
-    "root", __SOURCE_DIRECTORY__
+    "root", websiteRoot
     ]
-let website = __SOURCE_DIRECTORY__ + "../output"
 
 System.IO.Directory.SetCurrentDirectory (__SOURCE_DIRECTORY__)
 
-let (@@) s1 s2 = System.IO.Path.Combine (s1,s2)
+let layoutRootsAll =   "templates" :: ( subDirectories (directoryInfo "templates") |> Array.map (fun d -> d.Name) |> Array.toList)
 
-let layoutRootsAll = [ relative "templates"
-                       ]
-//subDirectories (directoryInfo templates)
-//|> Seq.iter (fun d ->
-//                let name = d.Name
-//                if name.Length = 2 || name.Length = 3 then
-//                    layoutRootsAll.Add(
-//                            name, [templates @@ name
-//                                   formatting @@ "templates"
-//                                   formatting @@ "templates/reference" ]))
-
-let output     = relative "output"
+let output      = relative "output"
 let staticFiles = relative "static"
 let content     = relative "posts"
-let templates  = relative "templates" 
+let templates   = relative "templates" 
 
 // Copy static files and CSS + JS from F# Formatting
 let copyFiles () =
@@ -60,22 +50,24 @@ let copyFiles () =
   //  |> Log "Copying styles and scripts: "
 
 
+// let doc() =
+//     let template = relative @"templates\mydocpage.cshtml"
+//     Literate.ProcessDirectory (relative "posts", template, replacements = projInfo,
+//                                 outputDirectory = relative @"output\", 
+//                                 layoutRoots = layoutRootsAll )
+// 
+// doc()
 
 
-let doc() =
-    let template = relative @"templates\mydocpage.cshtml"
-    Literate.ProcessDirectory (relative "posts", template, replacements = projInfo,
-                                outputDirectory = relative @"output\", 
-                                layoutRoots = layoutRootsAll )
-
-doc()
-
-
+let subdirs =
+    [ 
+        relative "posts", relative @"templates\mydocpage.cshtml" 
+//        relative @"posts\research", relative @"templates\mydocpage.cshtml" 
+    
+    ]
 
 // Build documentation from `fsx` and `md` files in `docs/content`
 let buildDocumentation () =
-  let subdirs = 
-    [ content, relative @"templates\mydocpage.cshtml" ]
   for dir, template in subdirs do
     let sub = "." // Everything goes into the same output directory here
     Literate.ProcessDirectory
@@ -83,8 +75,8 @@ let buildDocumentation () =
         replacements = projInfo,
         layoutRoots = layoutRootsAll,
         generateAnchors = true,
-        processRecursive = false,
-        includeSource = true // Only needed for 'side-by-side' pages, but does not hurt others
+        processRecursive = true,
+        includeSource = false
         )
 
 let watch () =
@@ -125,8 +117,11 @@ let watch () =
           printfn "Documentation generation failed: %O" e
     }
 
+  let contentDirs = subdirs |> List.map (fun (subdir,_) -> full subdir + "*/*.*" )
+  let baseContent = !! (full content + "*/*.*")
   use watcher =
-    !! (full content + "/*.*")
+    (List.fold (++) baseContent contentDirs)
+    ++ (full content + "/research/*.*")
     ++ (full templates + "/*.*")
     ++ (full staticFiles + "/*.*")
     |> WatchChanges (fun changes ->

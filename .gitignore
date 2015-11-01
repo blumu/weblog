@@ -10,3 +10,4 @@ packages/
 .suo
 output/
 .paket/paket.exe
+WebsiteBlog/FSharp.Formatting.svclog

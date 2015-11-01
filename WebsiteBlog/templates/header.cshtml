@@ -1,5 +1,7 @@
 @{
 var cursection = "home";
+var cursubsection = "";
+
 var menus_url = new Dictionary<string, string>
     {
         { "home" , "" },
@@ -50,7 +52,7 @@ var menus_submenus_url = new Dictionary<string,Dictionary<string,string>>
             <td class="nobg" width="150" align="center" style="padding-left:0px;">
                 <div style="margin-top:17px; padding-left:0px;">
                 <a href="http://william.famille-blum.org" >
-                <img src="images/title.png" alt="william.famille-blum.org" border="0" />
+                <img src="@Root/images/title.png" alt="william.famille-blum.org" border="0" />
                 </a>
                 </div>
             </td>
@@ -61,8 +63,8 @@ var menus_submenus_url = new Dictionary<string,Dictionary<string,string>>
                     
                     var img = menus_img[sec];
                     @:  <td class="nobg" width="100" align="center">
-                    @:    <a href="@url">
-                    @:     <img src="@img" border="0" alt="@sec" />
+                    @:    <a href="@Root/@url">
+                    @:     <img src="@Root/@img" border="0" alt="@sec" />
                     @:    </a>
                     @:  </td>
                 }
@@ -90,58 +92,51 @@ var menus_submenus_url = new Dictionary<string,Dictionary<string,string>>
         <tr>
             <td class="nobg" />
             @{
-                foreach( var m in menus_url) {
-                        var url = m.Value; 
-                        var sec = m.Key;
-                        <td class="nobg" width="100" align="center">
-                             <a href="@url">
-                             @if(@cursection==@sec) {
-                                 <b>@sec</b> 
-                             } else {
-                                 @sec
-                             }
-                            </a>
-                        </td>
+                foreach(var m in menus_url) {
+                    var url = m.Value; 
+                    var sec = m.Key;
+                    <td class="nobg" width="100" align="center">
+                            <a href="@Root/@url">
+                            @if(@cursection==@sec) {
+                                <b>@sec</b> 
+                            } else {
+                                @sec
+                            }
+                        </a>
+                    </td>
                 }
             }
     </tr>
     </table>
 
-      @{
-        if(menus_submenus_url[cursection].Count>0) {
-            <table width="100%" border="0" cellpadding="0" cellspacing="0" 
-            style="padding-top:5px; margin-top:5px; border:0;">
-                <tr style="background:url(/images/bg_submenubar.jpg);">
-                <td colspan="5" align="center" class="nobg" style="background:url(/images/bg_submenubar.jpg); padding: 0.3em 0.6em;
-                    border-right: 0; border-bottom: 1px solid #C1DAD7;  border-top: 1px solid #C1DAD7;">
-                <center>
-                    <span class="subsectionlink">&nbsp;&nbsp;
-                    foreach(var kvp in menus_submenus_url[cursection])
-                    {
-                        var submenu = kvp.Key;
-                        var url = kvp.Value;
-                        <a href="'.$url.'">
-                        if(cursubsection==submenu) { 
-                            <b>submenu</b> 
-                        } else {
-                            submenu
-                        }
-                        </a>
-                        &nbsp;&nbsp;
+    @{
+    if(menus_submenus_url[cursection].Count>0) {
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" 
+        style="padding-top:5px; margin-top:5px; border:0;">
+            <tr style="background:url(/images/bg_submenubar.jpg);">
+            <td colspan="5" align="center" class="nobg" style="background:url(/images/bg_submenubar.jpg); padding: 0.3em 0.6em;
+                border-right: 0; border-bottom: 1px solid #C1DAD7;  border-top: 1px solid #C1DAD7;">
+            <center>
+                <span class="subsectionlink">&nbsp;&nbsp;
+                @foreach(var kvp in menus_submenus_url[cursection]) {
+                    var submenu = kvp.Key;
+                    var suburl = kvp.Value;
+                    <br/><a href="@Root/@suburl">
+                    @if(@cursubsection==@submenu) {
+                        <b>@submenu</b> 
+                    } else {
+                        @submenu
                     }
-                    </span>
-                </center>
-                </td>
-            </tr>
-            </table>
-        }
-        }
+                    </a>
+                    @: &nbsp;&nbsp;
+                }
+                </span>
+            </center>
+            </td>
+        </tr>
+        </table>
+    }
+    }
     </div>
 </div>
 
-  <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-  </script>
-  <script type="text/javascript">
-  _uacct = "UA-77730-1";
-  urchinTracker();
-  </script>
