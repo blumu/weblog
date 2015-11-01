@@ -14,13 +14,6 @@ subsectionlink{
 code {
 	background-color: #f9f9f9;
 }
-pre {
-  padding: 1em;
-  border: 1px dashed #2f6fab;
-  color: black;
-  background-color: #f9f9f9;
-  line-height: 1.1em;
-}
 
 .bibtex pre {
 	padding: 1em;
@@ -145,10 +138,12 @@ pre {
   /* general layout */
 
   body {
-    font-family: Verdana, "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+    line-height: 1.166;	
+/*
     font-size: small;
-	line-height: 1.166;	
-/*   margin: 2em; */
+
+   margin: 2em; */
 	margin-left: 0px;
 	margin-top: 0px;
 	margin-right: 0px;

@@ -82,7 +82,8 @@ let buildDocumentation () =
         layoutRoots = layoutRootsAll,
         generateAnchors = true,
         processRecursive = true,
-        includeSource = false
+        includeSource = false,
+        lineNumbers = false
         )
 
 let watch () =
