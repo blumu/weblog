@@ -1,7 +1,0 @@
-By W.B.
-
-For future updates of Simple PHP Blog, here are the list of modified files:
-
-theme\william\*
-scripts\sb_config.php
-scripts\sb_formatting.php
