@@ -24,7 +24,7 @@ official release of SumatraPDF. You can still download the original builds here 
 <ul class="home-download os_windows">
     <li class="os_windows">
     <a href="SumatraPDF-TeX.exe" class="download-link download-sumatra">
-    <span><strong>Download SumatraPDF-TeX</strong> <em>Latest version <?php echo file_get_contents('sumpdftex-latest.txt');?>&nbsp;(2MB)</em> </span>
+    <span><strong>Download SumatraPDF-TeX</strong> <em>Latest version 1.9.4502 &nbsp;(2MB)</em> </span>
     </a>
     </li>
 </ul>

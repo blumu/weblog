@@ -34,6 +34,10 @@ let projInfo =
 //    "project-github", githubLink
     "project-nuget", "https://github.com/blumu/weblog"
     "root", websiteRoot
+
+    "cracklock_lastest_version", "3.9.44"
+    "cracklock_lastest_setupfile", "Cracklock.3.9.44.exe"
+
     ]
 
 System.IO.Directory.SetCurrentDirectory (__SOURCE_DIRECTORY__)
@@ -67,17 +71,18 @@ let copyFiles () =
 
 let subdirs =
     [ 
-        relative "posts", relative @"templates\mydocpage.cshtml" 
-//        relative @"posts\research", relative @"templates\mydocpage.cshtml" 
+        @"posts",                   "", @"templates\mydocpage.cshtml" 
+        @"pages\software\cracklock", @"software\cracklock", @"templates\cracklock.cshtml" 
     
     ]
 
-// Build documentation from `fsx` and `md` files in `docs/content`
-let buildDocumentation () =
-  for dir, template in subdirs do
-    let sub = "." // Everything goes into the same output directory here
+// Build website from `md` files
+let buildSite() =
+  for sourceDir, outputDir, template in subdirs do
     Literate.ProcessDirectory
-      ( dir, template, output @@ sub,
+      ( sourceDir, 
+        relative template, 
+        output @@ outputDir,
         replacements = projInfo,
         layoutRoots = layoutRootsAll,
         generateAnchors = true,
@@ -91,8 +96,7 @@ let watch () =
   let rebuildDocs () =
     CleanDir output // Just in case the template changed (buildDocumentation is caching internally, maybe we should remove that)
     copyFiles()
-    //buildReference()
-    buildDocumentation()
+    buildSite()
   rebuildDocs()
   printfn "Watching for changes..."
 
@@ -125,7 +129,7 @@ let watch () =
     }
 
   let contentDirs = subdirsRecurse content
-                    |> Seq.map (fun d -> d + "/*.*" )
+                    |> Seq.map (fun d -> relative d + "/*.*" )
                     |> Seq.toList
 
   //let contentDirs = subdirs |> List.map (fun (subdir,_) -> full subdir + "*/*.*" )

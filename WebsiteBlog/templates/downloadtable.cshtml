@@ -1,61 +1,50 @@
-@{
-string readableFileSize (long size) {
-    var units = new []{ "B", "kB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
-    var lastUnit = units[units.Count];
-    foreach (var sizestring in units) {
-        if (size < 1024) { break; }
-        if (sizestring != lastUnit) { size /= 1024; }
+@functions {
+    string readableFileSize (long size) {
+        var units = new []{ "B", "kB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
+        int i = 0; 
+        var selectedUnit = units[0];
+        while( size > 1024 || i == units.Count()-1) {
+            size /= 1024;
+            selectedUnit = units[++i];
+        }
+        return System.String.Format("{0} {1}", size, selectedUnit);
     }
-    return System.String.Format("{0:01d} {1}"', size, sizestring);
-}
-
-void dumpDownloadtableFromCsv(string fichier = "filesdescr.csv") {
-    var downloadTableCsv = System.IO.ReadAllLines(fichier);
-    <tr>
-            <th width="120" scope="col">Filename</th>
-            <th width="160" scope="col">Date</th>
-            <th width="50" scope="col">Size</th>
-            <th>Description</th>
-    </tr>
-    bool alt = false;
-    for (var ligneText in downloadTableCsv) {
-        string[] ligne = ligneText.Split(',');
-        string fsize = "";
-        string link = ""
-        if(file_exists("downloads/" + ligne[0])) {
-            fsize = readableFileSize(filesize("downloads/" + ligne[0]));
-            link = "<a href=\"downloads/" + ligne[0] + "\">" + ligne[0] + "</a>";
-            if( ligne[1] != '' ) {
-                link = link + "<br/><a href=\"downloads/" + $ligne[1] + "\">" + ligne[1] + "</a>";
+    
+    string dumpDownloadtableFromCsv(string csvFilePath) {
+        string[] downloadTableCsv = System.IO.File.ReadAllLines(csvFilePath);
+        string content = "<tr><th width=\"120\" scope=\"col\">Filename</th><th width=\"160\" scope=\"col\">Date</th><th width=\"50\" scope=\"col\">Size</th><th>Description</th></tr>";
+        bool alt = false;
+        foreach (string ligneText in downloadTableCsv) {
+            string[] ligne = ligneText.Split(',').Select(x=>x.Replace("\"","")).ToArray();
+            string fsize = "";
+            string link = "";
+            string filePath = @Root + @"/software/cracklock/downloads/" + ligne[0];
+            if(System.IO.File.Exists(filePath)) {
+                fsize = readableFileSize(new System.IO.FileInfo(filePath).Length);
+                link = "<a href=\"downloads/" + ligne[0] + "\">" + ligne[0] + "</a>";
+                if( ligne[1] != "" ) {
+                    link = link + "<br/><a href=\"downloads/" + ligne[1] + "\">" + ligne[1] + "</a>";
+                }
+            } else {
+                link = ligne[0];
+                fsize = "missing";
             }
+            var className = alt ? "filenamealt" : "filename";
+            content +=
+                "<tr>" +
+                "<th class=\"@className\" scope=\"row\">" + link + "</th>" +
+                "<td class=\"alt\">" + @ligne[2] + "</td>" +
+                "<td class=\"alt\">" + @fsize + "</td>" +
+                "<td class=\"alt\">" + @ligne[3] + "</td>" +
+                "</tr>";
+            alt = !alt;
         }
-        else {
-            link = ligne[0];
-            fsize = "";
-        }
-        <tr>
-        if(alt) {
-            <th class="filenamealt" scope="row">@link</th>
-            <td class=\"alt\">@ligne[2]</td>
-            <td class=\"alt\">@fsize</td>
-            <td class=\"alt\">@ligne[3]</td>
-        }
-        else {
-            <th class="filename" scope="row">@link</th>
-            <td>@ligne[2]</td>
-            <td>@fsize</td>
-            <td>@ligne[3]</td>
-        }
-        </tr>
-        alt = !alt;
+        return content;
     }
 }
 
-// function latest_version_file($fichier) {
-    // if($fichier === null) { $fichier = "filesdescr.csv"; }
-    // $fic = fopen($fichier, 'rb');
-    // return = fgetcsv($fic, 1024);
-// }
-
-
-}
+<h2><img src="../cracklock/images/download.gif" alt="Download previous versions" width="16" height="16" border="0" vspace="0" hspace="0" align="bottom" /> Previous versions</h2>
+<table class="mytable" cellspacing="0"  summary="Previous versions of Cracklock">
+<caption>Previous versions of Cracklock</caption>
+    @dumpDownloadtableFromCsv(@Root + @"\software\cracklock\filesdescr.csv")
+</table>
