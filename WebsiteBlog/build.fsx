@@ -17,7 +17,10 @@ open Fake.FileHelper
 let relative subdir = Path.Combine(__SOURCE_DIRECTORY__, subdir)
 
 let subdirsRecurse dir =
-    System.IO.Directory.EnumerateDirectories(dir,"*", SearchOption.AllDirectories)
+    seq {
+        yield dir 
+        yield! System.IO.Directory.EnumerateDirectories(dir,"*", SearchOption.AllDirectories)
+    }
 
 let websiteRoot = (__SOURCE_DIRECTORY__ @@ "output").Replace("\\", "/")
 
@@ -69,7 +72,7 @@ let copyFiles () =
 // doc()
 
 
-let subdirs =
+let contentDirectories =
     [ 
         @"posts",                    "",                    @"templates\mydocpage.cshtml" 
         @"pages\software\cracklock", @"software\cracklock", @"templates\cracklock.cshtml" 
@@ -79,7 +82,7 @@ let subdirs =
 
 // Build website from `md` files
 let buildSite() =
-  for sourceDir, outputDir, template in subdirs do
+  for sourceDir, outputDir, template in contentDirectories do
     Literate.ProcessDirectory
       ( sourceDir, 
         relative template, 
@@ -129,11 +132,12 @@ let watch () =
           printfn "Documentation generation failed: %O" e
     }
 
-  let contentDirs = subdirsRecurse content
+  let contentDirs = contentDirectories
+                    |> Seq.map (fun (dir, _, _) -> dir)
+                    |> Seq.collect subdirsRecurse
                     |> Seq.map (fun d -> relative d + "/*.*" )
                     |> Seq.toList
 
-  //let contentDirs = subdirs |> List.map (fun (subdir,_) -> full subdir + "*/*.*" )
   let baseContent = !! (full content + "/*.*")
   use watcher =
     (List.fold (++) baseContent contentDirs)

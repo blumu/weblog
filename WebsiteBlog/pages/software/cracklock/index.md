@@ -75,7 +75,13 @@ The following features were introduced since version 3.9:
 ![Help](images/help.gif) Documentation
 --------------------------------------
 
-The english documentation is available [here](xmldoc/cracklock-doc-web.html). Old version of the documentation is also available in various languages: [English](/setpage.php?page=software/cracklock/help/english/), [Spanish](/setpage.php?page=software/cracklock/help/spanish/), [French](/setpage.php?page=software/cracklock/help/french/) and [Arabic](/setpage.php?page=software/cracklock/help/arabic/).
+The english documentation is available [here](xmldoc/cracklock-doc-web.html). 
+For other languages an older version of the documentation is available: 
+
+* [English](help/english/index.html)
+* [Spanish](help/spanish/index.html) 
+* [French](help/french/index.html) 
+* [Arabic](help/arabic/index.html)
 
 Contributing to the translation
 -------------------------------
