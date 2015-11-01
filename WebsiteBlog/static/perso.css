@@ -15,11 +15,11 @@ code {
 	background-color: #f9f9f9;
 }
 pre {
-	padding: 1em;
-	border: 1px dashed #2f6fab;
-	color: black;
-	background-color: #f9f9f9;
-	line-height: 1.1em;
+  padding: 1em;
+  border: 1px dashed #2f6fab;
+  color: black;
+  background-color: #f9f9f9;
+  line-height: 1.1em;
 }
 
 .bibtex pre {
@@ -294,39 +294,40 @@ pre {
     font-family: Verdana, "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, sans-serif;
     color: black; /*#666633  headline_txt_color */
     /*text-shadow: #bbb 2px 2px 1px;*/
-    margin: 2px 0px 2px 0px;
+    /*margin: 2px 0px 2px 0px;*/
   }
   h1 {
     font-size: 160%;
     font-weight: bold;
     border-bottom: 1px solid #b3e6e6;
     padding-bottom: 0.2em;
-    display: inline; /* so that the underline spans only text width, and not the entire page */
-    line-height: 300%; /* for padding below, the above line took away other possibilities */
+    margin-bottom: 1em;
+    display: table; 
+    line-height: 120%; /* for padding below, the above line took away other possibilities */
   }
   h2 {
     font-size: 130%;
     font-weight: normal;
     border-bottom: 2px solid #b3e6e6;
-    padding-bottom: 0.2em;
-    display: inline; /* so that the underline spans only text width, and not the entire page */
-    line-height: 300%; /* for padding below, the above line took away other possibilities */
+    padding-bottom: 0.1em;
+    margin-bottom:1em;
+    margin-top:1em;
+    display: table; /* so that the underline spans only text width, and not the entire page */
+    line-height: 110%; /* for padding below, the above line took away other possibilities */
   }
   h3 {
     font-size: 120%;
     font-weight: normal;
     border-bottom: 1px solid #0000FF;
     padding-bottom: 0.2em;
-    display: inline;   /* so that the underline spans only text width, and not the entire page */
-    line-height: 200%; /* for padding below, the above line took away other possibilities */
+    display: table;   /* so that the underline spans only text width, and not the entire page */
   }
   h4 {
     font-size: 120%;
     font-weight: bold;
    /* border-bottom: 1px solid #b3e6e6; */
-    padding-bottom: 0.2em;
-    display: inline; /* so that the underline spans only text width, and not the entire page */
-    line-height: 200%; /* for padding below, the above line took away other possibilities */
+    padding-bottom: 0.1em;
+    display: table; /* so that the underline spans only text width, and not the entire page */
   }
   h5 {
     font-size: 100%;
@@ -538,77 +539,77 @@ pre {
 
 
 table.mytable {
-	width: 100%;
-	padding: 0;
-	margin: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 #mytable {
-	width: 100%;
-	padding: 0;
-	margin: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 caption {
-	padding: 0 0 5px 0;
-	width: 700px;	 
-	font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-	text-align: right;
+  padding: 0 0 5px 0;
+  width: 700px;	 
+  font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+  text-align: right;
 }
 
 #mytable th {
-	font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-	color: #4f6b72;
-	border-right: 1px solid #C1DAD7;
-	border-bottom: 1px solid #C1DAD7;
-	border-top: 1px solid #C1DAD7;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	text-align: left;
-	padding: 6px 6px 6px 12px;
-	background: #CAE8EA url(images/bg_header.jpg) no-repeat;
+  font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+  color: #4f6b72;
+  border-right: 1px solid #C1DAD7;
+  border-bottom: 1px solid #C1DAD7;
+  border-top: 1px solid #C1DAD7;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 6px 6px 6px 12px;
+  background: #CAE8EA url(images/bg_header.jpg) no-repeat;
 }
 
 #mytable th.nobg {
-	border-top: 0;
-	border-left: 0;
-	border-right: 1px solid #C1DAD7;
-	background: none;
+  border-top: 0;
+  border-left: 0;
+  border-right: 1px solid #C1DAD7;
+  background: none;
 }
 
 #mytable td {
-	border-right: 1px solid #C1DAD7;
-	border-bottom: 1px solid #C1DAD7;
-	background: #fff;
-	padding: 6px 6px 6px 12px;
-	color: #4f6b72;
+  border-right: 1px solid #C1DAD7;
+  border-bottom: 1px solid #C1DAD7;
+  background: #fff;
+  padding: 6px 6px 6px 12px;
+  color: #4f6b72;
 }
 
 
 #mytable td.alt {
-	background: #F5FAFA;
-	color: #797268;
+  background: #F5FAFA;
+  color: #797268;
 }
 
 #mytable td.nobg {
-	border-right: 0;
-	border-bottom: 0;
-	background: none;
-	padding: 0px 0px 0px 0px;
-	color: #4f6b72;
+  border-right: 0;
+  border-bottom: 0;
+  background: none;
+  padding: 0px 0px 0px 0px;
+  color: #4f6b72;
 }
 
 #mytable th.filename {
-	border-left: 1px solid #C1DAD7;
-	border-top: 0;
-	background: #fff url(images/bullet1.gif) no-repeat;
-	font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+  border-left: 1px solid #C1DAD7;
+  border-top: 0;
+  background: #fff url(images/bullet1.gif) no-repeat;
+  font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
 }
 
 #mytable th.filenamealt {
-	border-left: 1px solid #C1DAD7;
-	border-top: 0;
-	background: #f5fafa url(images/bullet2.gif) no-repeat;
-	font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-	color: #797268;
+  border-left: 1px solid #C1DAD7;
+  border-top: 0;
+  background: #f5fafa url(images/bullet2.gif) no-repeat;
+  font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+  color: #797268;
 }

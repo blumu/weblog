@@ -39,12 +39,11 @@ Software
 
 * Firefox, Thunderbird <http://www.mozilla.org/>   
 * Winscp <http://winscp.net/>
-* Putty [http://www.chiark.greenend.org.uk/\~sgtatham/putty/](http://www.chiark.greenend.org.uk/%7Esgtatham/putty/)
+* Putty [http://www.chiark.greenend.org.uk/~sgtatham/putty/](http://www.chiark.greenend.org.uk/%7Esgtatham/putty/)
 
 #### Communication
 
-* Skype [www.skype.com](http://www.jdoqocy.com/click-1713760-10386655)![](http://www.tqlkg.com/image-1713760-10386655)
-* Make and receive calls to ordinary phones with your computer.
+* Skype <www.skype.com>
 * Google Talk <http://www.google.com/talk/>
 * Google Pack
 

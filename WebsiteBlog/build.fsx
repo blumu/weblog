@@ -16,7 +16,10 @@ open Fake.FileHelper
 /// Return path relative to the current file location
 let relative subdir = Path.Combine(__SOURCE_DIRECTORY__, subdir)
 
-let websiteRoot = __SOURCE_DIRECTORY__ @@ "output"
+let subdirsRecurse dir =
+    System.IO.Directory.EnumerateDirectories(dir,"*", SearchOption.AllDirectories)
+
+let websiteRoot = (__SOURCE_DIRECTORY__ @@ "output").Replace("\\", "/")
 
 let projInfo =
   [ "page-description", "William Blum's personal website"
@@ -35,12 +38,15 @@ let projInfo =
 
 System.IO.Directory.SetCurrentDirectory (__SOURCE_DIRECTORY__)
 
-let layoutRootsAll =   "templates" :: ( subDirectories (directoryInfo "templates") |> Array.map (fun d -> d.Name) |> Array.toList)
+
+let layoutRootsAll =   "templates" :: ( subdirsRecurse (relative "templates") |> Seq.toList)
+
 
 let output      = relative "output"
 let staticFiles = relative "static"
 let content     = relative "posts"
 let templates   = relative "templates" 
+
 
 // Copy static files and CSS + JS from F# Formatting
 let copyFiles () =
@@ -117,8 +123,12 @@ let watch () =
           printfn "Documentation generation failed: %O" e
     }
 
-  let contentDirs = subdirs |> List.map (fun (subdir,_) -> full subdir + "*/*.*" )
-  let baseContent = !! (full content + "*/*.*")
+  let contentDirs = subdirsRecurse content
+                    |> Seq.map (fun d -> d + "/*.*" )
+                    |> Seq.toList
+
+  //let contentDirs = subdirs |> List.map (fun (subdir,_) -> full subdir + "*/*.*" )
+  let baseContent = !! (full content + "/*.*")
   use watcher =
     (List.fold (++) baseContent contentDirs)
     ++ (full content + "/research/*.*")

@@ -2,70 +2,70 @@
 
 ul.os_windows a.download-link
 {
-	display: block;
-	padding: 0 0 12px 0;
-	margin-bottom: 0.2em;
-	text-decoration: none;
-	color: #256504;
-	margin-left: -8px;
-	background-position: 0 100%;	
+    display: block;
+    padding: 0 0 12px 0;
+    margin-bottom: 0.2em;
+    text-decoration: none;
+    color: #256504;
+    margin-left: -8px;
+    background-position: 0 100%;	
 }
-	
+    
 ul.os_windows a.download-link span
 {
-	display: block;
-	padding: 35px 14px 4px 100px;
-	margin-bottom: 4px;
-	min-height: 48px;
+    display: block;
+    padding: 35px 14px 4px 100px;
+    margin-bottom: 4px;
+    min-height: 48px;
 }
 * html ul.os_windows a.download-link span
 { height: 48px; }
-	
+    
 ul.os_windows a.download-link strong
 {
-	font: 140% sans-serif;
-	letter-spacing: -0.02em;
-	text-decoration: underline;
-	color: #256504;
+    font: 140% sans-serif;
+    letter-spacing: -0.02em;
+    text-decoration: underline;
+    color: #256504;
 }
 
 ul.os_windows a.download-link em
 {
-	font-style: normal;
-	color: #367D10;
-	letter-spacing: 0;
-	display: block;
-	padding-top: 3px;
-	font-size: 85%;
+    font-style: normal;
+    color: #367D10;
+    letter-spacing: 0;
+    display: block;
+    padding-top: 3px;
+    font-size: 85%;
 }
-	
+    
 ul.os_windows a.download-link:hover,
 ul.os_windows a.download-link:hover span,
 ul.os_windows a.download-link:hover strong
 {
-	color: #143802;
-	cursor: pointer; /* need for IE6 */
-	background-position: 100% 100%;
+    color: #143802;
+    cursor: pointer; /* need for IE6 */
+    background-position: 100% 100%;
 }
 
 ul.os_windows a.download-link:hover span
 {
-	background-position: 100% 0;
+    background-position: 100% 0;
 }
 
 .download-other,
 #main-feature .download-other,
 #home #main-feature p.download-other {
-	font-size: 85%;
-	color: #515F78;
-	padding-left: 8px;
-	font-weight: normal;
-	margin-left: 38px;
-	margin-top: 0;
-	padding-top: 0;
-	line-height: 100%;
-	min-height: 0;
-	height: auto;
+    font-size: 85%;
+    color: #515F78;
+    padding-left: 8px;
+    font-weight: normal;
+    margin-left: 38px;
+    margin-top: 0;
+    padding-top: 0;
+    line-height: 100%;
+    min-height: 0;
+    height: auto;
 }
 
 .download-other a { padding-right: 0.5em; }
@@ -74,43 +74,43 @@ ul.os_windows a.download-link:hover span
 .download-other a:hover { color: #000; }
 
 ul.home-download {
-	list-style-type: none;
-	margin: 15px 0px 0px 0px;
-	padding: 0;
+    list-style-type: none;
+    margin: 15px 0px 0px 0px;
+    padding: 0;
 }
 
 ul.os_windows a.download-cracklock
 {
-	width: 332px;
-	background-image: url("cracklock_button.png");
+    width: 332px;
+    background-image: url("cracklock_button.png");
 }
 
 ul.os_windows a.download-cracklock  span
 {
 
-	background-image: url("cracklock_button.png");
+    background-image: url("cracklock_button.png");
 }
 
 ul.os_windows a.download-sumatra
 {
-	width: 372px;
-	background-image: url("sumatra_button.png");
+    width: 372px;
+    background-image: url("sumatra_button.png");
 }
 
 ul.os_windows a.download-sumatra  span
 {
-	background-image: url("sumatra_button.png");
+    background-image: url("sumatra_button.png");
 }
 
 
 #main-feature .brief-feature {
-	float: right;
-	margin-right: 50px;
-	padding: 0 0 20px 20px;
+    float: right;
+    margin-right: 50px;
+    padding: 0 0 20px 20px;
 }
 
 #main-feature .brief-feature .home-download {
-	float: none;
+    float: none;
 }
 
 a.download-link abbr { border-bottom: 0; }
