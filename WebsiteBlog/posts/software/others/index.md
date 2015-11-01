@@ -53,7 +53,9 @@ NetNotifier
 -----------
 
 When you are wired to the Internet via a shared phone connection, you don't know when the connexion is opened or closed. This tool tells you when the connection is available by playing a sound and showing you an icon in the tray notification bar.
+[Read the short manual](NetNotifier.html).
 
 | Filename                 | Date          | Size  | Description                                                                                           |
 |--------------------------|---------------|-------|-------------------------------------------------------------------------------------------------------|
-| [netn20.zip](netn20.zip) | 5th July 2000 | 37 kb | **NetNotifier** [Requires Visual Basic 6.0 Runtimes](http://support.microsoft.com/default.aspx?scid=kb;en-us;290887) [![Help](../cracklock/images/help.gif) Documentation available on-line](NetNotifier.htm)              |
+| [netn20.zip](netn20.zip) | 5th July 2000 | 37 kb | **NetNotifier** [Requires Visual Basic 6.0 Runtimes](http://support.microsoft.com/default.aspx?scid=kb;en-us;290887)   |
+
