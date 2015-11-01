@@ -128,7 +128,7 @@ code {
   }
   #footer {
 	margin-top: 1.25em;
-	background: #bbb url(/common/footer-bg.png) repeat-x left top;
+	background: #bbb url(common/footer-bg.png) repeat-x left top;
 	clear: both;
   }
    
@@ -144,15 +144,15 @@ code {
     font-size: small;
 
    margin: 2em; */
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;    
-    padding: 0em;
-    border-top: 0em;
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;    
+  padding: 0em;
+  border-top: 0em;
 /*    border-top: 1em solid #e2e6ec; */
-    /*background: #e2e6ec ;*/
-	background:url(/common/bg_stripes.png)
+  /*background: #e2e6ec ; */
+/*background:url('common/bg_stripes.png') */
 /*url(/-/includes/style/madison/madison-one/container-fill.gif) center repeat-y; */
   }
   body div#container {
