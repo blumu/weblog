@@ -19,7 +19,8 @@ benefit the [Leukemia and Lymphoma Society](http://www.lls.org/).
 
 Thank you for your support!
  <a href="https://secure3.convio.net/llswa/site/Donation2;jsessionid=BFBEAB6B63531D2C0F87B276B1DEEDC5.app338b?2104.donation=form1&idb=1865941136&df_id=2104&FR_ID=1460&PROXY_ID=1696060&PROXY_TYPE=20">Donate 
-</a><img src="../images/lls_thermometer.png popup=false"/>]]></content:encoded>
+</a>
+<img src="../images/lls_thermometer.png popup=false"/>]]></content:encoded>
 <excerpt:encoded><![CDATA[]]></excerpt:encoded>
 <wp:post_id>9</wp:post_id>
 <wp:post_date>2015-02-22 23:37:13</wp:post_date>

@@ -14,10 +14,10 @@ open Fake.FileHelper
 let relative subdir = Path.Combine(__SOURCE_DIRECTORY__, subdir)
 
 let subdirsRecurse dir =
-    seq {
+    [
         yield dir 
         yield! System.IO.Directory.EnumerateDirectories(dir,"*", SearchOption.AllDirectories)
-    }
+    ]
 
 let websiteRoot = (__SOURCE_DIRECTORY__ @@ "output").Replace("\\", "/")
 
@@ -39,46 +39,74 @@ let projInfo =
 System.IO.Directory.SetCurrentDirectory (__SOURCE_DIRECTORY__)
 
 
-let layoutRootsAll =   "templates" :: ( subdirsRecurse (relative "templates") |> Seq.toList)
-
-
 let output      = relative "output"
 let staticFiles = relative "static"
-let content     = relative "posts"
 let templates   = relative "templates" 
-
+let layoutRootsAll =  subdirsRecurse templates |> Seq.toList
 
 // Copy static files and CSS + JS from F# Formatting
 let copyFiles () =
   CopyRecursive staticFiles output true |> Log "Copying file: "
   ensureDirectory (output @@ "content")
-  //CopyRecursive (formatting @@ "styles") (output @@ "content") true 
-  //  |> Log "Copying styles and scripts: "
+
+
+/// Describe a directory containing content to be compiled
+type ContentDirectory =
+    {
+        sourceDirectory : string
+        allDirectories : bool
+        outputDirectory : string
+        template : string
+    }
 
 let contentDirectories =
     [ 
-        @"posts",                    "",                    @"templates\mydocpage.cshtml" 
-        @"pages\software\cracklock", @"software\cracklock", @"templates\cracklock.cshtml" 
-        @"pages\research\",          @"research",           @"templates\researchref.cshtml" 
-
-        @"oldblog",                  @"",                   @"templates\mydocpage.cshtml" 
-    
+        {
+            sourceDirectory = @"posts"
+            allDirectories = true
+            outputDirectory = @""
+            template = @"templates\mydocpage.cshtml"
+        }
+        {
+            sourceDirectory = @"pages\software\cracklock"
+            allDirectories = true
+            outputDirectory = @"software\cracklock"
+            template = @"templates\cracklock.cshtml"
+        }
+        {
+            sourceDirectory = @"pages\research\"
+            allDirectories = true
+            outputDirectory = @"research"
+            template = @"templates\researchref.cshtml"
+        }
+        {
+            sourceDirectory = @"oldblog\"
+            allDirectories = true
+            outputDirectory = @"blog\"
+            template = @"templates\mydocpage.cshtml"
+        }
+        {
+            sourceDirectory = @"pages"
+            allDirectories = false
+            outputDirectory = @""
+            template = @"templates\mydocpage.cshtml"
+        }
     ]
 
-// Build website from `md` files
+// Build website from `md` and `fsx` files
 let buildSite() =
-  for sourceDir, outputDir, template in contentDirectories do
+  for contentDir in contentDirectories do
     Literate.ProcessDirectory
-      ( sourceDir, 
-        relative template, 
-        output @@ outputDir,
+      ( contentDir.sourceDirectory, 
+        relative contentDir.template, 
+        output @@ contentDir.outputDirectory,
         replacements = projInfo,
         layoutRoots = layoutRootsAll,
         generateAnchors = true,
         processRecursive = true,
         includeSource = false,
         lineNumbers = false
-        )
+      )
 
 let watch () =
   printfn "Starting watching by initial building..."
@@ -118,16 +146,15 @@ let watch () =
     }
 
   let contentDirs = contentDirectories
-                    |> Seq.map (fun (dir, _, _) -> dir)
+                    |> Seq.map (fun d -> d.sourceDirectory)
                     |> Seq.collect subdirsRecurse
                     |> Seq.map (fun d -> relative d + "/*.*" )
                     |> Seq.toList
 
-  let baseContent = !! (full content + "/*.*")
+  let staticDirectories = !! (full staticFiles + "/*.*")
   use watcher =
-    (List.fold (++) baseContent contentDirs)
+    (List.fold (++) staticDirectories contentDirs)
     ++ (full templates + "/*.*")
-    ++ (full staticFiles + "/*.*")
     |> WatchChanges (fun changes ->
       changes |> Seq.iter queue.Enqueue)
   use source = new System.Threading.CancellationTokenSource()
