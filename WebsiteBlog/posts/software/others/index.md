@@ -1,10 +1,13 @@
 ![Other softwares](download.png) Other softwares
 ================================================
 
+<link href="../../common/downloadtable.css" rel="stylesheet" type="text/css" media="screen" />
+
 Domenico
 --------
 
-This is a small game where you must match icons. There are multiple difficulty levels. It's even more addictive than Windows Minesweeper. Bill Gates has once contacted me and proposed me to release it with ~~Windows 98~~ Windows Vista. Unfortunately for him, he was not rich enough to afford the price of my labour so I had to turn down the offer.
+This is a small game where you must match icons. There are multiple difficulty levels. It's even more addictive than Windows Minesweeper. Bill Gates has once contacted me and proposed me to release it with 
+~~Windows 98~~ Windows Vista. Unfortunately for him, he was not rich enough to afford the price of my labour so I had to turn down the offer.
 
 | Filename                     | Date           | Size  | Description                                                                                            |
 |------------------------------|----------------|-------|--------------------------------------------------------------------------------------------------------|

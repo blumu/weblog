@@ -6,7 +6,7 @@ Here you will find some software that I have developed.
 Windows freeware
 ----------------
 
-[SumatraPDF for LaTeX](sumatra/index.html) LaTeX features implemeted in SumatraPDF viewer.
+[![SumatraPDF](sumatra/sumatraicon.png) SumatraPDF for LaTeX](sumatra/index.html) LaTeX features implemeted in SumatraPDF viewer.
 
 [![Cracklock](cracklock/cracklock.png)](cracklock/index.html)
 [Cracklock](cracklock/index.html) A software that fixes a recurring bug

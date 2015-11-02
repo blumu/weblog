@@ -24,15 +24,14 @@ let websiteRoot = (__SOURCE_DIRECTORY__ @@ "output").Replace("\\", "/")
 let projInfo =
   [ "page-description", "William Blum's personal website"
     "page-author", "William Blum"
-    "github-link", ""
+    "github-link", "https://github.com/blumu/weblog"
     "project-name", "William blum site" 
     "project-author", "William Blum"
-    "project-github", "todo"
-    "page-title", "title"
-    "project-title", "title"
+    "project-github", "https://github.com/blumu/weblog"
+    "page-title", "William Blum's personal website"
+    "project-title", "William Blum's personal website"
     "project-summary", "William Blum's site http://william.famille-blum.org"
-//    "project-github", githubLink
-    "project-nuget", "https://github.com/blumu/weblog"
+    "project-github", "https://github.com/blumu/weblog"
     "root", websiteRoot
     ]
 
@@ -43,6 +42,8 @@ let output      = relative "output"
 let staticFiles = relative "static"
 let templates   = relative "templates" 
 let layoutRootsAll =  subdirsRecurse templates |> Seq.toList
+
+
 
 // Copy static files and CSS + JS from F# Formatting
 let copyFiles () =
@@ -97,7 +98,7 @@ let contentDirectories =
 let buildSite() =
   for contentDir in contentDirectories do
     Literate.ProcessDirectory
-      ( contentDir.sourceDirectory, 
+      ( contentDir.sourceDirectory,
         relative contentDir.template, 
         output @@ contentDir.outputDirectory,
         replacements = projInfo,
@@ -155,8 +156,7 @@ let watch () =
   use watcher =
     (List.fold (++) staticDirectories contentDirs)
     ++ (full templates + "/*.*")
-    |> WatchChanges (fun changes ->
-      changes |> Seq.iter queue.Enqueue)
+    |> WatchChanges (fun changes -> changes |> Seq.iter queue.Enqueue)
   use source = new System.Threading.CancellationTokenSource()
   Async.Start(processTask (), source.Token)
   printfn "Press enter to exit watching..."

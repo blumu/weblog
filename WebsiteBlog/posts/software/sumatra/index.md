@@ -9,8 +9,9 @@ I'm happy to see that SumatraPDF has become since then the de-facto PDF viewer f
 By the way if you like SumatraPDF for TeX editing then you should also give
 LatexDaemon a try, they work awesomely in pair!
 
-> Note: If you are curious to checkout my commits, take a look at the original SVN repository on Google Code. 
-> My email address and name were scrapped when the main author moved the code from SVN to Git :-( 
+> Note: If you are curious and want to see the corresponding commits
+> in the code base take a look at the original SVN repository on Google Code under my name. 
+> (Unfortunately my email address and name were scrapped when the main author moved the code from SVN to Git.) 
 
 Screenshot
 ----------
