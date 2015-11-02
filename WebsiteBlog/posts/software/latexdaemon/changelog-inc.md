@@ -19,7 +19,7 @@
 ## 23 June 2008 - Version 0.10 Build 43
 
 -   New: It is now possible to create a local configuration file (with the .daemon extension) that is automatically read by the daemon upon loading of the corresponding .tex file. Each line of the file must contain a valid LatexDaemon command. Comments are prefixed with two slash symbols: //.
--   New: It is now possible to add commands in the .tex file to be executed upon loading by latexdemon. Each command must be prefixed with '%Daemon&gt;' and must occur before any latex command. For instance:
+-   New: It is now possible to add commands in the .tex file to be executed upon loading by latexdemon. Each command must be prefixed with '%Daemon>' and must occur before any latex command. For instance:
 
         %Daemon> ini=latex
         %Daemon> afterjob=dvipspdf

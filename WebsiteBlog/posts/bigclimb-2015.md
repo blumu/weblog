@@ -14,7 +14,8 @@ Title = "Big Climb Fundraising for the Leukemia and Lymphoma Society";
 <content:encoded><![CDATA[Do you want to help blood cancer research? You can do that by donating at 
 [my Big Climb fundraising page](http://www.llswa.org/site/TR/Events/BigClimb?px=1696060&amp;pg=personal&amp;fr_id=1460) before March 22nd.
 
-The Big Climb is a stairclimb up the Columbia Center - the tallest skyscraper in downtown Seattle. There are 69 flights of stairs, 1311 steps, and 788 feet of vertical elevation. All proceeds benefit the <a href="http://www.lls.org/">Leukemia and Lymphoma Society</a>.
+The Big Climb is a stairclimb up the Columbia Center - the tallest skyscraper in downtown Seattle. There are 69 flights of stairs, 1311 steps, and 788 feet of vertical elevation. All proceeds 
+benefit the [Leukemia and Lymphoma Society](http://www.lls.org/).
 
 Thank you for your support!
  <a href="https://secure3.convio.net/llswa/site/Donation2;jsessionid=BFBEAB6B63531D2C0F87B276B1DEEDC5.app338b?2104.donation=form1&idb=1865941136&df_id=2104&FR_ID=1460&PROXY_ID=1696060&PROXY_TYPE=20">Donate 

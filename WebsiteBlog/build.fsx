@@ -4,9 +4,6 @@
 open System.IO
 open FSharp.Literate
 
-
-//#I "../../packages/FAKE/tools/"
-//#r "NuGet.Core.dll"
 #r "../../packages/FAKE/tools/FakeLib.dll"
 open Fake
 open System.IO
@@ -37,10 +34,6 @@ let projInfo =
 //    "project-github", githubLink
     "project-nuget", "https://github.com/blumu/weblog"
     "root", websiteRoot
-
-    "cracklock_lastest_version", "3.9.44"
-    "cracklock_lastest_setupfile", "Cracklock.3.9.44.exe"
-
     ]
 
 System.IO.Directory.SetCurrentDirectory (__SOURCE_DIRECTORY__)
@@ -62,21 +55,13 @@ let copyFiles () =
   //CopyRecursive (formatting @@ "styles") (output @@ "content") true 
   //  |> Log "Copying styles and scripts: "
 
-
-// let doc() =
-//     let template = relative @"templates\mydocpage.cshtml"
-//     Literate.ProcessDirectory (relative "posts", template, replacements = projInfo,
-//                                 outputDirectory = relative @"output\", 
-//                                 layoutRoots = layoutRootsAll )
-// 
-// doc()
-
-
 let contentDirectories =
     [ 
         @"posts",                    "",                    @"templates\mydocpage.cshtml" 
         @"pages\software\cracklock", @"software\cracklock", @"templates\cracklock.cshtml" 
         @"pages\research\",          @"research",           @"templates\researchref.cshtml" 
+
+        @"oldblog",                  @"",                   @"templates\mydocpage.cshtml" 
     
     ]
 
@@ -141,7 +126,6 @@ let watch () =
   let baseContent = !! (full content + "/*.*")
   use watcher =
     (List.fold (++) baseContent contentDirs)
-    ++ (full content + "/research/*.*")
     ++ (full templates + "/*.*")
     ++ (full staticFiles + "/*.*")
     |> WatchChanges (fun changes ->

@@ -132,10 +132,16 @@ If you want to enable Cracklock for this program, check the box <span class="bol
 You may need to tweak some parameters in some cases to make your application work with Cracklock.
 
 <span class="term">System-wide</span>  
-This will affect the system date and time. With this option, each time you run the controlled program, the system computer time and date will be changed to the date/time that you have specified. When the program ends, date and time will be restored to the actual date and time, taking account of elapsed time during usage of the program. &lt;br&gt; The drawback of this method is that all programs running simultaneously are affected together, Cracklock in its native method being precisely designed to affect specific date and time to each program running at one given moment and to avoid this inconvenience. &lt;br&gt; This option reproduces what you can do yourself manually without Cracklock, with the "date" or "time" commands under MS/DOS or with the configuration panel under Windows. In my mind, it has no real benefit.
+This will affect the system date and time. With this option, each time you run the controlled program, the system computer time and date will be changed to the date/time that you have specified. When the program ends, date and time will be restored to the actual date and time, taking account of elapsed time during usage of the program.
+
+ The drawback of this method is that all programs running simultaneously are affected together, Cracklock in its native method being precisely designed to affect specific date and time to each program running at one given moment and to avoid this inconvenience. 
+
+ This option reproduces what you can do yourself manually without Cracklock, with the "date" or "time" commands under MS/DOS or with the configuration panel under Windows. In my mind, it has no real benefit.
 
 <span class="term">Freeze date and time</span>  
-This "freeze" option allows to set a date/time which never changes, as if the time was frozen. Useful for programs that work only during a few hours or minutes. &lt;br&gt; For example, if you set 10:00:00 09/22/1981 for this program, during all the run it will "think" the time is 10:00:00 09/22/1981.Ten minutes later, the time will still be 10:00:00 09/22/1981 for the application. If the option is not selected, however, at the start the program will have a time of 10:00:00 09/22/1981, and ten minutes later it will be 10:10:00 09/22/1981.
+This "freeze" option allows to set a date/time which never changes, as if the time was frozen. Useful for programs that work only during a few hours or minutes.
+
+ For example, if you set 10:00:00 09/22/1981 for this program, during all the run it will "think" the time is 10:00:00 09/22/1981.Ten minutes later, the time will still be 10:00:00 09/22/1981 for the application. If the option is not selected, however, at the start the program will have a time of 10:00:00 09/22/1981, and ten minutes later it will be 10:10:00 09/22/1981.
 
 <span class="term">Injection mode</span>  
 In the "injection mode" tab of the configuration window, you can select between two different modes: static or run-time
@@ -298,7 +304,7 @@ For more information, visit the website: [http://william.famille-blum.org](http:
 
 -   Fixed: Link checksum in PE files are now recalculated whenever the files are altered (this only occurs in static injection mode).
 
--   Fixed: Allows the resident injector mode on Windows&gt;=NT
+-   Fixed: Allows the resident injector mode on Windows>=NT
 
 -   Fixed: The setup now kills the resident injector before copying files
 

@@ -80,7 +80,7 @@
 -   Fixed: applications crashed if no virtual mode (time, date or timezone) was selected.
 -   Fixed: PE executable files containing a Bound Import table caused a crash of the application.
 -   Fixed: Link checksum in PE files are now recalculated whenever the files are altered (this only occurs in static injection mode).
--   Fixed: Allows the resident injector mode on Windows&gt;=NT
+-   Fixed: Allows the resident injector mode on Windows>=NT
 -   Fixed: The setup now kills the resident injector before copying files
 
 <span class="term">3.8.20 - 11 September 2007</span>  
