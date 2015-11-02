@@ -84,7 +84,7 @@ let contentDirectories =
             sourceDirectory = @"oldblog\"
             allDirectories = true
             outputDirectory = @"blog\"
-            template = @"templates\mydocpage.cshtml"
+            template = @"templates\blogpost.cshtml"
         }
         {
             sourceDirectory = @"pages"

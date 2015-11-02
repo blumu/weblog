@@ -31,7 +31,7 @@ Software
 #### System tools
 
 * Ccleaner <http://www.ccleaner.com/>
-* Puttycyg [http://gecko.gc.maricopa.edu/\~medgar/puttycyg/](http://gecko.gc.maricopa.edu/%7Emedgar/puttycyg/)
+* Puttycyg <http://www.chiark.greenend.org.uk/~sgtatham/putty/>
 * Ant Renamer [http://www.antp.be/](http://www.antp.be/software/renamer/)
 * 7-zip <http://www.7-zip.org/>
 * Sysinternals (procexp, tcpview, ...)  <http://www.sysinternals.com/>
@@ -50,7 +50,7 @@ Software
 
 #### Multimedia (imaging, music, cd burdning)
 
-* Paint.Net <http://moab.eecs.wsu.edu/paint.net/>
+* Paint.Net <http://www.getpaint.net/>
 * Picasa <http://picasa.google.com/>
 * Google Earth <http://earth.google.com/>
 * Media Player Classic (includes a DVD player <http://sourceforge.net/projects/guliverkli/>
