@@ -22,7 +22,9 @@
       urchinTracker();
     </script>
     
-   
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
     
     <script type="text/javascript">
     // QuickSearch script for JabRef HTML export 
@@ -336,14 +338,14 @@
     #qssettings ul { display: none; list-style-type: none; padding-left: 0; margin: 0; }
     #qssettings.active ul { display: block; }
     </style>
-
+    
+  
     <link href="@Root/perso.css" rel="stylesheet" type="text/css" />
     <title>Publications references</title>
   </head>
   <body>
-    @Include("header")
     <div class="container">
-      @Include("subheader")
+      @Include("header")
       <div class="row">
         <div class="span9" id="main">
           @RenderBody()

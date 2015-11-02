@@ -1,7 +1,17 @@
+header {
+  font-size: xx-large;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+
+
+
 subsectionlink{
-	color: #005FA9;
-	text-decoration: none;
-	font-size: 80%;
+  color: #005FA9;
+  text-decoration: none;
+  font-size: 80%;
 }
 .source { font-family: "Courier New", Courier, mono; }
 .date {	color: #660000; }
@@ -12,50 +22,50 @@ subsectionlink{
   }
 
 code {
-	background-color: #f9f9f9;
+  background-color: #f9f9f9;
 }
 
 .bibtex pre {
-	padding: 1em;
+  padding: 1em;
     margin: 0em 0em 1em 0em;
-	border: 1px dashed #2f6fab;
-	color: black;
-	font-size: 80%;    
-	background-color: #f9f9f9;
-	line-height: 1.1em;
+  border: 1px dashed #2f6fab;
+  color: black;
+  font-size: 80%;    
+  background-color: #f9f9f9;
+  line-height: 1.1em;
 }
 
 .bibtex  h5 {
-	background: transparent;
-	padding: 0 1em 0 .5em;
-	display: inline;
-	height: 1em;
-	text-transform: lowercase;
-	font-size: 80%;
-	font-weight: normal;
-	white-space: nowrap;
+  background: transparent;
+  padding: 0 1em 0 .5em;
+  display: inline;
+  height: 1em;
+  text-transform: lowercase;
+  font-size: 80%;
+  font-weight: normal;
+  white-space: nowrap;
 }
 
 
 
   /*
 
-  	-- -- -- -- -- -- --
-  	Browser Fixes
-  	-- -- -- -- -- -- --
-  	
-  	This file uses CSS filtering methods to fix various
-  	layout bugs.
+    -- -- -- -- -- -- --
+    Browser Fixes
+    -- -- -- -- -- -- --
+    
+    This file uses CSS filtering methods to fix various
+    layout bugs.
 
-  	Each of the following three imported files is a
-  	separate, browser-specific CSS file that keeps all
-  	hacks out of the main style sheet.
-  	
-  	Over time, as supporting these browsers no longer
-  	remains a priority, cleaning up the hacks is as
-  	easy as deleting the @import statement below, or
-  	simply no longer linking this file from the HTML.
-  	
+    Each of the following three imported files is a
+    separate, browser-specific CSS file that keeps all
+    hacks out of the main style sheet.
+    
+    Over time, as supporting these browsers no longer
+    remains a priority, cleaning up the hacks is as
+    easy as deleting the @import statement below, or
+    simply no longer linking this file from the HTML.
+    
   */
 
   /*
@@ -67,24 +77,24 @@ code {
   }
 
   /*
-   * IE5 mac - overrides the IE/Win hack
-   */
+  * IE5 mac - overrides the IE/Win hack
+  */
 
   /*\*//*/
 
   * html #threecolumn div {
-  	height: auto;
+    height: auto;
   }
 
   /**/
 
 
   /*
-   * IE5/Win-specific CSS -ensures #container wraps all content on window resize
-   */
+  * IE5/Win-specific CSS -ensures #container wraps all content on window resize
+  */
 
   @media tty {
-   i{content:"\";/*" "*/}} * html #container { height: 1%; } /*";}
+  i{content:"\";/*" "*/}} * html #container { height: 1%; } /*";}
   }/* */
   /* Styling for editable elements. Eventually, this will be part of the style. */
   .editable {
@@ -103,35 +113,35 @@ code {
 
 /*body { } */
   #container {
-	width: 100%;
+  width: 100%;
     text-align: left;
     margin: 0 0 auto;
   }
   #main-content {
-	/* margin: 0 10em .6em -12.2em;*/
-	margin-left: 200px;
-	border-left: 1px solid gray;
-	/*margin-right: 200px;*/
-	border-right: 1px solid gray;
+  /* margin: 0 10em .6em -12.2em;*/
+  margin-left: 200px;
+  border-left: 1px solid gray;
+  /*margin-right: 200px;*/
+  border-right: 1px solid gray;
 /*    min-width: 500px;*/
   }
   #sidebar {
     float: left;
-	position:relative;
+  position:relative;
     width: 120px;
   }
   #sidebar-alternate {
-	float: right;
-	position:relative;
-	margin-left: 0px;
+  float: right;
+  position:relative;
+  margin-left: 0px;
     width: 120px;
   }
   #footer {
-	margin-top: 1.25em;
-	background: #bbb url(common/footer-bg.png) repeat-x left top;
-	clear: both;
+  margin-top: 1.25em;
+  background: #bbb url(common/footer-bg.png) repeat-x left top;
+  clear: both;
   }
-   
+  
 
   
   /** BEGIN CUSTOM SKIN **/
@@ -158,11 +168,11 @@ code {
     margin: 0em;
   }
   div#header {
-	margin-left: 1em;
-	margin-right: 1em;
-	margin-top: 0.5em;
-	margin-bottom: 1em;
-	padding: 0em 0em 0em 0em;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  padding: 0em 0em 0em 0em;
 /*    _padding-bottom: 1em; */ /* hack for IE6 */
   }
   div#header div.wrapper {
@@ -170,9 +180,9 @@ code {
     margin: 0em;
   }
 
-   #header div.menu {
+  #header div.menu {
     top: 5px;
-	left: 100px;
+    left: 100px;
     text-align: right;
     white-space: nowrap;
   }
@@ -180,6 +190,7 @@ code {
   div.search input {
       font-size: 93%;
       width: 110px;
+      margin-bottom: 0px;
     }
     div.search input.button { width: auto; margin-left: 5px; }
   
@@ -188,10 +199,10 @@ code {
     color: #3f3f3f;
 /*    background: url(/-/includes/style/madison/madison-one/content-top.gif) top no-repeat; */
     background: white;
-	color: black;
-	border: 1px solid #aaa; 
-	/*border-right: none; */
-	line-height: 1.5em;
+  color: black;
+  border: 1px solid #aaa; 
+  /*border-right: none; */
+  line-height: 1.5em;
   }
   
   div#sidebar,div#sidebar-alternate {
@@ -233,17 +244,17 @@ code {
   
   body#twocolumn-left div#main-content {
     padding: 10px 1em;
-	margin-left: 170px; 
+  margin-left: 170px; 
     margin-right: 20px; 
-	margin-top: 0px;
+  margin-top: 0px;
   }
   body#twocolumn-left div#sidebar {
-	margin-top: 0px;
-	margin-left: 10px;
+  margin-top: 0px;
+  margin-left: 10px;
     padding-left: 15px;
     width: 125px;
-	clear:both;
-	
+  clear:both;
+  
   }
   
 
@@ -251,24 +262,24 @@ code {
   
   body#threecolumn div#main-content {
     padding: 10px 1em;
-	margin-left: 150px; 
+  margin-left: 150px; 
     margin-right: 150px; 
-	margin-top: 0px;
+  margin-top: 0px;
   }
   body#threecolumn div#sidebar {
     width: 125px;
-	margin-top: 0px;
+  margin-top: 0px;
     margin-left: 1.2em;
     padding-left: 0em;
     display: inline;
-	/* position:absolute; */
+  /* position:absolute; */
   }
   body#threecolumn div#sidebar-alternate {
     padding-right: 0em;
     margin-right: 1em;
     width: 125px;
-	margin-top: 0px;
-	display: inline;
+  margin-top: 0px;
+  display: inline;
   }
 
   /* general styles: headings */
@@ -286,7 +297,6 @@ code {
   h1 {
     font-size: 160%;
     font-weight: bold;
-    border-bottom: 1px solid #b3e6e6;
     padding-bottom: 0.2em;
     margin-bottom: 1em;
     display: table; 
@@ -295,7 +305,6 @@ code {
   h2 {
     font-size: 130%;
     font-weight: normal;
-    border-bottom: 2px solid #b3e6e6;
     padding-bottom: 0.1em;
     margin-bottom:1em;
     margin-top:1em;
@@ -303,26 +312,26 @@ code {
     line-height: 110%; /* for padding below, the above line took away other possibilities */
   }
   h3 {
-    font-size: 120%;
+    font-size: 100%;
     font-weight: normal;
-    border-bottom: 1px solid #0000FF;
     padding-bottom: 0.2em;
+    margin-bottom:5px;
     display: table;   /* so that the underline spans only text width, and not the entire page */
   }
   h4 {
-    font-size: 120%;
+    font-size: 90%;
     font-weight: bold;
-   /* border-bottom: 1px solid #b3e6e6; */
+  /* border-bottom: 1px solid #b3e6e6; */
     padding-bottom: 0.1em;
     display: table; /* so that the underline spans only text width, and not the entire page */
   }
   h5 {
-    font-size: 100%;
+    font-size: 90%;
     font-weight: bold;
     display: inline;
   }
   h6 {
-    font-size: 100%;
+    font-size: 90%;
     font-weight: normal;
     color: black;
     display: inline;
@@ -338,11 +347,11 @@ code {
 
 
   /* general styles: links */
- /* a {
+/* a {
     color: #125ebc;
     text-decoration: none;
     border: none;
-     this underline is further away from the text = more legibility
+    this underline is further away from the text = more legibility
     border-bottom: 1px solid #125ebc;
   }
   a:visited {
@@ -350,44 +359,44 @@ code {
     text-decoration: none;
     border: none;
       color: #638bbc; 
-     this underline is further away from the text = more legibility 
+    this underline is further away from the text = more legibility 
     border-bottom: 1px solid #638bbc; 
   }*/
-	a img, :link img, :visited img {
-	border: none;border-bottom: 0;
-	} 
+  a img, :link img, :visited img {
+  border: none;border-bottom: 0;
+  } 
 
-	a {
-		text-decoration: none;
-		color: #005FA9;
-		background: none;
-	 border: none;
+  a {
+    text-decoration: none;
+    color: #005FA9;
+    background: none;
+  border: none;
 
-	}
-	/*a:visited {
-		color: #5a3696;
-	}*/
-	a:active {
-		color: #faa700;
-	}
-	a img:hover {
-		text-decoration: none;
-		border-bottom: 0;
-	}
-	a:hover {
-		color: #faa700;
-		text-decoration: none;
-	}
-	a.stub {
-		/*color: #772233;*/
-	}
-	a.new {
-	/*	color: #ba0000;*/
-	}
+  }
+  /*a:visited {
+    color: #5a3696;
+  }*/
+  a:active {
+    color: #faa700;
+  }
+  a img:hover {
+    text-decoration: none;
+    border-bottom: 0;
+  }
+  a:hover {
+    color: #faa700;
+    text-decoration: none;
+  }
+  a.stub {
+    /*color: #772233;*/
+  }
+  a.new {
+  /*	color: #ba0000;*/
+  }
 
-	/*a.new:visited {
-		color: #a55858;
-	}*/
+  /*a.new:visited {
+    color: #a55858;
+  }*/
 
 
 
@@ -399,10 +408,6 @@ code {
   dt {
     margin-left: 1.8em;
   }
-  blockquote {
-    margin-left: 1.8em;
-  }
-
   /* general styles: tables */
 /*  table {
     border-collapse: collapse; 
@@ -454,68 +459,4 @@ code {
   }
 
   /** END CUSTOM SKIN **/
-
-
-/*
-** general portlet styles (elements in the quickbar)
-*/
-.portlet {
-	border: none;
-	margin: 0 0 .5em;
-	padding: 0;
-	float: none;
-/*width: 18em;*/
-	overflow: hidden;
-}
-.portlet h4 {
-	font-size: 95%;
-	font-weight: normal;
-	white-space: nowrap;
-}
-.portlet h5 {
-	background: transparent;
-	padding: 0 1em 0 .5em;
-	display: inline;
-	height: 1em;
-	text-transform: lowercase;
-	font-size: 91%;
-	font-weight: normal;
-	white-space: nowrap;
-}
-.portlet h6 {
-	background: #ffae2e;
-	border: 1px solid #2f6fab;
-	border-style: solid solid none solid;
-	padding: 0 1em 0 1em;
-	text-transform: lowercase;
-	display: block;
-	font-size: 1em;
-	height: 1.2em;
-	font-weight: normal;
-	white-space: nowrap;
-}
-.pBody {
-	font-size: 95%;
-	background-color: white;
-	color: black;
-	border-collapse: collapse;
-	border: 1px solid #aaa;
-	padding: 0 .8em .3em .5em;
-}
-.portlet h1,
-.portlet h2,
-.portlet h3,
-.portlet h4 {
-	margin: 0;
-	padding: 0;
-}
-.portlet ul {
-	line-height: 1.5em;
-	list-style-type: square;
-	list-style-image: url(common/bullet.gif);
-	font-size: 95%;
-}
-.portlet li {
-	padding: 0;
-	margin: 0;
-}
+  

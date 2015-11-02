@@ -6,9 +6,10 @@ Some links to some useful websites and software.
 Other personal pages
 --------------------
 
-* [Oxford Computing Lab Homepage](http://web.comlab.ox.ac.uk/oucl/people/william.blum.html)
-* [Picasa public albums](http://picasaweb.google.com/william.blum)
-* [Google Site experiment](http://william.blum.googlepages.com/)
+* [GitHub](https://github.com/blumu/weblog)
+* [My page at the Oxford Computing Lab Homepage](http://web.comlab.ox.ac.uk/oucl/people/william.blum.html)
+* [Public albums on Picasa](http://picasaweb.google.com/william.blum)
+* [Google Site experiment (en français)](http://william.blum.googlepages.com/)
 
 Software
 --------
