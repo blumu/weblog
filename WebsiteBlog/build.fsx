@@ -38,8 +38,8 @@ let projInfo =
 System.IO.Directory.SetCurrentDirectory (__SOURCE_DIRECTORY__)
 
 
+let staticRoot  = relative "static"
 let output      = relative "output"
-let staticFiles = relative "static"
 let templates   = relative "templates" 
 let layoutRootsAll =  subdirsRecurse templates |> Seq.toList
 
@@ -47,7 +47,7 @@ let layoutRootsAll =  subdirsRecurse templates |> Seq.toList
 
 // Copy static files and CSS + JS from F# Formatting
 let copyFiles () =
-  CopyRecursive staticFiles output true |> Log "Copying file: "
+  CopyRecursive staticRoot output true |> Log "Copying file: "
   ensureDirectory (output @@ "content")
 
 
@@ -146,16 +146,26 @@ let watch () =
           printfn "Documentation generation failed: %O" e
     }
 
-  let contentDirs = contentDirectories
-                    |> Seq.map (fun d -> d.sourceDirectory)
-                    |> Seq.collect subdirsRecurse
-                    |> Seq.map (fun d -> relative d + "/*.*" )
-                    |> Seq.toList
+  // Given a list of directories return a list of filters matching all files in each directory
+  let allFilesInDirectory =
+    Seq.map (fun d -> relative d + "/*.*" )
+    >> Seq.toList
 
-  let staticDirectories = !! (full staticFiles + "/*.*")
+  let allFilesInAllSubdirectories =
+    Seq.collect subdirsRecurse
+    >> allFilesInDirectory
+
+  let (+++) x dirs =  List.fold (++) x dirs
+
+  let contentDirs = 
+    contentDirectories
+    |> Seq.map (fun d -> d.sourceDirectory)
+
   use watcher =
-    (List.fold (++) staticDirectories contentDirs)
-    ++ (full templates + "/*.*")
+    (!! (full templates + "/*.*")
+      +++ allFilesInAllSubdirectories contentDirs
+      +++ allFilesInAllSubdirectories [ staticRoot ]
+    )
     |> WatchChanges (fun changes -> changes |> Seq.iter queue.Enqueue)
   use source = new System.Threading.CancellationTokenSource()
   Async.Start(processTask (), source.Token)
