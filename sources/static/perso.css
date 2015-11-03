@@ -5,9 +5,6 @@ header {
   margin-top: 20px;
 }
 
-
-
-
 subsectionlink{
   color: #005FA9;
   text-decoration: none;
@@ -46,65 +43,6 @@ code {
   white-space: nowrap;
 }
 
-
-
-  /*
-
-    -- -- -- -- -- -- --
-    Browser Fixes
-    -- -- -- -- -- -- --
-    
-    This file uses CSS filtering methods to fix various
-    layout bugs.
-
-    Each of the following three imported files is a
-    separate, browser-specific CSS file that keeps all
-    hacks out of the main style sheet.
-    
-    Over time, as supporting these browsers no longer
-    remains a priority, cleaning up the hacks is as
-    easy as deleting the @import statement below, or
-    simply no longer linking this file from the HTML.
-    
-  */
-
-  /*
-    fix ie6 "peekaboo bug" using the "holly hack".
-    Note, this style only gets applied to ie6
-  */
-  * html .wrapper {
-    height: 0.1%;
-  }
-
-  /*
-  * IE5 mac - overrides the IE/Win hack
-  */
-
-  /*\*//*/
-
-  * html #threecolumn div {
-    height: auto;
-  }
-
-  /**/
-
-
-  /*
-  * IE5/Win-specific CSS -ensures #container wraps all content on window resize
-  */
-
-  @media tty {
-  i{content:"\";/*" "*/}} * html #container { height: 1%; } /*";}
-  }/* */
-  /* Styling for editable elements. Eventually, this will be part of the style. */
-  .editable {
-    border: 1px dashed blue;
-  }
-
-  #footer {
-    clear: both;
-  }
-
   /* Extra divs hidden by default. The custom CSS can override this though */
   #extraDiv1, #extraDiv2, #extraDiv3, #extraDiv4, #extraDiv5, #extraDiv6 {
     display: none;
@@ -127,22 +65,30 @@ code {
   }
   #sidebar {
     float: left;
-  position:relative;
+    position:relative;
     width: 120px;
   }
   #sidebar-alternate {
-  float: right;
-  position:relative;
-  margin-left: 0px;
+    float: right;
+    position:relative;
+    margin-left: 0px;
     width: 120px;
   }
-  #footer {
+/*  #footer {
   margin-top: 1.25em;
   background: #bbb url(common/footer-bg.png) repeat-x left top;
   clear: both;
   }
-  
-
+  */
+  .footer {
+    position: absolute;
+    bottom: 0;
+    clear:both;
+    width: 100%;
+    height : 60px;
+    background: #bbb url(common/footer-bg.png) repeat-x left top;
+  }
+ 
   
   /** BEGIN CUSTOM SKIN **/
   /* general layout */
@@ -213,15 +159,6 @@ code {
     padding: 0em;
     /*margin: 0em;*/
     padding-top: 0em;
-  }
-  div#footer {
-    margin-top: 2em;
-/*    background: url(/-/includes/style/madison/madison-one/content-top.gif) top no-repeat; */
-    padding: 1em 35px;
-/*    color: #7f7f7f; */
-  }
-  div#footer hr { /* I don't like this, but I have no idea why that <hr> is there */
-    display: none;
   }
 
   /* adjusting widths for different layouts */
