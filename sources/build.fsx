@@ -1,10 +1,10 @@
 ﻿/// Given a typical setup (with 'FSharp.Formatting' referenced using NuGet),
 // the following will include binaries and load the literate script
-#load @"..\packages\FSharp.Formatting\FSharp.Formatting.fsx"
+#load @"packages\FSharp.Formatting\FSharp.Formatting.fsx"
 open System.IO
 open FSharp.Literate
 
-#r "../../packages/FAKE/tools/FakeLib.dll"
+#r "packages/FAKE/tools/FakeLib.dll"
 open Fake
 open System.IO
 open Fake
@@ -19,7 +19,11 @@ let subdirsRecurse dir =
         yield! System.IO.Directory.EnumerateDirectories(dir,"*", SearchOption.AllDirectories)
     ]
 
-let websiteRoot = (__SOURCE_DIRECTORY__ @@ "..\output").Replace("\\", "/")
+let staticRoot  = relative "static"
+let output      = relative "..\output"
+let templates   = relative "templates" 
+
+let websiteRoot = (__SOURCE_DIRECTORY__ @@ output).Replace("\\", "/")
 
 let projInfo =
   [ "page-description", "William Blum's personal website"
@@ -37,12 +41,7 @@ let projInfo =
 
 System.IO.Directory.SetCurrentDirectory (__SOURCE_DIRECTORY__)
 
-
-let staticRoot  = relative "static"
-let output      = relative "output"
-let templates   = relative "templates" 
 let layoutRootsAll =  subdirsRecurse templates |> Seq.toList
-
 
 
 // Copy static files and CSS + JS from F# Formatting
@@ -112,7 +111,6 @@ let watch () =
   rebuildDocs()
   printfn "Watching for changes..."
 
-  let full s = Path.GetFullPath s
   let queue = new System.Collections.Concurrent.ConcurrentQueue<_>()
   let processTask () =
     async {
@@ -156,7 +154,7 @@ let watch () =
     |> Seq.map (fun d -> d.sourceDirectory)
 
   use watcher =
-    (!! (full templates + "/*.*")
+    (!! (templates + "/*.*")
       +++ allFilesInAllSubdirectories contentDirs
       +++ allFilesInAllSubdirectories [ staticRoot ]
     )
