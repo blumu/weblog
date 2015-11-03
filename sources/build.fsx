@@ -21,13 +21,28 @@ let subdirsRecurse dir =
     ]
 
 let staticRoot  = relative "static"
-let output      = relative "..\output"
 let templates   = relative "templates" 
 
 #if PUBLISH
-let websiteRoot = "http://william.famille-blum.org/"
+let output      = relative "..\..\wwwroot"
 #else
-let websiteRoot = (__SOURCE_DIRECTORY__ @@ output).Replace("\\", "/")
+let output      = relative "..\output"
+#endif
+
+let sourceRoot = (__SOURCE_DIRECTORY__ @@ output).Replace("\\", "/")
+
+// Get the domain name from command-line (for Kudu deployment)
+let args = System.Environment.GetCommandLineArgs()
+let domainName = 
+    if args.Length > 0 then
+        args.[0]
+    else
+        "william.famille-blum.org"
+
+#if PUBLISH
+let websiteRoot = sprintf "http://" domainName
+#else
+let websiteRoot = sourceRoot
 #endif
 
 let projInfo =
@@ -42,6 +57,7 @@ let projInfo =
     "project-summary", "William Blum's site http://william.famille-blum.org"
     "project-github", "https://github.com/blumu/weblog"
     "root", websiteRoot
+    "sourceroot", sourceRoot
     ]
 
 
@@ -112,13 +128,15 @@ let buildSite() =
         lineNumbers = false
       )
 
-let watch () =
-  printfn "Starting watching by initial building..."
-  let rebuildDocs () =
+let rebuildSite () =
     CleanDir output // Just in case the template changed (buildDocumentation is caching internally, maybe we should remove that)
     copyFiles()
     buildSite()
-  rebuildDocs()
+
+let watch () =
+  printfn "Starting watching by initial building..."
+
+  rebuildSite()
   printfn "Watching for changes..."
 
   let queue = new System.Collections.Concurrent.ConcurrentQueue<_>()
@@ -142,7 +160,7 @@ let watch () =
             printfn "Detected changes (%A). Invalidate cache and rebuild." !data
             FSharp.MetadataFormat.RazorEngineCache.InvalidateCache (!data |> Seq.map (fun change -> change.FullPath))
             FSharp.Literate.RazorEngineCache.InvalidateCache (!data |> Seq.map (fun change -> change.FullPath))
-            rebuildDocs()
+            rebuildSite()
             printfn "Documentation generation finished."
         with e ->
           printfn "Documentation generation failed: %O" e
@@ -176,4 +194,9 @@ let watch () =
   watcher.Dispose()
   source.Cancel()
 
+#if PUBLISH
+printfn "Publishing site"
+rebuildSite ()
+#else
 watch () 
+#endif

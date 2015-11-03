@@ -18,7 +18,7 @@
             string[] ligne = ligneText.Split(',').Select(x=>x.Replace("\"","")).ToArray();
             string fsize = "";
             string link = "";
-            string filePath = @Root + @"/software/cracklock/downloads/" + ligne[0];
+            string filePath = @Properties["sourceroot"] + @"/software/cracklock/downloads/" + ligne[0];
             if(System.IO.File.Exists(filePath)) {
                 fsize = readableFileSize(new System.IO.FileInfo(filePath).Length);
                 link = "<a href=\"downloads/" + ligne[0] + "\">" + ligne[0] + "</a>";
@@ -46,5 +46,5 @@
 <h2><img src="../cracklock/images/download.gif" alt="Download previous versions" width="16" height="16" border="0" vspace="0" hspace="0" align="bottom" /> Previous versions</h2>
 <table class="mytable" cellspacing="0"  summary="Previous versions of Cracklock">
 <caption>Previous versions of Cracklock</caption>
-    @dumpDownloadtableFromCsv(@Root + @"\software\cracklock\filesdescr.csv")
+    @dumpDownloadtableFromCsv(@Properties["sourceroot"] + @"\software\cracklock\filesdescr.csv")
 </table>
