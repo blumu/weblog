@@ -1,6 +1,8 @@
 SumatraPDF for LaTeX and TeX users
 ==================================
 
+![SumatraPDF forward synchronizaion](forwardsync.png)
+
 I am the original contributor of all the LaTeX features integrated in the [Sumatra PDF viewer](http://blog.kowalczyk.info/software/sumatrapdf/).
 This includes: autorefresh, DDE commands, pdfsync backward and forward synchronization and synctex synchronization, and 
 editor configuration UI for inverse-search.
