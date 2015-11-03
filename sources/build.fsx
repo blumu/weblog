@@ -1,5 +1,6 @@
-﻿/// Given a typical setup (with 'FSharp.Formatting' referenced using NuGet),
-// the following will include binaries and load the literate script
+﻿/// Build script for my weblog site
+/// Adapted by William Blum from F# Formatting example by Tomas Petricek.
+
 #load @"packages\FSharp.Formatting\FSharp.Formatting.fsx"
 open System.IO
 open FSharp.Literate
@@ -23,7 +24,11 @@ let staticRoot  = relative "static"
 let output      = relative "..\output"
 let templates   = relative "templates" 
 
+#if PUBLISH
+let websiteRoot = "http://william.famille-blum.org/"
+#else
 let websiteRoot = (__SOURCE_DIRECTORY__ @@ output).Replace("\\", "/")
+#endif
 
 let projInfo =
   [ "page-description", "William Blum's personal website"
@@ -39,7 +44,6 @@ let projInfo =
     "root", websiteRoot
     ]
 
-System.IO.Directory.SetCurrentDirectory (__SOURCE_DIRECTORY__)
 
 let layoutRootsAll =  subdirsRecurse templates |> Seq.toList
 
@@ -62,8 +66,14 @@ type ContentDirectory =
 let contentDirectories =
     [ 
         {
-            sourceDirectory = @"oldblog\"
+            sourceDirectory = @"blog\legacy"
             allDirectories = true
+            outputDirectory = @"blog\"
+            template = @"templates\blogpost.cshtml"
+        }
+        {
+            sourceDirectory = @"blog\new"
+            allDirectories = false
             outputDirectory = @"blog\"
             template = @"templates\blogpost.cshtml"
         }
