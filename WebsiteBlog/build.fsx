@@ -19,7 +19,7 @@ let subdirsRecurse dir =
         yield! System.IO.Directory.EnumerateDirectories(dir,"*", SearchOption.AllDirectories)
     ]
 
-let websiteRoot = (__SOURCE_DIRECTORY__ @@ "output").Replace("\\", "/")
+let websiteRoot = (__SOURCE_DIRECTORY__ @@ "..\output").Replace("\\", "/")
 
 let projInfo =
   [ "page-description", "William Blum's personal website"
