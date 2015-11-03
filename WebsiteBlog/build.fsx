@@ -63,24 +63,6 @@ type ContentDirectory =
 let contentDirectories =
     [ 
         {
-            sourceDirectory = @"posts"
-            allDirectories = true
-            outputDirectory = @""
-            template = @"templates\mydocpage.cshtml"
-        }
-        {
-            sourceDirectory = @"pages\software\cracklock"
-            allDirectories = true
-            outputDirectory = @"software\cracklock"
-            template = @"templates\cracklock.cshtml"
-        }
-        {
-            sourceDirectory = @"pages\research\"
-            allDirectories = true
-            outputDirectory = @"research"
-            template = @"templates\researchref.cshtml"
-        }
-        {
             sourceDirectory = @"oldblog\"
             allDirectories = true
             outputDirectory = @"blog\"
@@ -88,9 +70,21 @@ let contentDirectories =
         }
         {
             sourceDirectory = @"pages"
-            allDirectories = false
+            allDirectories = true
             outputDirectory = @""
-            template = @"templates\mydocpage.cshtml"
+            template = @"templates\pages.cshtml"
+        }
+        {
+            sourceDirectory = @"specialpages\software\cracklock"
+            allDirectories = true
+            outputDirectory = @"software\cracklock"
+            template = @"templates\cracklock.cshtml"
+        }
+        {
+            sourceDirectory = @"specialpages\research\"
+            allDirectories = true
+            outputDirectory = @"research"
+            template = @"templates\researchref.cshtml"
         }
     ]
 
