@@ -33,9 +33,23 @@
       @Include("subheader")
       <div class="row">
         <div class="span9" id="main">
-          @RenderBody()
+
+          <script type="text/javascript">
+            window.onload = function () {
+              // I cannot figure out a nice way to format date. Also somehow the onload
+              // injection method introduces a noticeable dealy in the refresh. So until
+              // I find a better solution we just keep the static date from the post itself.
+              //var d = new Date(Date.parse(metadata.postDate));
+              //$('<p><b>' + d.toLocaleDateString() + ' ' + d.toLocaleTimeString() + '</b></p>').insertAfter($('#before-post').siblings('h1').first());
+              if(metadata.legacyViews) {
+                $('#after-post').html('<br/><i>' + metadata.legacyViews + ' views as of Oct 30th 2015.</i><br/>');
+              }
+            };
+          </script>
           
-          <p style="padding-bottom: 3cm;" />
+          <div id="before-post"></div>
+          @RenderBody()
+          <p id="after-post" style="padding-bottom: 3cm;" />
       
           <!-- BEGIN DISQUS BLOB -->
           <div id="disqus_thread"></div>
