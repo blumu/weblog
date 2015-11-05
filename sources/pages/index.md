@@ -6,7 +6,7 @@ other things...
 
 ## Blog posts
 
-* 3 Nov 2015 - [New website design](blog/new-site-design.html)
+* 5 Nov 2015 - [Website design overhaul](blog/website-design-overhaul.html)
 
 * 23 Feb 2015 - [Big Climb and the Leukemia and Lymphoma Society](blog/entry150223-003713.html)
 
