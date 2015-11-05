@@ -42,10 +42,10 @@ Related blog posts
 ------------------
 Here are some relate blog posts I wrote on the topic.
 
--   [SyncTeX-related news](http://william.famille-blum.org/blog/index.php?entry=entry081007-214408)
--   [SyncTeX and SumatraPDF](http://william.famille-blum.org/blog/index.php?entry=entry080612-040012)
--   [PDF-Latex synchronization (continued)](http://william.famille-blum.org/blog/index.php?entry=entry080515-065447)
--   [Synchronizing PDF files with Latex documents](http://william.famille-blum.org/blog/index.php?entry=entry080514-043933)
--   [Configuring editors with SumatraPDF](http://william.famille-blum.org/blog/static.php?page=static081010-000413)
+-   [SyncTeX-related news](../../blog/index.php?entry=entry081007-214408)
+-   [SyncTeX and SumatraPDF](../../blog/index.php?entry=entry080612-040012)
+-   [PDF-Latex synchronization (continued)](../../blog/index.php?entry=entry080515-065447)
+-   [Synchronizing PDF files with Latex documents](../../blog/index.php?entry=entry080514-043933)
+-   [Configuring editors with SumatraPDF](../../blog/static.php?page=static081010-000413)
 
 

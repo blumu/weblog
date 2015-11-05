@@ -30,17 +30,20 @@ let output      = relative "..\output"
 #endif
 
 let sourceRoot = (__SOURCE_DIRECTORY__ @@ output).Replace("\\", "/")
+argList
+
 
 // Get the domain name from command-line (for Kudu deployment)
-let args = System.Environment.GetCommandLineArgs()
 let domainName = 
-    if args.Length > 0 then
-        args.[0]
+    if fsi.CommandLineArgs.Length > 1 then
+        fsi.CommandLineArgs.[1]
     else
         "william.famille-blum.org"
 
+printfn "Domain is %s" domainName
+
 #if PUBLISH
-let websiteRoot = sprintf "http://" domainName
+let websiteRoot = sprintf "http://%s" domainName
 #else
 let websiteRoot = sourceRoot
 #endif
