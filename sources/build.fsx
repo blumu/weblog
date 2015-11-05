@@ -35,10 +35,12 @@ argList
 
 // Get the domain name from command-line (for Kudu deployment)
 let domainName = 
-    if fsi.CommandLineArgs.Length > 1 then
-        fsi.CommandLineArgs.[1]
-    else
+    if fsi.CommandLineArgs.Length <= 1 
+       || fsi.CommandLineArgs.[1] = "luweiblog.azurewebsites.net" // hack to remap to custom domain name in production.  
+    then
         "william.famille-blum.org"
+    else
+        fsi.CommandLineArgs.[1]
 
 printfn "Domain is %s" domainName
 
