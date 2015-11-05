@@ -1,4 +1,8 @@
-![Cracklock](cracklock.png) Cracklock FAQ
+<div class="markdowntitle">
+# Cracklock FAQ
+</div>
+
+![](cracklock.png) Cracklock FAQ
 =========================================
 
 ## How can I load and save all Cracklock's settings including the date/time configuration of each programs that Cracklock controls?

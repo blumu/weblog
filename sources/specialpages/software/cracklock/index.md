@@ -1,5 +1,9 @@
-![Cracklock](cracklock.png) Cracklock
-=====================================
+<div class="markdowntitle">
+# Cracklock
+</div>
+
+![](cracklock.png) Cracklock
+============================
 
 <script text="text/javascript" src="latestVersion.js" > </script>
 

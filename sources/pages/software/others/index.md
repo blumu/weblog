@@ -1,4 +1,8 @@
-![Other softwares](download.png) Other softwares
+<div class="markdowntitle">
+# Other softwares
+</div>
+
+![](download.png) Other softwares
 ================================================
 
 <link href="../../common/downloadtable.css" rel="stylesheet" type="text/css" media="screen" />

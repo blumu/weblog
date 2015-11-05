@@ -397,3 +397,7 @@ code {
 
   /** END CUSTOM SKIN **/
   
+.markdowntitle {
+  visibility: hidden;
+  display: none;
+}
