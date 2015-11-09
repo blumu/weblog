@@ -226,7 +226,25 @@ For more information, visit the website: [http://william.famille-blum.org](http:
 
 ### <span id="changelog"></span>Change logs
 
-##### <span id="id238678"></span>Change log
+
+<span class="term">3.9.44 - 16 March 2008 </span>
+
+-   Fixed: The setup does not set write permissions for the Cracklock.settings file, so if the user chooses to store settings in cracklock's directory then it is impossible to add applications to Cracklock.
+-   Setup: If some files that need to be updated are in use then it shows a dialog box listing all the applications that need to be stopped before proceeding with the installation/uninstallation.
+
+<span class="term">3.9.42 - 11 March 2008 </span>
+
+-   <span class="bold">**Important bug fixed:**</span> Cracklock did not work in parts of the world where no daylight saving scheme is implemented! (These include the following countries: Afghanistan, Bahrain, China, Hong Kong, Japan, Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan, Uzbekistan, Macau, Mongolia, North Korea, Qatar, Kuwait, Saudi Arabia, South Korea, Nepal, Bhutan, Pakistan, India, Bangladesh, Myanmar, Taiwan, Thailand, Laos, Vietnam, Philippines, Cambodia, Malaysia, Brunei, Singapore, Indonesia, Timor Leste, Papua New Guinea, Venezuela)
+
+-   Chinese translation updated. This may become more useful now that Cracklock works in China ;-)
+
+-   Fixed: the default parameters for the control panel date and time applet was incorrectly set during installation.
+
+-   Fixed: small bugs fixed in the Manager.
+
+-   Manager: Hitting the F5 key refreshes the list
+
+-   Examples: new clock example written in C\#. The VCDate and VBDate have been renamed into C Clock Example and VB Clock Example
 
 <span class="term">3.9.39 - 11 March 2008 </span>  
 -   <span class="bold">**Important bug fixed:**</span> Cracklock did not work in part of the world where no daylight saving scheme is implemented! (These include: Afghanistan, Bahrain, China, Hong Kong, Japan, Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan, Uzbekistan, Macau, Mongolia, North Korea, Qatar, Kuwait, Saudi Arabia, South Korea, Nepal, Bhutan, Pakistan, India, Bangladesh, Myanmar, Taiwan, Thailand, Laos, Vietnam, Philippines, Cambodia, Malaysia, Brunei, Singapore, Indonesia, Timor Leste, Papua New Guinea, Venezuela)
