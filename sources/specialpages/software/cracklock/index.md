@@ -52,6 +52,32 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 </div>
 
+64-bit support and open source
+------------------------------
+
+Need Cracklock for 64-bit programs? 
+Help contribute to the crowdsourcing effort below, if the goal is reached
+I'll release a 64-bit version of Cracklock.
+All proceeds go to the [Leukemia & Lymphoma Society (LLS)](http://www.lls.org/).
+Help reach the stretch goal and I'll put all Cracklock sources on GitHub for everyone to use and modify. 
+Find more about the program at the [_Cracklock Beats Leukemia_ blog post](..\..\blog\cracklock-beats-leukemia.html).
+
+<div class="progress progress-striped" 
+style="width:500px; height:65px; margin-bottom:0px;">
+    <div class="progress-bar" role="progressbar" style="width: .5%; font-size:medium; line-height:1.8">
+      <a href="https://secure3.convio.net/llswa/site/Donation2?df_id=2220&PROXY_ID=1696060&PROXY_TYPE=20&FR_ID=1510">
+      <div style="width:500px">
+        <b>Cracklock 64bit support</b>: $30,409 to go.
+        <br/>
+        <b>Open-sourced on GitHub</b>: $100,003.
+      </div> 
+      </a>
+    </div>
+</div>
+<div style="font-size:small; width:500px">
+Specify <b>Cracklock Beats Leukemia</b> as  personal notes on the donation page.</i>
+</div>
+
 Frequently Asked Questions
 --------------------------
 
@@ -98,4 +124,4 @@ The translation tool I once developped ([RLGui](../others/index.html#rlgui)) is 
 ![Download previous versions](../cracklock/images/download.gif) Previous versions
 ---------------------------------------------------------------------------------
 
-Previous versions of Cracklock
+You can download here older versions of Cracklock.

@@ -6,6 +6,8 @@ other things...
 
 ## Blog posts
 
+* 1 Dec 2015 - [Cracklock 64-bit support through crowdsourcing](blog/cracklock-beats-leukemia.html) 
+
 * 5 Nov 2015 - [Website design overhaul](blog/website-design-overhaul.html)
 
 * 23 Feb 2015 - [Big Climb and the Leukemia and Lymphoma Society](blog/entry150223-003713.html)
