@@ -37,25 +37,24 @@ var menus_submenus_url = new Dictionary<string,Dictionary<string,string>>
         <li><a href="@Root/software/index.html"><img src="@Root/images/usbflashdisk.png"/>Software</a></li>
         <li><a href="@Root/links.html"><img src="@Root/images/tree2_60.png"/>Links</a></li>
         <li><a href="@Root/aboutme.html"><img alt="William Blum" src="@Root/images/myprofile60.png"/>About me</a></li>
-        
-
-    </ul>
-    <div class="muted">
-        <!-- SiteSearch Google -->
-        <div class="search">
-            <form method="get" action="@Root/search.html" target="google_window">
-                <input name="domains" value="william.famille-blum.org" type="hidden" />
-                <input name="q" size="30" maxlength="255" value="" type="text" />
-                <input name="sa" value="Search"  id="sbb" class="button" type="submit" />
-                <input name="sitesearch" value="william.famille-blum.org" checked="checked"  type="hidden" />
-                <input name="client" value="pub-7250791356906762" type="hidden" />
-                <input name="forid" value="1" type="hidden" />
-                <input name="ie" value="ISO-8859-1" type="hidden" />
-                <input name="oe" value="ISO-8859-1" type="hidden" />
-                <input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:005FA9;LC:005FA9;T:000000;GFNT:0000FF;GIMP:0000FF;LH:48;LW:100;L:http://william.famille-blum.org/images/title.png;S:http://william.famille-blum.org/;FORID:11"></input>
-                <input name="hl" value="en" type="hidden" />
-            </form>
-        </div>
-        <!-- SiteSearch Google -->
-    </div>
+        <li>
+            <!-- SiteSearch Google -->
+            <script>
+            (function() {
+                var cx = '004438261549467276284:jcchzdksgwc';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                    '//cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+            </script>
+            <div style="width:250px;margin-top:10px">
+                <gcse:searchbox-only resultsUrl="@Root/search.html" />
+            </div>
+            <!-- SiteSearch Google -->
+        </li>
+    </ul> 
 </div>

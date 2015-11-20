@@ -462,3 +462,6 @@ blockquote>:last-child {
 #main {
   margin-top: 40px;
 }
+
+/* Remove Google Custom Search watermark */
+.cse input.gsc-input, input.gsc-input {background-image:none !important;}
