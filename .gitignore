@@ -11,3 +11,5 @@ packages/
 output/
 .paket/paket.exe
 FSharp.Formatting.svclog
+wwwroot/*
+.fake/*
