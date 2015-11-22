@@ -1,1 +1,0 @@
-cracklock, latexdaemon, latex, truetype, william blum, lambda calculus, oxford|Personal web page of William Blum|

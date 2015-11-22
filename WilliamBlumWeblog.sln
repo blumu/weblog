@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2B562BC1-2E30-4E39-BB7B-E4E6BC0C60A3}"
+	ProjectSection(SolutionItems) = preProject
+		.deployment = .deployment
+		.gitignore = .gitignore
+		build.cmd = build.cmd
+		build.fsx = build.fsx
+		generate.fsx = generate.fsx
+		paket.dependencies = paket.dependencies
+		paket.lock = paket.lock
+		paket.references = paket.references
+	EndProjectSection
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsBlogLib", "FsBlogLib\FsBlogLib.fsproj", "{B83F5E3E-8CEC-4F4E-B251-D2C853816C62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B83F5E3E-8CEC-4F4E-B251-D2C853816C62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B83F5E3E-8CEC-4F4E-B251-D2C853816C62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B83F5E3E-8CEC-4F4E-B251-D2C853816C62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B83F5E3E-8CEC-4F4E-B251-D2C853816C62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B83F5E3E-8CEC-4F4E-B251-D2C853816C62} = {2B562BC1-2E30-4E39-BB7B-E4E6BC0C60A3}
+	EndGlobalSection
+EndGlobal

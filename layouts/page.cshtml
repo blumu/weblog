@@ -1,0 +1,46 @@
+﻿@{
+  var cursection = "home";
+}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>@Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="@Description">
+    <meta name="author" content="@Model.Properties["project-author"]">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <link href="@Model.Root/perso.css" rel="stylesheet" type="text/css" />
+    <link href="@Model.Root/common/download.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-77730-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body>
+    <div class="container">
+      @Include("parts/header")
+      @Include("parts/subheader")
+      <div class="row">
+        <div class="col-sm-8" id="main">
+          @RenderBody()
+        </div>
+        @Include("parts/sidelist")
+      </div> 
+    </div>
+    @Include("parts/footer")
+  </body>
+  </html>

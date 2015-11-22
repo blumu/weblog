@@ -13,3 +13,4 @@ output/
 FSharp.Formatting.svclog
 wwwroot/*
 .fake/*
+sources/blog/abstracts/cached/*
