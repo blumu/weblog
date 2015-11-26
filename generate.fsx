@@ -18,6 +18,11 @@ open FsBlogLib.FileHelpers
 open FsBlogLib.BlogPosts
 open FsBlogLib.Blog
 
+
+module Constants =
+    let LocalhostDomain = "localhost:8080"
+    let AzureDomainNameVar = "WEBSITE_HOSTNAME"
+    
 // --------------------------------------------------------------------------------------
 // Test using local HTTP server
 // --------------------------------------------------------------------------------------
@@ -27,7 +32,7 @@ let server : ref<option<HttpServer>> = ref None
 let stop () =
   server.Value |> Option.iter (fun v -> v.Stop())
 let run output =
-  let url = "http://localhost:8080/" 
+  let url = Constants.LocalhostDomain
   stop ()
   server := Some(HttpServer.Start(url, output, Replacements = ["http://william.famille-blum.org/", url]))
   printfn "Starting web server at %s" url
@@ -39,25 +44,7 @@ let run output =
 
 let sourceRoot = __SOURCE_DIRECTORY__.Replace("\\", "/")
 
-module Constants =
-    let LocalhostDomain = "localhost:8080"
-    let AzureDomainNameVar = "WEBSITE_HOSTNAME"
-
-// Get the domain name from command-line (for Kudu deployment)
-let domainName =
-    let d = System.Environment.GetEnvironmentVariable(Constants.AzureDomainNameVar) 
-    if isNull d then
-        Constants.LocalhostDomain
-    elif d = "luweiblog.azurewebsites.net" then // remap Azure domain to custom domain name.
-        "william.famille-blum.org"
-    else
-        d
-
-printfn "Domain is %s" domainName
-
-let websiteRoot = sprintf "http://%s" domainName
-
-let projInfo =
+let projInfo websiteRoot =
   [ "page-description", "William Blum's personal website"
     "page-author", "William Blum"
     "github-link", "https://github.com/blumu/weblog"
@@ -128,14 +115,20 @@ let rec CopyCachedRecursive source target =
         if not targetSubdir.Exists then targetSubdir.Create()
         CopyCachedRecursive sourceSubdir targetSubdir.FullName)
 
-let buildSite output updateTagArchive =
+let buildSite output updateTagArchive domainName =
   printfn "Building site..."
   // Copy static files and CSS + JS from F# Formatting
   CopyCachedRecursive staticRoot output
 
+  // Get the domain name from command-line (for Kudu deployment)
+  let domainName = defaultArg domainName Constants.LocalhostDomain
+  printfn "Domain is %s" domainName
+  
+  let websiteRoot = sprintf "http://%s" domainName
+
   let noModel = { Model.Root = websiteRoot; MonthlyPosts = [||]; Posts = [||]; TaglyPosts = [||]; GenerateAll = true; Properties = dict [] }
   let razor = FsBlogLib.Razor(layouts, Model = noModel)
-  let model = LoadModel(tagRenames, TransformAsTemp (template, source) razor, websiteRoot, blog, projInfo)
+  let model = LoadModel(tagRenames, TransformAsTemp (template, source) razor, websiteRoot, blog, projInfo websiteRoot)
 
   // Generate RSS feed
   // GenerateRss websiteRoot title description model (output ++ "rss.xml")
@@ -173,17 +166,23 @@ let buildSite output updateTagArchive =
 
   //CopyFiles calendar (output ++ "calendar")
 
-let rebuildSite output updateTagArchive =
+let clean output = 
+  for dir in Directory.GetDirectories(output) do
+    if not (dir.EndsWith(".git")) then SafeDeleteDir dir true
+  for file in Directory.GetFiles(output) do
+    File.Delete(file)
+    
+let rebuildSite output updateTagArchive domainName =
   printfn "Rebuilding site..."
-  CleanDir output // Just in case the template changed (buildDocumentation is caching internally, maybe we should remove that)
-  buildSite output updateTagArchive
+  clean output // Just in case the template changed (buildDocumentation is caching internally, maybe we should remove that)
+  buildSite output updateTagArchive domainName
 
 /////////////////
 
 let watch output runServer =
   printfn "Starting watching by initial building..."
 
-  buildSite output true
+  buildSite output true None
   printfn "Watching for changes..."
 
   let queue = new System.Collections.Concurrent.ConcurrentQueue<_>()
@@ -218,7 +217,7 @@ let watch output runServer =
         Includes = [ "layouts/**/*.*"; "sources/**/*.*" ]
         Excludes = [] }
   
-  use watch = filter |> WatchChanges (fun changes -> buildSite output false
+  use watch = filter |> WatchChanges (fun changes -> buildSite output false None
                                         //changes |> Seq.iter queue.Enqueue
                                         )
   //use source = new System.Threading.CancellationTokenSource()
