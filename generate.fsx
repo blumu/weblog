@@ -32,7 +32,7 @@ let server : ref<option<HttpServer>> = ref None
 let stop () =
   server.Value |> Option.iter (fun v -> v.Stop())
 let run output =
-  let url = Constants.LocalhostDomain
+  let url = sprintf "http://%s/" Constants.LocalhostDomain
   stop ()
   server := Some(HttpServer.Start(url, output, Replacements = ["http://william.famille-blum.org/", url]))
   printfn "Starting web server at %s" url
