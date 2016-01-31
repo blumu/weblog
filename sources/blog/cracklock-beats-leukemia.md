@@ -59,17 +59,31 @@ Feel free to ask questions in the comment box below.
 ## Progress
 
 <div class="progress progress-striped" 
-style="width:500px; height:65px; margin-bottom:0px;">
-    <div class="progress-bar" role="progressbar" style="width: .5%; font-size:medium; line-height:1.8">
+style="width:500px; height:85px; margin-bottom:10px;">
+    <div class="progress-bar" role="progressbar" style="width: 1.17%; font-size:medium; line-height:1.8">
       <a href="https://secure3.convio.net/llswa/site/Donation2?df_id=2220&PROXY_ID=1696060&PROXY_TYPE=20&FR_ID=1510">
       <div style="width:500px">
-        <b>Cracklock 64bit support</b>: $30,409 to go.
+        <b>$356 donated</b>
         <br/>
-        <b>Open-sourced on GitHub</b>: $100,003.
+        <font size>
+        of $30,409 Cracklock 64bit
+        <br/>
+        and $100,003 Open Source goals.
+        </font>
       </div> 
       </a>
     </div>
 </div>
-<div style="font-size:small; width:500px">
+<div style="font-size:small; width:500px; margin-bottom:50px;">
 Specify <b>Cracklock Beats Leukemia</b> as  personal notes on the donation page.</i>
 </div>
+<br/>
+
+<!--
+Donations: 
+$50
+$50
+$256
+====
+$356 => %1.17
+-->
