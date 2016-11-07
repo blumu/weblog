@@ -10,26 +10,21 @@ Software
 
 Here you will find some software that I have developed.
 
-Windows freeware
+Popular download
 ----------------
 
-[![SumatraPDF](sumatra/sumatraicon.png) SumatraPDF for LaTeX](sumatra/index.html) LaTeX features implemeted in SumatraPDF viewer.
-
 [![Cracklock](cracklock/cracklock.png)](cracklock/index.html)
-[Cracklock](cracklock/index.html) A software that fixes a recurring bug
-in today's software.
+[Cracklock](cracklock/index.html) A tool to test and fix software
+affected by time related reliability bugs.
 
-[<img src="oncelesgl/fanuc.jpg" alt="OncelesGL" height="60" width="60" /></a>](oncelesgl/index.html)
-[OncelesGL](oncelesgl/index.html) An OpenGL application that can
-represent metaballs, simulate a FANUC robot and perform simple physics
-simulation (gravitation and collision detection).
+[![SumatraPDF](sumatra/sumatraicon.png) SumatraPDF for LaTeX](sumatra/index.html) A custom version of the SumatraPDF viewer augmented with
+LaTeX features.
 
-[![Other downloads](others/download.png)](others/index.html) [Other
-software](others/index.html) Sofware developed several years ago and not 
-maintained anymore.
+> Note: all the LaTeX features have now been integrated in the official release of SumatraPDF.
 
-Latex packages and tools
-------------------------
+
+LaTeX utilities
+---------------
 
 [![TexDameon](latex/texdaemon-ico.png)](latexdaemon/index.html)
 [LatexDaemon](latexdaemon/index.html) is a Windows program that
@@ -46,3 +41,26 @@ strings package for Latex](latex/index.html#pstring) is Latex package
 which allows you to typeset sequences with justification pointers (also
 called pointing strings) that commonly appears in computer science
 papers on Game Semantics.
+
+Computer Graphics
+-----------------
+
+[<img src="oncelesgl/fanuc.jpg" alt="OncelesGL" height="60" width="60" /></a>](oncelesgl/index.html)
+[OncelesGL](oncelesgl/index.html) An OpenGL application that can
+represent metaballs, simulate a FANUC robot and perform simple physics
+simulation (gravitation and collision detection).
+
+
+Games
+-----
+
+[![pstring](domenico/domenico-ico.png)](domenico/index.html#pstring) [Domenico](domenico/index.html) is
+a puzzle game for Windows where the goal is to arrange icons in pairs.
+
+
+Others
+------
+
+[![Other downloads](others/download.png)](others/index.html) [Other
+software](others/index.html) Sofware developed several years ago and not
+maintained anymore.

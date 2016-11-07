@@ -14,15 +14,13 @@
 
 <link href="../../common/downloadtable.css" rel="stylesheet" type="text/css" media="screen" />
 
+Here is some software I developed many years ago and which I don't have time
+to maintain anymore.
+
 Domenico
 --------
 
-This is a small game where you must match icons. There are multiple difficulty levels. It's even more addictive than Windows Minesweeper. Bill Gates has once contacted me and proposed me to release it with 
-~~Windows 98~~ Windows Vista. Unfortunately for him, he was not rich enough to afford the price of my labour so I had to turn down the offer.
-
-| Filename                     | Date           | Size  | Description                                                                                            |
-|------------------------------|----------------|-------|--------------------------------------------------------------------------------------------------------|
-| [domeni10.zip](domeni10.zip) | 11th June 1998 | 728kb | **Domenico 1.0 for Windows 3.1/95/98/NT/XP/Vista/7/8/8.1/10** Includes English, French, 16 and 32 bits version. [Requires Visual Basic 4.0 Runtimes](http://support.microsoft.com/default.aspx?scid=kb;EN-US;q196286)  |
+[See Domenico's page](../domenico/index.html)
 
 CasseB
 ------
