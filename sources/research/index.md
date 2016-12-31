@@ -10,19 +10,46 @@ Research
 
 Check out the [publications pages](publications.html) to learn more
 about my research in formal computer science. Tools developed in
-relation with this research can be [found here](tools.html).  
+relation with this research can be [found here](tools.html).
 
 ------------------------------------------------------------------------
 
 Game semantics
 --------------
 
-One of the contribution of my DPhil is a novel presentation of Game
-Semantics based on a generalization of the theory of traversals
-introduced by Ong. The [unpublished technical report 
-(pdf)](APAL-localbeta.pdf) contains the full technical details. The
-concepts are summarized in [the deck (pdf)](galop08-slides.pdf) of the
-talk I gave at Galop 2008.
+In my [D.Phil thesis (2009)](http://ora.ouls.ox.ac.uk/objects/uuid:537d45e0-01ac-4645-8aba-ce284ca02673) I introduced a novel presentation of Game
+Semantics based on a generalization of the theory of traversals.
+Traversals were originally introduced by Ong in the context of higher order recursion schemes.
+In my thesis, I extend the notion of traversals to the simply-typed lambda calculus and other extensions of it (e.g., PCF).
+I then introduce an alternative presentation of game semantics, called the revealed game semantics, where internal moves are preserved.
+Finally I formalize a correspondence between the game semantic denotation
+of a lambda term and its set of traversals.
+
+**The Correspondence Theorem**
+$ \newcommand{\theroot}{\circledast} % the root of the computation tree
+ \newcommand{\lsem}{[\![} % \llbracket
+  \newcommand{\rsem}{]\!]} % \rrbracket
+  \newcommand{\sem}[1]{{[\![#1]\!]}}
+  \newcommand\travset{\mathcal{T}rav}
+  \newcommand{\filter}{\upharpoonright}
+  \newcommand{\syntrevsem}[1]{{\langle\!\langle #1 \rangle\!\rangle}_{\sf s}}$
+
+For every simply-typed term $\Gamma \vdash M :T$, we can construct a bijection $\varphi_M$ from the set of traversals over some abstract syntax representation
+of $M$ and the revealed game semantic denotation of $M$. Further, we can construct a bijection $\psi_M$ from the set of traversals projected
+at the root $\theroot$ of the abstract syntax tree of $M$ and the standard game semantic denotation of $M$:
+$$\begin{eqnarray*}
+ \varphi_M  &:& \travset(M : T)^\star \stackrel{\cong}{\longrightarrow} \syntrevsem{M} \\
+ \psi_M  &:& \travset(M : T)\filter \theroot \stackrel{\cong}{\longrightarrow} \sem{M} \enspace .
+\end{eqnarray*}
+$$
+
+The full technical details and proof this theorem can be found in Chapter 4 of my DPhil thesis.
+I have also extracted the relevant part in a [technical report](APAL-localbeta.pdf).
+I also gave an [overview of the correspondence result and its proof](galop08-slides.pdf) at the Galop 2008 workshop.
+
+Based on this result, I implemented a pedagogic tool for teaching Game semantics and the theory of traversals.
+The tool, written in F# and OCaml, can be downloaded [here](tools.html).
+
 
 Higher-order recursion schemes
 ------------------------------
@@ -37,11 +64,10 @@ theory of traversals which is presented in details in my DPhil thesis.
 The safe lambda calculus
 ------------------------
 
-My DPhil concerns the study of a syntactic constraint for higher-order
-computations called the safety restiction. I refer you to the thesis on
-the [publication
-page](http://william.famille-blum.org/research/publications.html) for
-the nitty gritty details.
+The major part of my DPhil thesis concerns the study of a syntactic constraint for higher-order
+computations called the safety restiction.
+For the nitty gritty details I refer you to the [online publication
+of my thesis](http://william.famille-blum.org/research/publications.html).
 
 Termination analysis of higher-order programs
 ---------------------------------------------
