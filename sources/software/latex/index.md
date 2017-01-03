@@ -13,7 +13,7 @@ Here you will find some packages and tools that I have developed for Latex.
 Pointing strings (pstring) package for Latex
 --------------------------------------------
 
-![A sequence typset with pstring](pstring.png) The [pstring.sty](pstring.sty) package makes it easier to typeset sequences with justification pointers (also called pointing strings) in Latex. Such sequences appears frequently in computer science papers about Game Semantics. The latest version can use either PSTricks or PGF to render the arcs that represent the links. I have written a quick documentation including examples: [pstring-doc.pdf](pstring-doc.pdf). 
+![A sequence typset with pstring](pstring.png) The [pstring.sty](pstring.zip) package makes it easier to typeset sequences with justification pointers (also called pointing strings) in Latex. Such sequences appears frequently in computer science papers about Game Semantics. The latest version can use either PSTricks or PGF to render the arcs that represent the links. I have written a quick documentation including examples: [pstring-doc.pdf](pstring-doc.pdf).
 
 LatexDaemon
 -----------
