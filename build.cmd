@@ -12,6 +12,8 @@ if errorlevel 1 (
   exit /b %errorlevel%
 )
 
+msbuild.exe -p:Configuration=Debug
+
 packages\FAKE\tools\FAKE.exe build.fsx %*
 
 popd

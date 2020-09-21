@@ -2,6 +2,6 @@ source http://nuget.org/api/v2
 nuget FAKE
 nuget FSharp.Compiler.Service 1.4.0.6
 nuget FSharp.Compiler.Tools 4.0.0.1
-nuget FSharp.Formatting 2.12.0 framework: >= net452
-nuget FSharp.Formatting.CommandTool 2.12.0 framework: >= net452
-nuget FSharpVSPowerTools.Core 2.1.0 framework: >= net452
+nuget FSharp.Formatting 2.12.0 framework: >= net462
+nuget FSharp.Formatting.CommandTool 2.12.0 framework: >= net462
+nuget FSharpVSPowerTools.Core 2.1.0 framework: >= net462
