@@ -22,7 +22,7 @@ open FsBlogLib.Blog
 module Constants =
     let LocalhostDomain = "localhost:8080"
     let AzureDomainNameVar = "WEBSITE_HOSTNAME"
-    
+
 // --------------------------------------------------------------------------------------
 // Test using local HTTP server
 // --------------------------------------------------------------------------------------
@@ -34,7 +34,7 @@ let stop () =
 let run output =
   let url = sprintf "http://%s/" Constants.LocalhostDomain
   stop ()
-  server := Some(HttpServer.Start(url, output, Replacements = ["http://william.famille-blum.org/", url]))
+  server := Some(HttpServer.Start(url, output, Replacements = ["https://william.famille-blum.org/", url]))
   printfn "Starting web server at %s" url
   System.Diagnostics.Process.Start(url) |> ignore
 
@@ -48,7 +48,7 @@ let projInfo websiteRoot =
   [ "page-description", "William Blum's personal website"
     "page-author", "William Blum"
     "github-link", "https://github.com/blumu/weblog"
-    "project-name", "William blum site" 
+    "project-name", "William blum site"
     "project-author", "William Blum"
     "project-github", "https://github.com/blumu/weblog"
     "page-title", "William Blum's personal website"
@@ -79,7 +79,7 @@ let blogIndex = source ++ "blog/index.cshtml"
 // let calendarIndex = source @@ "calendar/index.cshtml"
 
 // F# code generation - skip 'exclude' directory & add 'references'
-let exclude = 
+let exclude =
   [ yield source ++ "blog/abstracts"
     yield staticRoot
     //yield __SOURCE_DIRECTORY__ ++ "calendar"
@@ -92,15 +92,15 @@ let special =
     blogIndex ]
 
 // Dependencies - if any of these files change, then we must regenerate all
-let dependencies = 
-  [ yield! Directory.GetFiles(layouts) 
-    yield! Directory.GetFiles(parts) 
-    //yield calendarMonth 
-    //yield calendarIndex 
+let dependencies =
+  [ yield! Directory.GetFiles(layouts)
+    yield! Directory.GetFiles(parts)
+    //yield calendarMonth
+    //yield calendarIndex
     ]
 
 
-let tagRenames = 
+let tagRenames =
   [ ("F# language", "f#"); ("Functional Programming in .NET", "functional");
     ("Materials & Links", "links"); ("C# language", "c#"); (".NET General", ".net") ] |> dict
 
@@ -123,8 +123,8 @@ let buildSite output updateTagArchive domainName =
   // Get the domain name from command-line (for Kudu deployment)
   let domainName = defaultArg domainName Constants.LocalhostDomain
   printfn "Domain is %s" domainName
-  
-  let websiteRoot = sprintf "http://%s" domainName
+
+  let websiteRoot = sprintf "https://%s" domainName
 
   let noModel = { Model.Root = websiteRoot; MonthlyPosts = [||]; Posts = [||]; TaglyPosts = [||]; GenerateAll = true; Properties = dict [] }
   let razor = FsBlogLib.Razor(layouts, Model = noModel)
@@ -137,27 +137,27 @@ let buildSite output updateTagArchive domainName =
   let postListing = true
   if postListing then
       let us = System.Globalization.CultureInfo.GetCultureInfo("en-US")
-      GeneratePostListing 
-        layouts template blogIndex model model.MonthlyPosts 
+      GeneratePostListing
+        layouts template blogIndex model model.MonthlyPosts
         (fun (y, m, _) -> output ++ "blog" ++ "archive" ++ (m.ToLower() + "-" + (string y)) ++ "index.html")
         (fun (y, m, _) -> y = System.DateTime.Now.Year && m = us.DateTimeFormat.GetMonthName(System.DateTime.Now.Month))
         (fun (y, m, _) -> sprintf "%d %s" y m)
         (fun (_, _, p) -> p)
 
       if updateTagArchive then
-        GeneratePostListing 
+        GeneratePostListing
           layouts template blogIndex model model.TaglyPosts
           (fun (_, u, _) -> output ++ "blog" ++ "tag" ++ u ++ "index.html")
           (fun (_, _, _) -> true)
           (fun (t, _, _) -> t)
           (fun (_, _, p) -> p)
 
-  let filesToProcess = 
+  let filesToProcess =
     GetSourceFiles source output
     |> SkipExcludedFiles exclude
     |> TransformOutputFiles output
     |> FilterChangedFiles dependencies special
-    
+
   let razor = FsBlogLib.Razor(layouts, Model = model)
   for current, target in filesToProcess do
     EnsureDirectory(Path.GetDirectoryName(target))
@@ -166,12 +166,12 @@ let buildSite output updateTagArchive domainName =
 
   //CopyFiles calendar (output ++ "calendar")
 
-let clean output = 
+let clean output =
   for dir in Directory.GetDirectories(output) do
     if not (dir.EndsWith(".git")) then SafeDeleteDir dir true
   for file in Directory.GetFiles(output) do
     File.Delete(file)
-    
+
 let rebuildSite output updateTagArchive domainName =
   printfn "Rebuilding site..."
   clean output // Just in case the template changed (buildDocumentation is caching internally, maybe we should remove that)
@@ -212,11 +212,11 @@ let watch output runServer =
   //        printfn "Documentation generation failed: %O" e
   //  }
 
-  let filter = 
+  let filter =
       { BaseDirectory = __SOURCE_DIRECTORY__
         Includes = [ "layouts/**/*.*"; "sources/**/*.*" ]
         Excludes = [] }
-  
+
   use watch = filter |> WatchChanges (fun changes -> buildSite output false None
                                         //changes |> Seq.iter queue.Enqueue
                                         )

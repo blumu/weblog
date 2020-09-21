@@ -111,14 +111,14 @@ function get-compressedContent ($file) {
         }
     }
 }
-           
+
 [System.IO.Path]::GetFileName($x)
 function get-Comments ($dir) {
 
     $comments = gci -Recurse "$dir" -Filter "comment*.gz"
     Write-host "Total comments:" $comments.Count
     return $comments |% `
-        {     
+        {
             $file = $_
             $c = get-compressedContent $file
             $comment = $c.content
@@ -159,7 +159,7 @@ function convert ($entryFile)
     $post = $e.content
     $name = $e.name
     $dir = Split-Path $entryFile
-    
+
     if($post -match "(?s)^VERSION\|(.*)\|SUBJECT\|(.*)\|CONTENT\|(.*)\|IP-ADDRESS\|(.*)\|DATE\|(.*)\|CREATEDBY\|(.*)") {
         $entry = @{
             Version = $Matches[1]
@@ -192,7 +192,7 @@ function convert ($entryFile)
     return $entry
 }
 
-$posts = gci $blogContentDir\entry*.* -Recurse 
+$posts = gci $blogContentDir\entry*.* -Recurse
 
 $entries = $posts |% { convert $_ } |% { genWxrEntry $_ }
 
@@ -239,7 +239,7 @@ $output =
 
 	<wp:category><wp:term_id>1</wp:term_id><wp:category_nicename>uncategorized</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[Uncategorized]]></wp:cat_name></wp:category>
 
-	<generator>http://www.famille-blum.org/?v=0.0.1</generator>
+	<generator>https://www.famille-blum.org/?v=0.0.1</generator>
 
     $entries
 </channel>

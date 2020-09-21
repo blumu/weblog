@@ -67,7 +67,7 @@ The safe lambda calculus
 The major part of my DPhil thesis concerns the study of a syntactic constraint for higher-order
 computations called the safety restiction.
 For the nitty gritty details I refer you to the [online publication
-of my thesis](http://william.famille-blum.org/research/publications.html).
+of my thesis](https://william.famille-blum.org/research/publications.html).
 
 Termination analysis of higher-order programs
 ---------------------------------------------

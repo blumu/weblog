@@ -16,9 +16,9 @@ Cracklock documentation
 
 Freeware, No Adware, No Spyware.
 
-The current version support all 32 bits versions of Windows from NT to Vista (NT/2K/XP/Vista). For legacy version of Windows (95, 98 or ME), please download version 3.8.3 from my [website](http://william.famille-blum.org/).
+The current version support all 32 bits versions of Windows from NT to Vista (NT/2K/XP/Vista). For legacy version of Windows (95, 98 or ME), please download version 3.8.3 from my [website](https://william.famille-blum.org/).
 
-For the latest version, check the website at [http://william.famille-blum.org](http://william.famille-blum.org/).
+For the latest version, check the website at [https://william.famille-blum.org](https://william.famille-blum.org/).
 
 You probably know the most polymorphic and sadistic virus of this ending century, the so-called "30th day virus". It attacks the best sharewares as well as the worst ones, introducing as soon as you install them a bug that prevents them from running beyond a random delay, often 30 days. Cracklock has the leadership in the fighting challenge against this virus that even McAfee, Norton, Sophos, Thunderbyte and F-Proot seem unable to deal with.
 
@@ -58,10 +58,10 @@ Choose "Cracklock" from the list of applications in the <span class="bold">**Add
 
 Cracklock controls a list of programs you set up. When a program from this list needs time or date, Cracklock operates, bluffing the calling program and returning the pre-determined date or time you have set. So, the program "thinks" to be at the date/time it accepts for running.
 
-<span class="term">For the end user</span>  
+<span class="term">For the end user</span>
 Cracklock protects you from the 30th day bug, a defect that is becoming very frequent in nowadays software. A program affected by this bug will fail to run when a certain period of time has passed after its installation.
 
-<span class="term">For the developer: a safe method for Y2K testing</span>  
+<span class="term">For the developer: a safe method for Y2K testing</span>
 With the help of Cracklock, developers can readily test or check the "Year 2000 compatibility" (Y2K) of their software.
 
 Suppose that you want to check the program you are developing for Y2K compatibility. To perform the test you decide to change the global system date/time to 31th december 1999 and then launch your program in order to debug it. The drawback of this method is that it affects all the programs currently running on the machine. One consequence is that the date stamp of the files created or modified by any software running on Windows will be set to 31th december 1999.
@@ -138,19 +138,19 @@ If you want to enable Cracklock for this program, check the box <span class="bol
 
 You may need to tweak some parameters in some cases to make your application work with Cracklock.
 
-<span class="term">System-wide</span>  
+<span class="term">System-wide</span>
 This will affect the system date and time. With this option, each time you run the controlled program, the system computer time and date will be changed to the date/time that you have specified. When the program ends, date and time will be restored to the actual date and time, taking account of elapsed time during usage of the program.
 
- The drawback of this method is that all programs running simultaneously are affected together, Cracklock in its native method being precisely designed to affect specific date and time to each program running at one given moment and to avoid this inconvenience. 
+ The drawback of this method is that all programs running simultaneously are affected together, Cracklock in its native method being precisely designed to affect specific date and time to each program running at one given moment and to avoid this inconvenience.
 
  This option reproduces what you can do yourself manually without Cracklock, with the "date" or "time" commands under MS/DOS or with the configuration panel under Windows. In my mind, it has no real benefit.
 
-<span class="term">Freeze date and time</span>  
+<span class="term">Freeze date and time</span>
 This "freeze" option allows to set a date/time which never changes, as if the time was frozen. Useful for programs that work only during a few hours or minutes.
 
  For example, if you set 10:00:00 09/22/1981 for this program, during all the run it will "think" the time is 10:00:00 09/22/1981.Ten minutes later, the time will still be 10:00:00 09/22/1981 for the application. If the option is not selected, however, at the start the program will have a time of 10:00:00 09/22/1981, and ten minutes later it will be 10:10:00 09/22/1981.
 
-<span class="term">Injection mode</span>  
+<span class="term">Injection mode</span>
 In the "injection mode" tab of the configuration window, you can select between two different modes: static or run-time
 
 With static-injection, Cracklock will alter the executable file of your application in order to make it load Cracklock. You can additionally tell Cracklock which file it should modify by selecting an executable file among the list of dependencies of your application.The license that you signed when you install a software often prevents you from modifying its executable files - even for the purpose of correcting a bug, as in the present case - so if you have signed such a license then you must not use static injection.
@@ -229,7 +229,7 @@ Cracklock is free. You are encouraged to distribute it to your friends. But neve
 
 #### <span id="id685795"></span>Contact
 
-For more information, visit the website: [http://william.famille-blum.org](http://william.famille-blum.org/).
+For more information, visit the website: [https://william.famille-blum.org](https://william.famille-blum.org/).
 
 ### <span id="changelog"></span>Change logs
 
@@ -253,7 +253,7 @@ For more information, visit the website: [http://william.famille-blum.org](http:
 
 -   Examples: new clock example written in C\#. The VCDate and VBDate have been renamed into C Clock Example and VB Clock Example
 
-<span class="term">3.9.39 - 11 March 2008 </span>  
+<span class="term">3.9.39 - 11 March 2008 </span>
 -   <span class="bold">**Important bug fixed:**</span> Cracklock did not work in part of the world where no daylight saving scheme is implemented! (These include: Afghanistan, Bahrain, China, Hong Kong, Japan, Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan, Uzbekistan, Macau, Mongolia, North Korea, Qatar, Kuwait, Saudi Arabia, South Korea, Nepal, Bhutan, Pakistan, India, Bangladesh, Myanmar, Taiwan, Thailand, Laos, Vietnam, Philippines, Cambodia, Malaysia, Brunei, Singapore, Indonesia, Timor Leste, Papua New Guinea, Venezuela)
 
 -   Chinese translation updated. This may become more useful now that Cracklock works in China ;-)
@@ -266,7 +266,7 @@ For more information, visit the website: [http://william.famille-blum.org](http:
 
 -   Examples: new clock example written in C\#. The VCDate and VBDate have been renamed into C Clock Example and VB Clock Example
 
-<span class="term">3.9.38 - 9 March 2008 </span>  
+<span class="term">3.9.38 - 9 March 2008 </span>
 -   New: Vista is officialy supported
 
 -   New: Support for flashdisk instllation
@@ -311,14 +311,14 @@ For more information, visit the website: [http://william.famille-blum.org](http:
 
 -   Change: Icons in the Manager are now shown in 32bits colors.
 
-<span class="term">3.8.27 - 1st December 2007</span>  
+<span class="term">3.8.27 - 1st December 2007</span>
 -   New feature: in the loader-based injection mode, the loader is now more furtive: the application cannot detect that it is being debugged.
 
 -   Fixed: When the import table of a PE file contained more than one occurrences of the module KERNEL32.DLL, the PE file could not be backed-up automatically by the manager.
 
 -   Bug fix: In some circumstance, the Cracklock manager window positioned itself in the invisible part of the screen.
 
-<span class="term">3.8.26 - 15 September 2007</span>  
+<span class="term">3.8.26 - 15 September 2007</span>
 -   Update: Chinese and French translation updated
 
 -   Fixed: The setup can again be run without requiring administrator privileges
@@ -333,7 +333,7 @@ For more information, visit the website: [http://william.famille-blum.org](http:
 
 -   Fixed: The setup now kills the resident injector before copying files
 
-<span class="term">3.8.20 - 11 September 2007</span>  
+<span class="term">3.8.20 - 11 September 2007</span>
 -   The configuration dialog has been redesigned.
 
 -   New feature: you can create a shortcut on the desktop that will start the application with Cracklock loader. (There is a hotlink in the configuration dialog to create the shortcut).
@@ -352,7 +352,7 @@ For more information, visit the website: [http://william.famille-blum.org](http:
 
     -   Small bugs fixed in the manager and in the installation.
 
-<span class="term">3.8.13 - 8 August 2007</span>  
+<span class="term">3.8.13 - 8 August 2007</span>
 -   New feature: a virtual timezone can be selected for each application running under Cracklock. For instance this feature allows you to solve the ["Microsoft Outlook timezone problem"](http://www.google.com/search?hl=en&q=outlook%20timezone%20problem) by selecting the appropriate timezone.
 
 -   The configuration dialog has been redesigned (Note that some messages have not been translated in other languages yet).
@@ -375,24 +375,24 @@ For more information, visit the website: [http://william.famille-blum.org](http:
 
 -   A new example is now added automatically to the list of managed applications: it allows you to test Cracklock on the Windows control panel date/time applet.
 
-<span class="term">3.8.9 - 2 August 2007</span>  
+<span class="term">3.8.9 - 2 August 2007</span>
 -   Portuguese language added. Thanks to Marcelo Schneider for the translation.
 
 -   Internal: the Makefiles that were used to compile the sources are now replaced by a Visual Studio project. MSBuild is now used instead of GNU make.
 
 -   Internal: the new "secure" versions of the string functions from the standard C library are now used. This protects Cracklock from potential buffer overflow attacks.
 
-<span class="term">3.8.8 - 7 November 2005</span>  
+<span class="term">3.8.8 - 7 November 2005</span>
 -   Fixed: the setup now proposes to not install component that need administrator rights (like explorer shell extensions)
 
 -   Fixed: applications configurations are now stored at the user level instead of the machine level (this permits to use Cracklock on a public computer)
 
 -   Internal fix: the make build system is used in place of the Perl script files. Visual Studio Toolkit 2003 is used to compile the C++ sources.
 
-<span class="term">3.8.7 - 16 September 2005</span>  
+<span class="term">3.8.7 - 16 September 2005</span>
 -   Fixed : imcompatibility with Windows 2000/NT (function TzSpecificLocalTimeToSystemeTime)
 
-<span class="term">3.8.6 - 17 July 2005</span>  
+<span class="term">3.8.6 - 17 July 2005</span>
 -   Fixed: Chinese and spanish translation
 
 -   Fixed: size of tab sheet title
@@ -405,7 +405,7 @@ For more information, visit the website: [http://william.famille-blum.org](http:
 
 -   Fixed: controls position in the translated shell extension tab sheets
 
-<span class="term">3.8.5 - 8 May 2005</span>  
+<span class="term">3.8.5 - 8 May 2005</span>
 -   Converted entirely into UNICODE
 
 -   UI bugs fixed
@@ -424,41 +424,41 @@ For more information, visit the website: [http://william.famille-blum.org](http:
 
 -   The uninstallation now completely removes keys created by Cracklock
 
-<span class="term">3.8.4 - 2 August 2001</span>  
+<span class="term">3.8.4 - 2 August 2001</span>
 -   Windows 2000/Xp compatibility improved
 
-<span class="term">3.8.3 - 25 July 2001</span>  
+<span class="term">3.8.3 - 25 July 2001</span>
 -   Arabic and Croatian translation
 
-<span class="term">3.8.2b - 20 January 2001</span>  
+<span class="term">3.8.2b - 20 January 2001</span>
 -   less bug than before
 
-<span class="term">3.8.1 - 17 September 1999</span>  
+<span class="term">3.8.1 - 17 September 1999</span>
 -   Setup: You can now use the manager !
 
-<span class="term">3.8 - 27 August 1999 </span>  
+<span class="term">3.8 - 27 August 1999 </span>
 -   Kernel: New kernel system. Now, it is possible to act onto an application without modifying its EXE file. And you still can start your program from anywhere (DOS box, explorer, Cracklock Manager).
 
 -   Setup: Cracklock Shell Extension are now installed correctly.
 
 -   Shellext/Manager: Now, the selected file in the dependency list can be unselected without being grayed.
 
-<span class="term">3.7.1 - 5 August 1999</span>  
+<span class="term">3.7.1 - 5 August 1999</span>
 -   Manager: A bug in 3.7 avoided to add new application to the manager list.
 
-<span class="term">3.7 - 16 July 1999</span>  
+<span class="term">3.7 - 16 July 1999</span>
 -   Some modifications in the manager.
 
 -   Three languages are included (English, Spanish, French).
 
 -   Correction of a bug which avoid the recognition of application referenced by a short file name.
 
-<span class="term">3.6 - 3 January 1999</span>  
+<span class="term">3.6 - 3 January 1999</span>
 -   A bug avoiding two carcklocked programs to run together under Win95 is fixed.
 
 -   The general layout of the help files has been modified.
 
-<span class="term">3.5 - 25 December 1998</span>  
+<span class="term">3.5 - 25 December 1998</span>
 -   New install ans uninstall system
 
 -   Cracklock manager
@@ -477,7 +477,7 @@ For more information, visit the website: [http://william.famille-blum.org](http:
 
 -   Kernel: updates the list of DLL's each time a new DLL is loaded
 
-<span class="term">3.0 - 2 August 1998</span>  
+<span class="term">3.0 - 2 August 1998</span>
 -   With the new option "Loaded by Cracklock Loader", there is no more dependencies problems. Cracklocks requires only one DLL to be modified when set in the "normal" mode; it does not modified any DLL when set in "loader" mode.
 
 -   The reboot dialog box includes a button to cancel the operation
@@ -488,40 +488,40 @@ For more information, visit the website: [http://william.famille-blum.org](http:
 
 -   BUG fixed: the list of files which can't be modified is no more empty.
 
-<span class="term">2.3 - 18 june 1998</span>  
+<span class="term">2.3 - 18 june 1998</span>
 -   A big bug has been removed. Thank to Paul Widup who discovered this bug.
 
-<span class="term">2.2 - 15 june 1998</span>  
+<span class="term">2.2 - 15 june 1998</span>
 -   Repairs automatically VB 5 programs - When there isn't any file recognized in the dependencies list, Cracklock select, by default, the first which can be repaired.
 
-<span class="term">2.1 - 30 may 1998</span>  
+<span class="term">2.1 - 30 may 1998</span>
 -   NEW: When a program is using files that you want to repair, Cracklock can repair them by restarting the computer.
 
 -   ALL error messages are grouped into a unique dialog box.
 
 -   Constant Date/Time bug fixed.
 
-<span class="term">2.0 - 9 april 1998</span>  
+<span class="term">2.0 - 9 april 1998</span>
 -   A lot of bugs fixed
 
-<span class="term">2.0 beta - 6 march 1997</span>  
+<span class="term">2.0 beta - 6 march 1997</span>
 -   Now Cracklock repairs automatically dependent DLLs such as MSVCRT.DLL and VB40032.DLL
 
 -   AM/PM bug corrected !
 
-<span class="term">1.1 - 21 january 1997</span>  
+<span class="term">1.1 - 21 january 1997</span>
 -   Addition to the documentation (how to repair VB & VC programs).
 
-<span class="term">1.0 - 5 january 1997</span>  
+<span class="term">1.0 - 5 january 1997</span>
 -   Modification of the documentation.
 
-<span class="term">1.0 - 2 December 1997</span>  
+<span class="term">1.0 - 2 December 1997</span>
 -   Now you can remove CrackLock from Windows 95 and NT. Previously, it was impossible to uninstall Cracklock under Windows 95.
 
-<span class="term"> 1.0 beta - 20 November 1997</span>  
+<span class="term"> 1.0 beta - 20 November 1997</span>
 -   Documentation is fixed and FILE\_ID.DIZ is added.
 
-<span class="term">1.0 alpha - 1 November 1997</span>  
+<span class="term">1.0 alpha - 1 November 1997</span>
 First release of Cracklock.
 
 

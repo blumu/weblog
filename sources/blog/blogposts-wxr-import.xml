@@ -39,7 +39,7 @@
 
 	<wp:category><wp:term_id>1</wp:term_id><wp:category_nicename>uncategorized</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[Uncategorized]]></wp:cat_name></wp:category>
 
-	<generator>http://www.famille-blum.org/?v=0.0.1</generator>
+	<generator>https://www.famille-blum.org/?v=0.0.1</generator>
 
     <item>
 		<title>Cracklock 3.8.27 released!</title>
@@ -71,7 +71,7 @@
 			<wp:comment_author_IP>61.68.233.163</wp:comment_author_IP>
 			<wp:comment_date>2008-02-25 11:13:31</wp:comment_date>
 			<wp:comment_date_gmt>2008-02-25 11:13:31</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[Hi there 
+			<wp:comment_content><![CDATA[Hi there
 
 I am writing from Australia.
 
@@ -79,7 +79,7 @@ Have been trying to use crackclock on AnyDVD (DVD decripter) but it is still cou
 
 Kind Regards
 
-Michael 
+Michael
 
 <a href="www.slysoft.com/ ">www.slysoft.com/ </a> this is where you will find AnyDVD software.
 
@@ -156,7 +156,7 @@ Ernesto Rios.
 			<wp:comment_author_IP>125.71.42.195</wp:comment_author_IP>
 			<wp:comment_date>2012-08-20 03:55:07</wp:comment_date>
 			<wp:comment_date_gmt>2012-08-20 03:55:07</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[HEY, 
+			<wp:comment_content><![CDATA[HEY,
 
 WRITING FROM CHINA
 
@@ -217,7 +217,7 @@ Note:As most of these tools are written in Java (IDE and XSLT included) I guess 
 		<wp:post_password></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
 		<category domain="category" nicename="uncategorized"><![CDATA[Uncategorized]]></category>
-        
+
 	</item> <item>
 		<title>Synchronizing PDF files with Latex documents</title>
 		<link>http://william.famille-blum.org/blog/index.php?entry=entry080514-043933</link>
@@ -229,7 +229,7 @@ Note:As most of these tools are written in Java (IDE and XSLT included) I guess 
 
 Of course under the Windows platform we have the Yap DVI viewer that comes with the <a href="http://miktex.org/">MikTeX</a> distribution. Ah, Yap,... This crappy piece of software that becomes less and less usable as the version increases: poor responsiveness when browsing the document, no pre-caching of the images, polling the .dvi file thousands times a millisecond to check whether its content has changed instead of using the <a href="http://msdn.microsoft.com/en-us/library/aa365465(VS.85).aspx">proper</a> Windows API, blocking of the .dvi file preventing latex from compiling, and last but not least: loads of modal error messages forcing you to switch to the mouse to get rid of them when you just want to be typing your latex document.
 
-A quick <a href="http://magic.aladdin.cs.cmu.edu/2008/01/02/sumatrapdf-08-released/">browsing journey on the web</a> suggested me that I was not the only person to feel that frustrated about the current TeX viewing facilities on Windows. But since no one seemed to be interested in implementing the desired features, I decided to give it a try. 
+A quick <a href="http://magic.aladdin.cs.cmu.edu/2008/01/02/sumatrapdf-08-released/">browsing journey on the web</a> suggested me that I was not the only person to feel that frustrated about the current TeX viewing facilities on Windows. But since no one seemed to be interested in implementing the desired features, I decided to give it a try.
 
 So here we are: I have proposed several patches for <a href="http://blog.kowalczyk.info/software/sumatrapdf/">SumatraPDF</a> that were accepted by the author: the first one implements autorefresh: when you recompile your tex document to pdf, the viewer automatically refreshes itself without any need for user interaction.
 
@@ -269,16 +269,16 @@ See also <a href="http://blog.kowalczyk.info/forum_sumatra/topic.php?TopicId=840
 			<wp:comment_author_IP>91.43.81.32</wp:comment_author_IP>
 			<wp:comment_date>2008-05-15 21:16:54</wp:comment_date>
 			<wp:comment_date_gmt>2008-05-15 21:16:54</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[Hey, sounds pretty nice! 
-I checked for a new version of sumatra -- I was keen on a new version because I hated the windowmoving-bug during refresh. 
-So I went to forums an found your post. Heureca I thougth but unfortunatelly now it says if I recompile the .tex file to pdf: (Press R to refresh) but when I do so I get: 
+			<wp:comment_content><![CDATA[Hey, sounds pretty nice!
+I checked for a new version of sumatra -- I was keen on a new version because I hated the windowmoving-bug during refresh.
+So I went to forums an found your post. Heureca I thougth but unfortunatelly now it says if I recompile the .tex file to pdf: (Press R to refresh) but when I do so I get:
 Error loading PDF file. although its openend properly before.
 
 any idea?
 
 would be pretty nice and would improve my writin of my protocol for the advanced practical in physics.
 
-thanks a lot 
+thanks a lot
 Matthias]]></wp:comment_content>
 			<wp:comment_approved>1</wp:comment_approved>
 			<wp:comment_type></wp:comment_type>
@@ -293,7 +293,7 @@ Matthias]]></wp:comment_content>
 			<wp:comment_author_IP>91.43.81.32</wp:comment_author_IP>
 			<wp:comment_date>2008-05-15 21:24:14</wp:comment_date>
 			<wp:comment_date_gmt>2008-05-15 21:24:14</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[SumatraPDF-sync.exe 
+			<wp:comment_content><![CDATA[SumatraPDF-sync.exe
 
 worked for me big thx!]]></wp:comment_content>
 			<wp:comment_approved>1</wp:comment_approved>
@@ -355,14 +355,14 @@ Duncan Murdoch]]></wp:comment_content>
 			<wp:comment_author_IP>unknown</wp:comment_author_IP>
 			<wp:comment_date>2008-08-29 14:02:48</wp:comment_date>
 			<wp:comment_date_gmt>2008-08-29 14:02:48</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[Hello, 
-I am using MiXtex2.07 with TeXnicCenter7.01 and using SumatraPDF-sync.exe to auto-refresh and back-sync. 
+			<wp:comment_content><![CDATA[Hello,
+I am using MiXtex2.07 with TeXnicCenter7.01 and using SumatraPDF-sync.exe to auto-refresh and back-sync.
 
-Auto refresh is working properly but when I double-click in the pdf file it does not go back to my source tex file. Am I missing any point here. I have changed the &#039;inverse serach command line&#039; option in sumatra pdf as suggested by you. 
+Auto refresh is working properly but when I double-click in the pdf file it does not go back to my source tex file. Am I missing any point here. I have changed the &#039;inverse serach command line&#039; option in sumatra pdf as suggested by you.
 
-Can you help me out. Thanks a lot for this SumatraPDF-sync package. 
+Can you help me out. Thanks a lot for this SumatraPDF-sync package.
 
-Thanks and Regards, 
+Thanks and Regards,
 atul]]></wp:comment_content>
 			<wp:comment_approved>1</wp:comment_approved>
 			<wp:comment_type></wp:comment_type>
@@ -398,24 +398,24 @@ I am so brave to copy&amp;paste my post from tex.comp newsgroup as I did not rec
 
 Hello
 
-I found per google groups some infos on hotwo set up my favorite editor on 
-Windows with SumatraPDF (SumatraPDF-sync) and additionally with LatexDaemon 
-by William ( 
+I found per google groups some infos on hotwo set up my favorite editor on
+Windows with SumatraPDF (SumatraPDF-sync) and additionally with LatexDaemon
+by William (
 <a href="http://william.famille-blum.org/software/latexdaemon/index.html">http://william.famille-blum.org/software/latexdaemon/index.html</a> ).
 
-Anyhow I got it working partly. That means when I edit ./6-Chapter.tex 
-(just a chapter in a sub-folder of my project) and I press Strg-S (in order 
-to safe) in WinEdt, then LatexDaemon notices this change and initiates a 
+Anyhow I got it working partly. That means when I edit ./6-Chapter.tex
+(just a chapter in a sub-folder of my project) and I press Strg-S (in order
+to safe) in WinEdt, then LatexDaemon notices this change and initiates a
 new re-compile in the background.
 It compiles into *.ps and *.pdf as far I can tell.
 
-There are also *.pdfsync and *.synctex created. I assume cause I load 
+There are also *.pdfsync and *.synctex created. I assume cause I load
 \usepackage{pdfsync} in my preamble.
 
 
-&gt;From reading the webpage from Mr. William Famille-Blum I reason that 
-SumatraPDF-sync (also from Mr. William) would sense this change and reload 
-the pdf in question. So, ideally, I could edit my *.tex in Winedt and would 
+&gt;From reading the webpage from Mr. William Famille-Blum I reason that
+SumatraPDF-sync (also from Mr. William) would sense this change and reload
+the pdf in question. So, ideally, I could edit my *.tex in Winedt and would
 see nearly immediatly the changes compiled in *.pdf in the Summatra.
 
 
@@ -428,40 +428,40 @@ There is a subfolder a_daeon in my folder where all my projects are. E.g.:
 .\projects\docpile1
 ...
 
-In \a_daemon\ I also got a latexdaemon_afterjob.CMD taken from my internet 
+In \a_daemon\ I also got a latexdaemon_afterjob.CMD taken from my internet
 recherche... this file has the following content:
 
-	MultiBib_gbk2uni_makeglossaries.bat &quot;%~n1&quot; 
+	MultiBib_gbk2uni_makeglossaries.bat &quot;%~n1&quot;
 
-Anyhow, I do not know what that definately means...but the standard example 
+Anyhow, I do not know what that definately means...but the standard example
 from William&#039;s page did not work.
 
 
-Then additionally I added to WinEdt (Menu_setup) a macro that is bound to 
+Then additionally I added to WinEdt (Menu_setup) a macro that is bound to
 STRG-F8:
 	D:\TeX\_projekte\a_daemon\latexdaemon
 	--ini=pdflatex --watch=yes --filter=err+warn
 	--custom_args=&quot;--synctex=-1 --shell-escape&quot; --autodep=yes
 	--aux-directory=%N.TeXAux --afterjob=custom
-	--custom=&quot;\&quot;D:\TeX\_projekte\a_daemon\latexdaemon_afterjob.cmd\&quot;&quot; %N.tex 
+	--custom=&quot;\&quot;D:\TeX\_projekte\a_daemon\latexdaemon_afterjob.cmd\&quot;&quot; %N.tex
 
 
-Afterall, as you can see, WinEdt seam to tell LatexDaemon where my current 
-project hides (parameter %N) and LatexDaemon watches for changes. If those 
+Afterall, as you can see, WinEdt seam to tell LatexDaemon where my current
+project hides (parameter %N) and LatexDaemon watches for changes. If those
 occur it pdflatexes.... ( do not know wheter xelatex also might work..)
 
-The Problem seems to be, if all above is correct, that SumatraPDF-sync does 
-not &#039;sense&#039; that changes had occured. More miraculous, sometimes it 
-pretends to do so, cause for a short time of 2 seconds my new text comes up 
+The Problem seems to be, if all above is correct, that SumatraPDF-sync does
+not &#039;sense&#039; that changes had occured. More miraculous, sometimes it
+pretends to do so, cause for a short time of 2 seconds my new text comes up
 in the shown *.pdf but then it disappears and the &#039;old&#039; *.pdf is shown.
 
 
-I hoe that this is understandable and moreover that someone is so kind to 
+I hoe that this is understandable and moreover that someone is so kind to
 help me.
 
 
 
-PS: SumatraPDF-sync is called by WinEdt in the formal way as otherways 
+PS: SumatraPDF-sync is called by WinEdt in the formal way as otherways
 Acrobat is (Execution mode). May be I have to turn the screw there a bit?
 
 
@@ -498,7 +498,7 @@ Feel free to contact me: dateneimer-at-gmx.de
 			<wp:comment_date>2008-05-19 23:04:40</wp:comment_date>
 			<wp:comment_date_gmt>2008-05-19 23:04:40</wp:comment_date_gmt>
 			<wp:comment_content><![CDATA[Dear Mr Blum,
-I had been waiting for such features  for pdflatex for a long time, and I&#039;ve tested them today. Unfortunately, I was unable to make forward search work in my case. 
+I had been waiting for such features  for pdflatex for a long time, and I&#039;ve tested them today. Unfortunately, I was unable to make forward search work in my case.
 I have two specifities on my system which might be the cause: first, the path to my Winedt is D:\WinEdt\WinEdt.exe; I modified Sumatra-Find.edt accordingly. However there is a variable in that macro that I don&#039;t understand: %$(&quot;SumatraPDF&quot;); where is it defined? Maybe it is hard-coded in SumatraPDF-sync.exe (which I simply renamed as SumatraPDF.exe). In any case nothing happens when I execute the macro.
 The second specificity is that my auxiliary files, in particular the .pdfsync ones are created in a subdirectory of the .tex documents directory (.\TeXAux\) and they are not found by SumatraPDF-sync. If I copy them in the same directory as the .tex document, forward search doesn&#039;t work any better, but inverse search ans auto-refresh do work. So: would it be be possible that SumatraPDF-sync knows about TeXAUx directories?
 
@@ -522,7 +522,7 @@ B.A.]]></wp:comment_content>
 
 To make forward-search work, you just need to edit the path to SumatraPDF in Sumatra-Find.edt (line 31). The variable %$(&quot;SumatraPDF&quot;) is not set at the moment, you can replace it by the empty string &quot;&quot; and it should still work.
 
-The forward-synchronization DDE command sent by the WinEdt macro file does not set the focus to Sumatra (so that you are not interrupted in you typing), this may explain why you think it does not work. But it should highlight the corresponding location in the PDF (and it should also launch Sumatra if it is not already launched). 
+The forward-synchronization DDE command sent by the WinEdt macro file does not set the focus to Sumatra (so that you are not interrupted in you typing), this may explain why you think it does not work. But it should highlight the corresponding location in the PDF (and it should also launch Sumatra if it is not already launched).
 Also make sure that your shortcut to the macro is set properly in WinEdt.
 
 Concerning Tex-Aux directory problem: Sumatra only looks for synchronization file in the same directory as the PDF. So what you have to do is to change the default macros in WinEdt to ask him to copy the pdfsync file from the Tex-Aux folder to the output folder after compilation. If you use <a href="http://william.famille-blum.org/software/latexdaemon/index.html">LatexDaemon</a> this will be done automatically.
@@ -542,10 +542,10 @@ Concerning Tex-Aux directory problem: Sumatra only looks for synchronization fil
 			<wp:comment_date>2008-05-20 22:26:01</wp:comment_date>
 			<wp:comment_date_gmt>2008-05-20 22:26:01</wp:comment_date_gmt>
 			<wp:comment_content><![CDATA[Hey,
-First of all, thanks for introducing this. Exciting feature. 
-Did anybody figure out how to use forward search from Emacs? I also posted the question in the Sumatra forum. 
+First of all, thanks for introducing this. Exciting feature.
+Did anybody figure out how to use forward search from Emacs? I also posted the question in the Sumatra forum.
 
-BTW: to turn make inverse search work with EmacsW32 and emacsclientw.exe use the following string: 
+BTW: to turn make inverse search work with EmacsW32 and emacsclientw.exe use the following string:
   emacsclientw.exe +%l &quot;%f&quot;
 -Rasmus]]></wp:comment_content>
 			<wp:comment_approved>1</wp:comment_approved>
@@ -579,7 +579,7 @@ Dddclient tools: <a href="http://ftp.gnu.org/old-gnu/emacs/windows/docs/ntemacs/
 			<wp:comment_author_IP>193.156.97.193</wp:comment_author_IP>
 			<wp:comment_date>2008-06-04 07:55:09</wp:comment_date>
 			<wp:comment_date_gmt>2008-06-04 07:55:09</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[Thank you William for the pdfsync functionality! 
+			<wp:comment_content><![CDATA[Thank you William for the pdfsync functionality!
 
 I tried you WinEdt macro, but had to do a small change to make it work properly for documents that consists of multiple files in different directories:
 
@@ -635,7 +635,7 @@ What Kjell said for WinEdt goes also for TexnicCenter...
 if you organize your project in multiple directories... you have to change the parameters of the ForwardSearch DDE command.
 
 Try:
-[ForwardSearch(&quot;%bm.pdf&quot;,&quot;%Wc&quot;,%l,0)]  
+[ForwardSearch(&quot;%bm.pdf&quot;,&quot;%Wc&quot;,%l,0)]
 
 the &quot;%Wc&quot; inserts the relative path of the file to your project file. The &quot;W&quot; has to be big, since SyncTex file include the relative paths with a &quot;/&quot; instead of the &quot;\&quot;, therefore a big &quot;W&quot; to adopt to this style.
 
@@ -678,7 +678,7 @@ It does work, the only problem being that a new Sumatra window is opened every t
 			<wp:comment_author_IP>128.62.212.129</wp:comment_author_IP>
 			<wp:comment_date>2008-11-10 19:13:45</wp:comment_date>
 			<wp:comment_date_gmt>2008-11-10 19:13:45</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[Thanks for the nice feature. 
+			<wp:comment_content><![CDATA[Thanks for the nice feature.
 
 May I ask you to implement &quot;activation&quot; after the forward search? When I press F8, I like to have SumatraPDF window on top.
 
@@ -724,7 +724,7 @@ I have undergone through the following steps
 - I have also activated the check-boxes &quot;Start Viewer&quot; and &quot;Forward Search&quot; in &quot;Execution Modes/PDFLaTeX/Switches&quot;, but not the &quot;Use Forward Search (pdfsync)&quot; in &quot;Execution Modes/Acrobat&quot;
 
 
-- In the Sumatra-Find.edt file I have uncommented line 30 and changed 
+- In the Sumatra-Find.edt file I have uncommented line 30 and changed
 Run(&#039;C:\src\sumatra\obj-rel\SumatraPDF.exe -reuse-instance&#039;,&#039;%P&#039;);
 for
 Run(&#039;C:\Archivos de programa\WinEdt Team\WinEdt\SumatraPDF-TeX\SumatraPDF-TeX.exe -reuse-instance&#039;,&#039;%P&#039;);
@@ -804,7 +804,7 @@ Thanks a lot in advance]]></wp:comment_content>
 			<wp:comment_author_IP>190.154.234.156</wp:comment_author_IP>
 			<wp:comment_date>2013-10-10 00:49:23</wp:comment_date>
 			<wp:comment_date_gmt>2013-10-10 00:49:23</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[THANK YOU 
+			<wp:comment_content><![CDATA[THANK YOU
 you are genius!!!!]]></wp:comment_content>
 			<wp:comment_approved>1</wp:comment_approved>
 			<wp:comment_type></wp:comment_type>
@@ -888,16 +888,16 @@ Enjoy! And feel free to post a comment to let me know how it works for you.
 			<wp:comment_author_IP>91.43.81.32</wp:comment_author_IP>
 			<wp:comment_date>2008-05-15 21:16:54</wp:comment_date>
 			<wp:comment_date_gmt>2008-05-15 21:16:54</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[Hey, sounds pretty nice! 
-I checked for a new version of sumatra -- I was keen on a new version because I hated the windowmoving-bug during refresh. 
-So I went to forums an found your post. Heureca I thougth but unfortunatelly now it says if I recompile the .tex file to pdf: (Press R to refresh) but when I do so I get: 
+			<wp:comment_content><![CDATA[Hey, sounds pretty nice!
+I checked for a new version of sumatra -- I was keen on a new version because I hated the windowmoving-bug during refresh.
+So I went to forums an found your post. Heureca I thougth but unfortunatelly now it says if I recompile the .tex file to pdf: (Press R to refresh) but when I do so I get:
 Error loading PDF file. although its openend properly before.
 
 any idea?
 
 would be pretty nice and would improve my writin of my protocol for the advanced practical in physics.
 
-thanks a lot 
+thanks a lot
 Matthias]]></wp:comment_content>
 			<wp:comment_approved>1</wp:comment_approved>
 			<wp:comment_type></wp:comment_type>
@@ -912,7 +912,7 @@ Matthias]]></wp:comment_content>
 			<wp:comment_author_IP>91.43.81.32</wp:comment_author_IP>
 			<wp:comment_date>2008-05-15 21:24:14</wp:comment_date>
 			<wp:comment_date_gmt>2008-05-15 21:24:14</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[SumatraPDF-sync.exe 
+			<wp:comment_content><![CDATA[SumatraPDF-sync.exe
 
 worked for me big thx!]]></wp:comment_content>
 			<wp:comment_approved>1</wp:comment_approved>
@@ -974,14 +974,14 @@ Duncan Murdoch]]></wp:comment_content>
 			<wp:comment_author_IP>unknown</wp:comment_author_IP>
 			<wp:comment_date>2008-08-29 14:02:48</wp:comment_date>
 			<wp:comment_date_gmt>2008-08-29 14:02:48</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[Hello, 
-I am using MiXtex2.07 with TeXnicCenter7.01 and using SumatraPDF-sync.exe to auto-refresh and back-sync. 
+			<wp:comment_content><![CDATA[Hello,
+I am using MiXtex2.07 with TeXnicCenter7.01 and using SumatraPDF-sync.exe to auto-refresh and back-sync.
 
-Auto refresh is working properly but when I double-click in the pdf file it does not go back to my source tex file. Am I missing any point here. I have changed the &#039;inverse serach command line&#039; option in sumatra pdf as suggested by you. 
+Auto refresh is working properly but when I double-click in the pdf file it does not go back to my source tex file. Am I missing any point here. I have changed the &#039;inverse serach command line&#039; option in sumatra pdf as suggested by you.
 
-Can you help me out. Thanks a lot for this SumatraPDF-sync package. 
+Can you help me out. Thanks a lot for this SumatraPDF-sync package.
 
-Thanks and Regards, 
+Thanks and Regards,
 atul]]></wp:comment_content>
 			<wp:comment_approved>1</wp:comment_approved>
 			<wp:comment_type></wp:comment_type>
@@ -1017,24 +1017,24 @@ I am so brave to copy&amp;paste my post from tex.comp newsgroup as I did not rec
 
 Hello
 
-I found per google groups some infos on hotwo set up my favorite editor on 
-Windows with SumatraPDF (SumatraPDF-sync) and additionally with LatexDaemon 
-by William ( 
+I found per google groups some infos on hotwo set up my favorite editor on
+Windows with SumatraPDF (SumatraPDF-sync) and additionally with LatexDaemon
+by William (
 <a href="http://william.famille-blum.org/software/latexdaemon/index.html">http://william.famille-blum.org/software/latexdaemon/index.html</a> ).
 
-Anyhow I got it working partly. That means when I edit ./6-Chapter.tex 
-(just a chapter in a sub-folder of my project) and I press Strg-S (in order 
-to safe) in WinEdt, then LatexDaemon notices this change and initiates a 
+Anyhow I got it working partly. That means when I edit ./6-Chapter.tex
+(just a chapter in a sub-folder of my project) and I press Strg-S (in order
+to safe) in WinEdt, then LatexDaemon notices this change and initiates a
 new re-compile in the background.
 It compiles into *.ps and *.pdf as far I can tell.
 
-There are also *.pdfsync and *.synctex created. I assume cause I load 
+There are also *.pdfsync and *.synctex created. I assume cause I load
 \usepackage{pdfsync} in my preamble.
 
 
-&gt;From reading the webpage from Mr. William Famille-Blum I reason that 
-SumatraPDF-sync (also from Mr. William) would sense this change and reload 
-the pdf in question. So, ideally, I could edit my *.tex in Winedt and would 
+&gt;From reading the webpage from Mr. William Famille-Blum I reason that
+SumatraPDF-sync (also from Mr. William) would sense this change and reload
+the pdf in question. So, ideally, I could edit my *.tex in Winedt and would
 see nearly immediatly the changes compiled in *.pdf in the Summatra.
 
 
@@ -1047,40 +1047,40 @@ There is a subfolder a_daeon in my folder where all my projects are. E.g.:
 .\projects\docpile1
 ...
 
-In \a_daemon\ I also got a latexdaemon_afterjob.CMD taken from my internet 
+In \a_daemon\ I also got a latexdaemon_afterjob.CMD taken from my internet
 recherche... this file has the following content:
 
-	MultiBib_gbk2uni_makeglossaries.bat &quot;%~n1&quot; 
+	MultiBib_gbk2uni_makeglossaries.bat &quot;%~n1&quot;
 
-Anyhow, I do not know what that definately means...but the standard example 
+Anyhow, I do not know what that definately means...but the standard example
 from William&#039;s page did not work.
 
 
-Then additionally I added to WinEdt (Menu_setup) a macro that is bound to 
+Then additionally I added to WinEdt (Menu_setup) a macro that is bound to
 STRG-F8:
 	D:\TeX\_projekte\a_daemon\latexdaemon
 	--ini=pdflatex --watch=yes --filter=err+warn
 	--custom_args=&quot;--synctex=-1 --shell-escape&quot; --autodep=yes
 	--aux-directory=%N.TeXAux --afterjob=custom
-	--custom=&quot;\&quot;D:\TeX\_projekte\a_daemon\latexdaemon_afterjob.cmd\&quot;&quot; %N.tex 
+	--custom=&quot;\&quot;D:\TeX\_projekte\a_daemon\latexdaemon_afterjob.cmd\&quot;&quot; %N.tex
 
 
-Afterall, as you can see, WinEdt seam to tell LatexDaemon where my current 
-project hides (parameter %N) and LatexDaemon watches for changes. If those 
+Afterall, as you can see, WinEdt seam to tell LatexDaemon where my current
+project hides (parameter %N) and LatexDaemon watches for changes. If those
 occur it pdflatexes.... ( do not know wheter xelatex also might work..)
 
-The Problem seems to be, if all above is correct, that SumatraPDF-sync does 
-not &#039;sense&#039; that changes had occured. More miraculous, sometimes it 
-pretends to do so, cause for a short time of 2 seconds my new text comes up 
+The Problem seems to be, if all above is correct, that SumatraPDF-sync does
+not &#039;sense&#039; that changes had occured. More miraculous, sometimes it
+pretends to do so, cause for a short time of 2 seconds my new text comes up
 in the shown *.pdf but then it disappears and the &#039;old&#039; *.pdf is shown.
 
 
-I hoe that this is understandable and moreover that someone is so kind to 
+I hoe that this is understandable and moreover that someone is so kind to
 help me.
 
 
 
-PS: SumatraPDF-sync is called by WinEdt in the formal way as otherways 
+PS: SumatraPDF-sync is called by WinEdt in the formal way as otherways
 Acrobat is (Execution mode). May be I have to turn the screw there a bit?
 
 
@@ -1117,7 +1117,7 @@ Feel free to contact me: dateneimer-at-gmx.de
 			<wp:comment_date>2008-05-19 23:04:40</wp:comment_date>
 			<wp:comment_date_gmt>2008-05-19 23:04:40</wp:comment_date_gmt>
 			<wp:comment_content><![CDATA[Dear Mr Blum,
-I had been waiting for such features  for pdflatex for a long time, and I&#039;ve tested them today. Unfortunately, I was unable to make forward search work in my case. 
+I had been waiting for such features  for pdflatex for a long time, and I&#039;ve tested them today. Unfortunately, I was unable to make forward search work in my case.
 I have two specifities on my system which might be the cause: first, the path to my Winedt is D:\WinEdt\WinEdt.exe; I modified Sumatra-Find.edt accordingly. However there is a variable in that macro that I don&#039;t understand: %$(&quot;SumatraPDF&quot;); where is it defined? Maybe it is hard-coded in SumatraPDF-sync.exe (which I simply renamed as SumatraPDF.exe). In any case nothing happens when I execute the macro.
 The second specificity is that my auxiliary files, in particular the .pdfsync ones are created in a subdirectory of the .tex documents directory (.\TeXAux\) and they are not found by SumatraPDF-sync. If I copy them in the same directory as the .tex document, forward search doesn&#039;t work any better, but inverse search ans auto-refresh do work. So: would it be be possible that SumatraPDF-sync knows about TeXAUx directories?
 
@@ -1141,7 +1141,7 @@ B.A.]]></wp:comment_content>
 
 To make forward-search work, you just need to edit the path to SumatraPDF in Sumatra-Find.edt (line 31). The variable %$(&quot;SumatraPDF&quot;) is not set at the moment, you can replace it by the empty string &quot;&quot; and it should still work.
 
-The forward-synchronization DDE command sent by the WinEdt macro file does not set the focus to Sumatra (so that you are not interrupted in you typing), this may explain why you think it does not work. But it should highlight the corresponding location in the PDF (and it should also launch Sumatra if it is not already launched). 
+The forward-synchronization DDE command sent by the WinEdt macro file does not set the focus to Sumatra (so that you are not interrupted in you typing), this may explain why you think it does not work. But it should highlight the corresponding location in the PDF (and it should also launch Sumatra if it is not already launched).
 Also make sure that your shortcut to the macro is set properly in WinEdt.
 
 Concerning Tex-Aux directory problem: Sumatra only looks for synchronization file in the same directory as the PDF. So what you have to do is to change the default macros in WinEdt to ask him to copy the pdfsync file from the Tex-Aux folder to the output folder after compilation. If you use <a href="http://william.famille-blum.org/software/latexdaemon/index.html">LatexDaemon</a> this will be done automatically.
@@ -1161,10 +1161,10 @@ Concerning Tex-Aux directory problem: Sumatra only looks for synchronization fil
 			<wp:comment_date>2008-05-20 22:26:01</wp:comment_date>
 			<wp:comment_date_gmt>2008-05-20 22:26:01</wp:comment_date_gmt>
 			<wp:comment_content><![CDATA[Hey,
-First of all, thanks for introducing this. Exciting feature. 
-Did anybody figure out how to use forward search from Emacs? I also posted the question in the Sumatra forum. 
+First of all, thanks for introducing this. Exciting feature.
+Did anybody figure out how to use forward search from Emacs? I also posted the question in the Sumatra forum.
 
-BTW: to turn make inverse search work with EmacsW32 and emacsclientw.exe use the following string: 
+BTW: to turn make inverse search work with EmacsW32 and emacsclientw.exe use the following string:
   emacsclientw.exe +%l &quot;%f&quot;
 -Rasmus]]></wp:comment_content>
 			<wp:comment_approved>1</wp:comment_approved>
@@ -1198,7 +1198,7 @@ Dddclient tools: <a href="http://ftp.gnu.org/old-gnu/emacs/windows/docs/ntemacs/
 			<wp:comment_author_IP>193.156.97.193</wp:comment_author_IP>
 			<wp:comment_date>2008-06-04 07:55:09</wp:comment_date>
 			<wp:comment_date_gmt>2008-06-04 07:55:09</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[Thank you William for the pdfsync functionality! 
+			<wp:comment_content><![CDATA[Thank you William for the pdfsync functionality!
 
 I tried you WinEdt macro, but had to do a small change to make it work properly for documents that consists of multiple files in different directories:
 
@@ -1254,7 +1254,7 @@ What Kjell said for WinEdt goes also for TexnicCenter...
 if you organize your project in multiple directories... you have to change the parameters of the ForwardSearch DDE command.
 
 Try:
-[ForwardSearch(&quot;%bm.pdf&quot;,&quot;%Wc&quot;,%l,0)]  
+[ForwardSearch(&quot;%bm.pdf&quot;,&quot;%Wc&quot;,%l,0)]
 
 the &quot;%Wc&quot; inserts the relative path of the file to your project file. The &quot;W&quot; has to be big, since SyncTex file include the relative paths with a &quot;/&quot; instead of the &quot;\&quot;, therefore a big &quot;W&quot; to adopt to this style.
 
@@ -1297,7 +1297,7 @@ It does work, the only problem being that a new Sumatra window is opened every t
 			<wp:comment_author_IP>128.62.212.129</wp:comment_author_IP>
 			<wp:comment_date>2008-11-10 19:13:45</wp:comment_date>
 			<wp:comment_date_gmt>2008-11-10 19:13:45</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[Thanks for the nice feature. 
+			<wp:comment_content><![CDATA[Thanks for the nice feature.
 
 May I ask you to implement &quot;activation&quot; after the forward search? When I press F8, I like to have SumatraPDF window on top.
 
@@ -1343,7 +1343,7 @@ I have undergone through the following steps
 - I have also activated the check-boxes &quot;Start Viewer&quot; and &quot;Forward Search&quot; in &quot;Execution Modes/PDFLaTeX/Switches&quot;, but not the &quot;Use Forward Search (pdfsync)&quot; in &quot;Execution Modes/Acrobat&quot;
 
 
-- In the Sumatra-Find.edt file I have uncommented line 30 and changed 
+- In the Sumatra-Find.edt file I have uncommented line 30 and changed
 Run(&#039;C:\src\sumatra\obj-rel\SumatraPDF.exe -reuse-instance&#039;,&#039;%P&#039;);
 for
 Run(&#039;C:\Archivos de programa\WinEdt Team\WinEdt\SumatraPDF-TeX\SumatraPDF-TeX.exe -reuse-instance&#039;,&#039;%P&#039;);
@@ -1423,7 +1423,7 @@ Thanks a lot in advance]]></wp:comment_content>
 			<wp:comment_author_IP>190.154.234.156</wp:comment_author_IP>
 			<wp:comment_date>2013-10-10 00:49:23</wp:comment_date>
 			<wp:comment_date_gmt>2013-10-10 00:49:23</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[THANK YOU 
+			<wp:comment_content><![CDATA[THANK YOU
 you are genius!!!!]]></wp:comment_content>
 			<wp:comment_approved>1</wp:comment_approved>
 			<wp:comment_type></wp:comment_type>
@@ -1508,7 +1508,7 @@ I plan to commit my changes to the Sumatra code base in the coming days if I see
 			<wp:comment_author_IP>82.230.151.43</wp:comment_author_IP>
 			<wp:comment_date>2008-06-30 16:20:27</wp:comment_date>
 			<wp:comment_date_gmt>2008-06-30 16:20:27</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[I&#039;ve just tested your new version of SumatraPDF-sync, which seems to work seamlessly with MiKTeX&#039;x new version of pdftex that incorporates SyncTeX. So no problem with inverse search. 
+			<wp:comment_content><![CDATA[I&#039;ve just tested your new version of SumatraPDF-sync, which seems to work seamlessly with MiKTeX&#039;x new version of pdftex that incorporates SyncTeX. So no problem with inverse search.
 However, I cannot get the new version (25/6) of Sumatra-Find (incidentally, its new name will be Sumatra-Sync, as the comments in line 2 of the .edt file seem to suggest?). Did I miss something? I just installed the macro file in %B\local\exec.
 
 Thanks in advance for any hint.]]></wp:comment_content>
@@ -1541,14 +1541,14 @@ Thanks in advance for any hint.]]></wp:comment_content>
 			<wp:comment_date_gmt>2008-07-02 09:56:38</wp:comment_date_gmt>
 			<wp:comment_content><![CDATA[Your version of SumatraPDF-sync is working perfectly with the latest, 01.07, version of MiKTeX&#039;x pdftex with one small exception.
 
-I found that MikTeX produces different synctex files in different situtations (don&#039;t know whether it is fault of MiKTeX or not). For example, the command 
+I found that MikTeX produces different synctex files in different situtations (don&#039;t know whether it is fault of MiKTeX or not). For example, the command
 
 pdflatex --synctex=-1 test.tex
 
 gives test.synctex with the following first lines:
 
 	SyncTeX Version:1
-	Input:1:JSREstim.tex 
+	Input:1:JSREstim.tex
 	etc.
 
 while the command
@@ -1559,7 +1559,7 @@ texify --pdf --tex-option=--synctex=-1 test.tex
 produces test.synctex with the following first lines:
 
 	SyncTeX Version:1
-	Input:1:D:/test/test.tex 
+	Input:1:D:/test/test.tex
 	etc.
 
 As a result, in WinEdt, macro Sumatra-Find.edt in the first case works perfectly, while in the second case fails, and produces error message that such-and-such lines are not found (don&#039;t remember exact words).
@@ -1634,16 +1634,16 @@ Martin.]]></wp:comment_content>
 			<wp:comment_author_IP>132.180.98.63</wp:comment_author_IP>
 			<wp:comment_date>2008-10-06 15:06:52</wp:comment_date>
 			<wp:comment_date_gmt>2008-10-06 15:06:52</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[Dear William, 
+			<wp:comment_content><![CDATA[Dear William,
 
 I like the concept of SumatraPdf-sync, but trying to use SumatraPdf-sync with Emacs 22.1.5 on Windows XP, Iam struggling with two problems:
 
 a) Inverse search works when I enter the appropriate inverse search line (gnuclientw.exe etc) after opening SumytraPDF-sync. SumatraPDF-sync seems to save this line in sumatrapdfprefs.dat, too. However, as soon as I launch Sumatra from Emacs (C-c C-v), it shows the default line for the WinEdt Program and uses this one (which means I have to change the line manually again). How can I make Sumatra remember the inverse command line when it is called from within emacs?
 
-b) When using sumatra-forward, I get the Emacs message &quot;Error while parsing&quot; and &quot;document ended before...&quot;.  I am not a programmer, but it seems to me that not all brackets in sumatra-forward.el are closed; for instance, the opening bracket in 
+b) When using sumatra-forward, I get the Emacs message &quot;Error while parsing&quot; and &quot;document ended before...&quot;.  I am not a programmer, but it seems to me that not all brackets in sumatra-forward.el are closed; for instance, the opening bracket in
 (defun kdvi-master-file-name...
 does not seem to have a counterpart.
-Moreover, I am a bit confused by the introductory lines 
+Moreover, I am a bit confused by the introductory lines
 ;;; To be loaded with
 ;;;(add-to-list &#039;load-path (expand-file-name &quot;~/emacs-scripts/&quot;))...
 
@@ -1706,7 +1706,7 @@ Thank you in advance,]]></wp:comment_content>
 			<wp:comment_date>2009-04-01 20:46:14</wp:comment_date>
 			<wp:comment_date_gmt>2009-04-01 20:46:14</wp:comment_date_gmt>
 			<wp:comment_content><![CDATA[hi there!
-you did a great job with this forward/inverse search withn pdf files. i am using TeXnicCenter + MikTeX: everything works fine with &quot;gapsync&quot;. however the &quot;synctex&quot; option is surely more fascinating. but i have some problems with it: the resulting .synctex files goes like 
+you did a great job with this forward/inverse search withn pdf files. i am using TeXnicCenter + MikTeX: everything works fine with &quot;gapsync&quot;. however the &quot;synctex&quot; option is surely more fascinating. but i have some problems with it: the resulting .synctex files goes like
 
 SyncTeX Version:1
 Input:1:C:/Documents*and*Settings/****omissis***/Documenti/***omissis***/filename.tex
@@ -1721,7 +1721,7 @@ Any ideas? (possibly different from moving my &quot;my documents&quot; folder el
 bye,
 fran
 
-ps: i have also noticed that the synchronization file (.pdfsync) is indeed quite smaller than the .synctex one (approx. 150KB vs 1.4MB...  
+ps: i have also noticed that the synchronization file (.pdfsync) is indeed quite smaller than the .synctex one (approx. 150KB vs 1.4MB...
 ]]></wp:comment_content>
 			<wp:comment_approved>1</wp:comment_approved>
 			<wp:comment_type></wp:comment_type>
@@ -1784,7 +1784,7 @@ thank you very very much for developing this, it is great!]]></wp:comment_conten
 This command produces a file name &#039;mybook.synctex&#039; which can then be used to perform PDF&lt;-&gt;TEX synchronization. The file can be large so you can instead produce a compressed version (mybook.synctex.gz) with:
 <code>pdflatex -synctex=1 mybook.tex</code>
 
-- The SyncTeX patch that I&#039;ve developed is now maintained in the main development branch of SumatraPDF; it is part of the <a href="http://blog.kowalczyk.info/software/sumatrapdf/download.html">latest official release (version 0.9.3)</a>. 
+- The SyncTeX patch that I&#039;ve developed is now maintained in the main development branch of SumatraPDF; it is part of the <a href="http://blog.kowalczyk.info/software/sumatrapdf/download.html">latest official release (version 0.9.3)</a>.
 
 I will still continue to publish <a href="http://william.famille-blum.org/software/sumatra/SumatraPDF-sync.exe">my own builds</a> of SumatraPDF to my website (the executable is updated regularly even though I am not posting about it): at the moment the only difference with the official release is the presence of a dialog box to let the user configure the inverse-search command. (In the official release this is done by passing command line parameters to SumatraPDF.exe.)
 
@@ -1983,20 +1983,20 @@ Thanks, Tom ]]></wp:comment_content>
 			<wp:comment_date_gmt>2008-12-21 12:34:16</wp:comment_date_gmt>
 			<wp:comment_content><![CDATA[Dear William!
 
-Thank you for the SumatraPDF-sync! 
+Thank you for the SumatraPDF-sync!
 
 I just try it (SumatraPDF-sync and SumatraPDF-TeX with MikTeX 2.7 and TexnicCenter), but find some bugs/features:
 
 1. Inverse search works only if I click on first 2-3 lines on a paragraph
-(else I get &quot;No synchronization info at this position&quot;). 
+(else I get &quot;No synchronization info at this position&quot;).
 For example, I colored &quot;good&quot; regions by blue color, and &quot;bad&quot; regions by red:
 <a href="http://stanislav.fomin.googlepages.com/test-pdfsync.pdf">http://stanislav.fomin.googlepages.com/test-pdfsync.pdf</a>
 
-2. Forward search does not work for me (&quot;Unknown source file&quot;), 
+2. Forward search does not work for me (&quot;Unknown source file&quot;),
 screenshot:
 <a href="http://stanislav.fomin.googlepages.com/forward-search-failed.png">http://stanislav.fomin.googlepages.com/forward-search-failed.png</a>
 
-Sources for this issue 
+Sources for this issue
 <a href="http://stanislav.fomin.googlepages.com/pdfsync-troubles.zip">http://stanislav.fomin.googlepages.com/pdfsync-troubles.zip</a>
 
 Please, look at it, and provide me some advice (what can be wrong?).
@@ -2019,7 +2019,7 @@ Please, look at it, and provide me some advice (what can be wrong?).
 
 I tried your Sumatra version and inverse search with TexnicCenter. It works really good. Nice Job.
 
-So I found the LatexDaemon on your Homepage. It sounds like a really usefull tool for online compilation. But I couldn`t really figure out how to set it up properly. I wanted that it compiles with pdflatex, this worked. But how can I start the file with Sumatra after changing something in the .tex file? 
+So I found the LatexDaemon on your Homepage. It sounds like a really usefull tool for online compilation. But I couldn`t really figure out how to set it up properly. I wanted that it compiles with pdflatex, this worked. But how can I start the file with Sumatra after changing something in the .tex file?
 
 How do I do this? By the way I&#039;m using Miktex 2.7.
 
@@ -2088,7 +2088,7 @@ But there&#039;s one thing I haven&#039;t figured out: how to prevent a new Suma
 			<wp:comment_author_IP>110.38.46.61</wp:comment_author_IP>
 			<wp:comment_date>2012-04-06 11:17:50</wp:comment_date>
 			<wp:comment_date_gmt>2012-04-06 11:17:50</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[i really like your site and I am about to bookmark your site for my future needs :p thanks buddy 
+			<wp:comment_content><![CDATA[i really like your site and I am about to bookmark your site for my future needs :p thanks buddy
 ]]></wp:comment_content>
 			<wp:comment_approved>1</wp:comment_approved>
 			<wp:comment_type></wp:comment_type>
@@ -2130,7 +2130,7 @@ The graph also shows two particularly productive periods corresponding to two im
 
 Here is the script in case you are interested: <a href="http://william.famille-blum.org/twc/twc.ps1">twc.ps1</a>. I suggest you to use it to monitor your progress on your writings by setting it as a daily job under the Windows Task Scheduler.
 
-The usage syntax is 
+The usage syntax is
 <code>./twc.ps1 [-tag name] [-date date] [-output outputdir] inputdirs</code>
 
 For example the command
@@ -2152,7 +2152,7 @@ For more examples just run the command without argument.]]></content:encoded>
 		<wp:post_password></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
 		<category domain="category" nicename="uncategorized"><![CDATA[Uncategorized]]></category>
-        
+
 	</item> <item>
 		<title>On text sorting, the fact that Notepad++ is the best text editor, and 2011 wishes! </title>
 		<link>http://william.famille-blum.org/blog/index.php?entry=entry110123-113226</link>
@@ -2166,7 +2166,7 @@ A few years ago I spent some time looking for the best text editor for Windows. 
 I could not convince my father to ditch TextPad though because of  its superior text sorting feature. It&#039;s true that the standard sorting plugin shipping with Notepad++ is pretty basic. It only lets you sort the file at a given column and by lexicographical order only.
 TextPad on the other hand lets you define a sort criterion based on up to three user-defined columns. Also for each column the comparison can be either numerical or lexicographical.
 
-The thing is that I am very stubborn: Notepad++ *is* the best editor for Windows, and so to prove it to my father there were no way round it: I had to implement the missing sorting features for Notepad++! 
+The thing is that I am very stubborn: Notepad++ *is* the best editor for Windows, and so to prove it to my father there were no way round it: I had to implement the missing sorting features for Notepad++!
 Because Notepad++ is open-source I was able to start from existing code. It thus took less than a day to implement the missing feature as a plugin! Of course it had to be superior than TextPad&#039;s implementation. Hence it lets you define an unlimited number of columns, unlike TexPad which is limited to only three.
 
 <img src="http://william.famille-blum.org/software/nppcolumnsort/nppcolumnsort.png"/>
@@ -2174,7 +2174,7 @@ Because Notepad++ is open-source I was able to start from existing code. It thus
 I figured out that my father may not be the only one interested by the plugin so here you go: You can download the plugin including sources at [strike]<a href="http://william.famille-blum.org/software/nppcolumnsort/NppColumnSort.zip">NppColumnSort.zip</a>[/strike]<a href="http://william.famille-blum.org/software/nppcolumnsort/NppColumnSort-1.0.0.2.zip">NppColumnSort-1.0.0.2.zip</a>
 
 To install it just copy the plugin DLL (under &#039;Unicode Release&#039; in the zip file) to the Notepad++ plugin directory (%ProgramFiles(x86)%\Notepad++\plugins if your Windows is 64bit; %ProgramFiles%\Notepad++\plugins if your Windows is 32bit).
-	
+
 I take the opportunity to wish you a great year 2011 and hope that all your problems will be sorted in whichever order you prefer be it lexicographical or numerical!]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
 		<wp:post_id>8</wp:post_id>
@@ -2481,9 +2481,9 @@ By the way, TextPad gets it right.]]></wp:comment_content>
 			<wp:comment_date>2012-11-06 15:32:26</wp:comment_date>
 			<wp:comment_date_gmt>2012-11-06 15:32:26</wp:comment_date_gmt>
 			<wp:comment_content><![CDATA[Thanks a million!
-I was having probs with the TextFX sort because my large file returned a memory full error. 
-TextPad could do the sort, but couldn&#039;t cope with Chinese characters. 
-Your sort is flexible, easy to use, and works with huge files. 
+I was having probs with the TextFX sort because my large file returned a memory full error.
+TextPad could do the sort, but couldn&#039;t cope with Chinese characters.
+Your sort is flexible, easy to use, and works with huge files.
 And it works in Notepad++ - Win Win Win!]]></wp:comment_content>
 			<wp:comment_approved>1</wp:comment_approved>
 			<wp:comment_type></wp:comment_type>
@@ -2546,7 +2546,7 @@ repro steps,
 2. type some thing in a tab.
 3. click Plugins &gt; Column Sorting &gt; Sort , it works. The tab sorted.
 4. click Plugins &gt; Set Criteria .. , a exception box appeared, title is &quot; PluginsManager::runPluginCommand Exception , text is : Unknown exception [OK]
-5. click [OK] to close the exception box to close it and it closed. 
+5. click [OK] to close the exception box to close it and it closed.
 But it seems like there&#039;s still another invisible message box that blocks any activities on Notepad++. Not even the upper right corner - [] X window controls.
 6. try Alt-Tab to switch to the invisible message box, observe Notepad++ icon is not there! Switch to an icon of other program actually switch to Notepad++. In another words, Notepad++ &#039;s icon is shown as another program&#039;s !!!
 ]]></wp:comment_content>
@@ -2638,7 +2638,7 @@ Serbe
 Çakir Deniz
 Óscar Andrés Rodríguez Maradiaga
 
-( Although I&#039;m French, I very often use this list, with Turkish and/or Eastern Europe names, to test sort softwares. Don&#039;t ask me why ! ) 
+( Although I&#039;m French, I very often use this list, with Turkish and/or Eastern Europe names, to test sort softwares. Don&#039;t ask me why ! )
 
 All sort tests, below, are case sensitive, in ascending order.
 
@@ -2759,7 +2759,7 @@ Guy THEVENOT (guy038)
 			<wp:comment_date_gmt>2014-06-04 05:48:40</wp:comment_date_gmt>
 			<wp:comment_content><![CDATA[Great plugin! There is one thing that often trips me up though. I like to sort particular columns numerically. The problem is that the plugin uses atoi to convert the selected columns to a number. In many cases my columns consist of floating point values where the integer portion is the same but the difference is in the fractional portion to the right of the decimal. The atoi call returns the same integer value for all the lines so it doesn&#039;t appear to sort correctly. I would suggest that you replace atoi with atof to properly treat the selected text as a float.
 
-Workaround: I can sort ascending case insensitive and get what I need. 
+Workaround: I can sort ascending case insensitive and get what I need.
 
 Thanks!]]></wp:comment_content>
 			<wp:comment_approved>1</wp:comment_approved>
@@ -2780,7 +2780,7 @@ Thanks!]]></wp:comment_content>
 The Big Climb is a stairclimb up the Columbia Center - the tallest skyscraper in downtown Seattle. There are 69 flights of stairs, 1311 steps, and 788 feet of vertical elevation. All proceeds benefit the <a href="http://www.lls.org/">Leukemia and Lymphoma Society</a>.
 
 Thank you for your support!
- <a href="https://secure3.convio.net/llswa/site/Donation2;jsessionid=BFBEAB6B63531D2C0F87B276B1DEEDC5.app338b?2104.donation=form1&idb=1865941136&df_id=2104&FR_ID=1460&PROXY_ID=1696060&PROXY_TYPE=20">Donate 
+ <a href="https://secure3.convio.net/llswa/site/Donation2;jsessionid=BFBEAB6B63531D2C0F87B276B1DEEDC5.app338b?2104.donation=form1&idb=1865941136&df_id=2104&FR_ID=1460&PROXY_ID=1696060&PROXY_TYPE=20">Donate
 </a><img src="../images/lls_thermometer.png popup=false"/>]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
 		<wp:post_id>9</wp:post_id>
@@ -2796,7 +2796,7 @@ Thank you for your support!
 		<wp:post_password></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
 		<category domain="category" nicename="uncategorized"><![CDATA[Uncategorized]]></category>
-        
+
 	</item>
 </channel>
 </rss>

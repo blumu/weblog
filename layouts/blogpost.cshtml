@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link href="@Model.Root/common/download.css" rel="stylesheet" type="text/css" media="screen" /> 
+    <link href="@Model.Root/common/download.css" rel="stylesheet" type="text/css" media="screen" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
@@ -28,17 +28,17 @@
 
           <div id="before-post" ></div>
           @RenderBody()
-      
+
           <p id="after-post" style="padding-bottom: 1cm;" />
           <p style="padding-bottom: 3cm;" class="post-meta">
-            <span><strong>Published</strong> @DateTime.Parse(Date).ToString("dddd, d MMMM yyyy, h:mm tt", System.Globalization.CultureInfo.GetCultureInfo("en-GB"))</span><br />      
+            <span><strong>Published</strong> @DateTime.Parse(Date).ToString("dddd, d MMMM yyyy, h:mm tt", System.Globalization.CultureInfo.GetCultureInfo("en-GB"))</span><br />
             <span><strong>By</strong> William Blum</a></span><br />
             <span class="tags"><strong>Tags</strong> @Tags</span>
             @if(LegacyViews>0) {
               <span>@LegacyViews views as of Oct 30th 2015</span>
             }
           </p>
-          
+
            @if(!String.IsNullOrEmpty(@EntryId)) {
                 if(System.Text.RegularExpressions.Regex.IsMatch(EntryId, @"static\d{6}-\d{6}$")) {
                    <script>
@@ -57,10 +57,10 @@
                    </script>
                 }
           }
-          
+
           @if(!String.IsNullOrEmpty(@EntryId)) {
             <!-- BEGIN DISQUS BLOB -->
-            <div id="disqus_thread"></div> 
+            <div id="disqus_thread"></div>
             <script>
                   /**
                   *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -68,15 +68,15 @@
                   */
                   var disqus_config = function () {
                       if(blogVersion == 1) {
-                        this.page.url = 'http://william.famille-blum.org/blog/index.php?' + entryType + '=@EntryId';  // Replace PAGE_URL with your page's canonical URL variable
+                        this.page.url = 'https://william.famille-blum.org/blog/index.php?' + entryType + '=@EntryId';  // Replace PAGE_URL with your page's canonical URL variable
                       } else {
-                        this.page.url = 'http://william.famille-blum.org/blog/@EntryId' + '.html';
+                        this.page.url = 'https://william.famille-blum.org/blog/@EntryId' + '.html';
                       }
                       this.page.identifier = '@EntryId'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
                   };
                   (function() {  // DON'T EDIT BELOW THIS LINE
                   var d = document, s = d.createElement('script');
-                  s.src = 'http://williamblum.disqus.com/embed.js';
+                  s.src = 'https://williamblum.disqus.com/embed.js';
                   s.setAttribute('data-timestamp', +new Date());
                   (d.head || d.body).appendChild(s);
                   })();
@@ -85,9 +85,9 @@
             <!-- END DISQUS BLOB -->
           }
         </div>
-      
+
         @Include("parts/sidelist")
-      </div> 
+      </div>
     </div>
     @Include("parts/footer")
   </body>

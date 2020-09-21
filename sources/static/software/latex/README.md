@@ -5,7 +5,7 @@ This package lets you typeset justiﬁed sequences, also called pointing strings
 It's used for instance, in research papers about Game Semantics to represent sequence of game moves
 with their associated justification pointers.
 
-See [http://william.famille-blum.org/software/latex/]() for latest information about this package.
+See [https://william.famille-blum.org/software/latex/]() for latest information about this package.
 
 Author
 ------

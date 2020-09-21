@@ -105,7 +105,7 @@ Technical report, submitted August 2006.
         author =       {William Blum},
         title =        {The safe lambda calculus},
         howpublished = {DPhil transfer thesis, University of Oxford},
-        address =      {http://william.famille-blum.org/},
+        address =      {https://william.famille-blum.org/},
         year =         {2006},
         month =        {August}
         keywords =     {lambda calculus, game semantics, incrementally justified strategies},
@@ -115,7 +115,7 @@ Technical report, submitted August 2006.
 -   **Termination analysis of lambda calculus and a subset of core ML**
 Master's Thesis. 2004.
 [Download (pdf)](mscthesis.pdf)
-| [Sources (Objective Caml)](http://www.famille-blum.org/~william/mscthesis/sct-sources-latest.tar.gz)
+| [Sources (Objective Caml)](https://www.famille-blum.org/~william/mscthesis/sct-sources-latest.tar.gz)
 | [Bibtex](javascript:toggle('msc.bib'))
 
     <pre id="msc.bib" style="display: none;">
@@ -124,18 +124,18 @@ Master's Thesis. 2004.
         TITLE = {Termination analysis of lambda calculus and a subset of core ML},
         SCHOOL = {University of Oxford},
         YEAR = {2004},
-        address = {http://william.famille-blum.org/},
+        address = {https://william.famille-blum.org/},
         month = {september},
         abstract = {Lee, Jones and Ben-Amram introduced size-change termination,
-            a decidable property strictly stronger than termination. They invented 
-            a method called the Size-change Principle to analyze it. Based on the 
-            work of Jones and Bohr, we propose an extension of the size-change principle 
-            to a subset of ML featuring ground type values, higher-order type values and 
-            recursively defined functions. This is the first time that the size-change 
-            principle is applied to a higher-order functional language. The language 
-            handles natively if-then-else and let rec structures. The resulting algorithm 
-            produces the expected result for higher-order values but can also analyze 
-            the size of ground type values. This enhances the scope of the termination 
+            a decidable property strictly stronger than termination. They invented
+            a method called the Size-change Principle to analyze it. Based on the
+            work of Jones and Bohr, we propose an extension of the size-change principle
+            to a subset of ML featuring ground type values, higher-order type values and
+            recursively defined functions. This is the first time that the size-change
+            principle is applied to a higher-order functional language. The language
+            handles natively if-then-else and let rec structures. The resulting algorithm
+            produces the expected result for higher-order values but can also analyze
+            the size of ground type values. This enhances the scope of the termination
             analyzer to some recursively defined function operating on numbers.},
         keywords = {size-change termination, lambda calculus, core ml}
         }
