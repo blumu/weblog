@@ -15,3 +15,4 @@ wwwroot/*
 .fake/*
 sources/blog/abstracts/cached/*
 .ionide/symbolCache.db
+.build/*

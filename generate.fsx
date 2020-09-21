@@ -11,7 +11,7 @@ open Fake
 open Fake.FileHelper
 
 //#load "FsBlogLib/Scripts/load-project.fsx"
-#I "FsBlogLib/bin/Debug"
+#I ".build/FsBlogLib/"
 #r "FsBlogLib.dll"
 #r "RazorEngine.dll"
 open FsBlogLib.FileHelpers

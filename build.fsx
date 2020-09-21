@@ -38,16 +38,21 @@ Target "AzureKudu" (fun _ ->
 )
 
 /// For use when updating the local copy of the /wwwroot directory to be later
-/// published by pushing the wwwroot/ git repository to Azure website.
+/// published by 'git pushing' from the git repository under wwwroot/ to
+/// the Azure website git URL https://luweiblog.scm.azurewebsites.net:443/luweiblog.git
 Target "AzureInPlace" (fun _ ->
-    // Push wwwroot to Azure through a separate Git repo
-    // See https://github.com/projectkudu/kudu/wiki/Deploying-inplace-and-without-repository
-    // for instructions on how to perform inplace Git deployment to wwwroot
-    //   SCM_REPOSITORY_PATH=wwwroot
-    //   SCM_TARGET_PATH=wwwroot
     Generate.rebuildSite defaultOutputDir true (Some "william.famille-blum.org")
 
-    printfn "ACTION REQUIRED: Push wwwroot/ git repository to Azure to publish the website."
+    printfn "ACTION REQUIRED: Push wwwroot/ git repository to Azure to publish the website.
+    See https://github.com/projectkudu/kudu/wiki/Deploying-inplace-and-without-repository
+     for instructions on how to perform inplace Git deployment to wwwroot
+       SCM_REPOSITORY_PATH=wwwroot
+       SCM_TARGET_PATH=wwwroot
+
+    git https://luweiblog.scm.azurewebsites.net:443/luweiblog.git
+    xcopy /s /y  wwwroot luweiblog.git
+    cd luweiblog.git
+    git push"
 )
 
 RunTargetOrDefault "Run"
