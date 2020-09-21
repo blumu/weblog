@@ -19,40 +19,22 @@ Target "Generate" (fun _ ->
     Generate.rebuildSite defaultOutputDir true None
 )
 
-/// For use when publishing the website on Azure using Kudu and Git-based deployment.
-/// Just pushing the root of the repository to the Azure Git repository associated with the website
-/// will trigger the following build step on the Kudu server which rebuilds the server copy of the wwwroot/ directory.
-Target "AzureKudu" (fun _ ->
-    let domainName =
-        let domain = System.Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME")
-        if isNull domain then
-            failwith "Web hostname not specified. Is this script really running in Azure/Kudu?"
-        elif domain = "luweiblog.azurewebsites.net" then // remap Azure domain to custom domain name.
-            Some "william.famille-blum.org"
-        else
-            Some domain
-
-    // Push sources to Azure then build&deploy using Kudu deployment on the Azure server
-    // See https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script
-    Generate.rebuildSite (__SOURCE_DIRECTORY__ + "/../wwwroot") true domainName
-)
-
-/// For use when updating the local copy of the /wwwroot directory to be later
-/// published by 'git pushing' from the git repository under wwwroot/ to
-/// the Azure website git URL https://luweiblog.scm.azurewebsites.net:443/luweiblog.git
-Target "AzureInPlace" (fun _ ->
+/// Update the local copy of the /wwwroot directory to be later
+/// published by git pushing the git repository under wwwroot/ to
+/// the Azure website at https://luweiblog.scm.azurewebsites.net:443/luweiblog.git
+Target "Stage" (fun _ ->
     Generate.rebuildSite defaultOutputDir true (Some "william.famille-blum.org")
 
     printfn "ACTION REQUIRED: Push wwwroot/ git repository to Azure to publish the website.
-    See https://github.com/projectkudu/kudu/wiki/Deploying-inplace-and-without-repository
-     for instructions on how to perform inplace Git deployment to wwwroot
-       SCM_REPOSITORY_PATH=wwwroot
-       SCM_TARGET_PATH=wwwroot
+    Steps:
+       git clone https://luweiblog.scm.azurewebsites.net:443/luweiblog.git wwwroot
+       fake build.fsx stage  # this command
+       cd wwwroot; git commit; git push
 
-    git https://luweiblog.scm.azurewebsites.net:443/luweiblog.git
-    xcopy /s /y  wwwroot luweiblog.git
-    cd luweiblog.git
-    git push"
+    See https://github.com/projectkudu/kudu/wiki/Deploying-inplace-and-without-repository
+    for instructions on how to perform inplace Git deployment to wwwroot.
+       SCM_REPOSITORY_PATH=wwwroot
+       SCM_TARGET_PATH=wwwroot"
 )
 
 RunTargetOrDefault "Run"

@@ -170,7 +170,8 @@ let clean output =
   for dir in Directory.GetDirectories(output) do
     if not (dir.EndsWith(".git")) then SafeDeleteDir dir true
   for file in Directory.GetFiles(output) do
-    File.Delete(file)
+    if file <> "README.TXT" then
+      File.Delete(file)
 
 let rebuildSite output updateTagArchive domainName =
   printfn "Rebuilding site..."
