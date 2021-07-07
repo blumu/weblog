@@ -1,0 +1,28 @@
+{% extends "page_template.html" %}
+
+{% block head %}
+    <link href="/common/download.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/common/downloadtable.css" rel="stylesheet" type="text/css" media="screen" />
+{% endblock %}
+
+{% block body %}
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+        </ul>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-8" id="main">
+          {{ model.Article.Body }}
+
+        <table class="mytable" cellspacing="0"  summary="Previous versions of Cracklock">
+            <caption>Previous versions of Cracklock</caption>
+            {{ 'sources/software/cracklock/filesdescr.csv' | downloadtableFromCsv }}
+        </table>
+          
+        </div>
+      </div> 
+    </div>
+{% endblock %}

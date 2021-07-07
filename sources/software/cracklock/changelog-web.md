@@ -1,12 +1,14 @@
-@{
-  Layout = "page";
-  Title = "Cracklock Change Log";
-  Tags = "Cracklock";
-  Date = "";
-  Description = "Cracklock Change Log";
-}
 <span id="id256149"></span>Cracklock Change Log
------------------------------------------------
+===============================================
+
+ - layout: page
+ - title: Cracklock Change Log
+ - tags: Cracklock
+ - description: Cracklock Change Log
+
+------------------------------------------------
+
+------------------------------------------------
 
 <span class="term">3.9.44 - 16 March 2008 </span>
 

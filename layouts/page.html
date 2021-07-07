@@ -1,0 +1,41 @@
+﻿{% extends "page_template.html" %}
+
+{% block head %}
+<title>{{ model.Article.Title }} - William Blum</title>
+
+<meta name="description" content="{{ model.Article.Description | trimHtml }}" />
+<meta name="keywords" content="{% for t in model.Article.Tags %}{{ t }}, {% endfor %}" />
+<meta name="author" content="William Blum" />
+<meta name="copyright" content="William Blum" />
+
+<meta property="og:title" content="{{ model.Article.Title }}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="{{ model.Article.Url }}" />
+<meta property="og:image" content="{{ model.Article.Image }}" />
+<meta property="og:description" content="{{ model.Article.Description | trimHtml }}" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8" id="main">
+
+      <div id="before-post" ></div>
+      {{ model.Article.Body }}
+
+      <p id="after-post" style="padding-bottom: 1cm;" />
+     
+  
+    </div>
+  </div>
+</div>
+{% endblock %}
+

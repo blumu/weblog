@@ -1,12 +1,9 @@
-@{
-  Layout = "page";
-  Title = "NetNotifier documentation";
-  Tags = "";
-  Date = "";
-  Description = "NetNotifier documentation";
-}
 NetNotifier documentation
 =========================
+
+ - layout: page
+ - title: NetNotifier documentation
+ - description: NetNotifier documentation
 
 NetNotifier Copyright (c) 2000 for Windows 95, 98, NT 4, 2000
 

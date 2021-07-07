@@ -1,15 +1,19 @@
-@{
-  Layout = "blogpost";
-  Title = "Crowdsourcing Cracklock 64-bit";
-  Tags = "Windows, 64-bit, Cracklock";
-  Date = "2015-11-25T22:25:21.2203466-08:00";
-  Description = "Get 64-bit support for Cracklock by supporting LLS";
-  EntryId = "cracklock-beats-leukemia";
-}
-
 # Crowdsourcing Cracklock 64-bit
 
-Websites analytics are sometimes revealing. Among people who come to visit my website there is the LaTeX user category coming to learn about my past work on SumatraPDF. Once in a blue moon somebody may come and peek at my research page if I'm lucky. Some folks get here by accident hoping to find information about my American [homonym](https://en.wikipedia.org/wiki/William_Blum). But the vast majority visits this site for another reason: [**downloading Cracklock**](../software/cracklock/index.html)!
+- layout: blogpost
+- title: Crowdsourcing Cracklock 64-bit
+- tags: Windows, 64-bit, Cracklock
+- date: 2015-11-25T22:25:21.2203466-08:00
+- description: Get 64-bit support for Cracklock by supporting LLS
+- entryId: cracklock-beats-leukemia
+
+----------------------------------------------------------------------------------------------------
+
+Websites analytics are sometimes revealing. Among people who come to visit my website there is the LaTeX user category coming to learn about my past work on SumatraPDF. Once in a blue moon somebody may come and peek at my research page if I'm lucky. Some folks get here by accident hoping to find information about my American homonym. But the vast majority visits this site for another reason (...)
+
+----------------------------------------------------------------------------------------------------
+
+Websites analytics are sometimes revealing. Among people who come to visit my website there is the LaTeX user category coming to learn about my past work on SumatraPDF. Once in a blue moon somebody may come and peek at my research page if I'm lucky. Some folks get here by accident hoping to find information about my American [homonym](https://en.wikipedia.org/wiki/William_Blum). But the vast majority visits this site for another reason: [**downloading Cracklock**](../../software/cracklock/)!
 
 According to the site analytics there are between 3,000 and 10,000 downloads of Cracklock on a given month. Version 3.9.44 alone was downloaded nearly 800,000 times as of November 1st, 2015. (This includes downloads from my website alone, I do not have analytics from other software cataloging sites mirroring Cracklock.)
 

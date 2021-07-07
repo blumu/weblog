@@ -1,11 +1,9 @@
-@{
-  Layout = "page";
-  Title = "LaTeXDaemon changelog";
-  Tags = "Latex, LatexDaemon";
-  Date = "";
-  Description = "LaTeXDaemon changelog";
-}
 # LaTeXDaemon changelog
+
+ - layout: page
+ - title: LaTeXDaemon changelog
+ - tags: Latex, LatexDaemon
+ - description: LaTeXDaemon changelog
 
 ## 23 Nov 2010 - Version 0.10 Build 46
 

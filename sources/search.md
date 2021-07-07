@@ -1,9 +1,8 @@
-@{
-  Layout = "page";
-  Title = "Search";
-  Tags = "";
-  Date = "";
-  Description = "Search";
-}
+
+# Search results
+
+- title: Search
+- layout: page
+
 <gcse:searchresults-only></gcse:searchresults-only>
 

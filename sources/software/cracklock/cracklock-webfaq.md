@@ -1,16 +1,14 @@
-@{
-  Layout = "page";
-  Title = "Cracklock FAQ";
-  Tags = "Cracklock";
-  Date = "";
-  Description = "Cracklock FAQ";
-}
-<div class="markdowntitle">
-# Cracklock FAQ
-</div>
+Cracklock FAQ
+=============
 
-![](cracklock.png) Cracklock FAQ
-=========================================
+ - layout: page
+ - title: Cracklock FAQ
+ - tags: Cracklock
+ - description: Cracklock FAQ
+
+
+![](cracklock.png) 
+
 
 ## How can I load and save all Cracklock's settings including the date/time configuration of each programs that Cracklock controls?
 

@@ -1,12 +1,9 @@
-@{
-  Layout = "page";
-  Title = "Drawing by Lily Lin";
-  Tags = "";
-  Date = "";
-  Description = "Drawing by Lily Lin";
-}
 Drawing by Lily Lin 林浅寒
 ==========================
+
+- title: Drawing by Lily Lin
+- layout: blogpost
+- category: page
 
 Cultural Xtravaganza 2005 (Institute of Education, London)
 ----------------------------------------------------------

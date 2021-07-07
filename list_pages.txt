@@ -1,0 +1,62 @@
+--- need redirection from /foo.html to /foo/
+aboutme.html
+lily.html
+links.html
+search.html
+blog/cracklock-beats-leukemia.html
+blog/entry071201-200254.html
+blog/entry080121-063152.html
+blog/entry080514-043933.html
+blog/entry080515-065447.html
+blog/entry080612-040012.html
+blog/entry081007-214408.html
+blog/entry101116-033103.html
+blog/entry110123-113226.html
+blog/entry150223-003713.html
+blog/static081010-000413.html
+blog/website-design-overhaul.html
+research/bib.html
+research/publications.html
+research/references.html
+research/references-jabrefexport.html
+research/tools.html
+software/cracklock/changelog-web.html
+software/cracklock/cracklock-webfaq.html
+twc/report.html
+software/others/NetNotifier.html
+software/latexdaemon/changelog-inc.html
+software/cracklock/xmldoc/cracklock-doc-web.html
+
+--- need redirect from archive/*-*/ into archive/*_*/
+blog/archive/december-2007/index.html -> blog/archive/december_2007/index.html
+blog/archive/february-2015/index.html -> ...
+blog/archive/january-2008/index.html
+blog/archive/january-2011/index.html
+blog/archive/june-2008/index.html
+blog/archive/may-2008/index.html
+blog/archive/november-2010/index.html
+blog/archive/november-2015/index.html
+blog/archive/october-2008/index.html
+
+
+--- working urls
+index.html
+software/index.html
+software/sumatra/index.html
+software/others/index.html
+404.html
+software/cracklock/index.html
+software/oncelesgl/index.html
+software/latexttf/index.html
+software/latexdaemon/index.html
+research/index.html
+software/latex/index.html
+software/domenico/index.html
+software/cracklock/help/aides.html
+software/cracklock/help/arabic/index.html
+software/cracklock/help/english/history.html
+software/cracklock/help/english/index.html
+software/cracklock/help/french/index.html
+software/cracklock/help/spanish/index.html
+blog/index.html
+software/cracklock/xmldoc/index.html

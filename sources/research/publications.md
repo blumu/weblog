@@ -1,10 +1,10 @@
-@{
-  Layout = "page";
-  Title = "Publications";
-  Tags = "";
-  Date = "";
-  Description = "Publications";
-}
+Publications
+============
+
+ - layout: page
+ - title: Publications
+ - description: Publications
+
 <script type="text/javascript">
 function toggle(element) {
 if (document.getElementById(element).style.display == "none") {
@@ -15,21 +15,18 @@ if (document.getElementById(element).style.display == "none") {
 }
 </script>
 
-Publications
-============
-
 Conference papers and talks
 ---------------------------
 
 -   **Type homogeneity is not a restriction for safe recursion schemes**, 2009
     *To be published.*
-    [Paper (pdf)](safecpda.pdf)
+    [Paper (pdf)](../safecpda.pdf)
 
 -   **The Safe Lambda Calculus (extended version)**
     With C.-H. Luke Ong.
     Technical report. Long version of the TLCA07 paper.
-    [Download paper (pdf)](tlca07-long.pdf)
-     | [Download slides (pdf)](tlca07-talk.pdf)
+    [Download paper (pdf)](../tlca07-long.pdf)
+     | [Download slides (pdf)](../tlca07-talk.pdf)
 
 -   **The Safe Lambda Calculus**
     With C.-H. Luke Ong.
@@ -39,7 +36,7 @@ Conference papers and talks
     ([TLCA07](http://www.lsv.ens-cachan.fr/rdp07/tlca.html)),
     pages 39-53. [ © Springer-Verlag](http://www.springer.de/comp/lncs/index.html) Berlin / Heidelberg, 2007.
 
-    [Download (pdf)](safelambda-tlca2007.pdf) |
+    [Download (pdf)](../safelambda-tlca2007.pdf) |
     [Bibtex](javascript:toggle('tlca.bib'))
     <pre id="tlca.bib" style="display: none;">
     @@INPROCEEDINGS{blumong:safelambdacalculus,
@@ -60,11 +57,11 @@ Conference papers and talks
     workshop](http://www.cs.bham.ac.uk/~drg/galop.html) ([ETAPS
     2008](http://etaps08.mit.bme.hu/))
 
-    [Slides (pdf)](bctcs08-slides.pdf)
+    [Slides (pdf)](../bctcs08-slides.pdf)
 
 -  **A concrete presentation of Game Semantics**
     Talk given at [BCTCS 2008](http://www.dur.ac.uk/bctcs.2008/)
-    [Slides (pdf)](galop08-slides.pdf)
+    [Slides (pdf)](../galop08-slides.pdf)
 
 - **Termination analysis of lambda calculus and a subset of core ML**
     Talk given at [BCTCS 2005](http://www.cs.nott.ac.uk/~gmh/bctcs05.html)
@@ -82,22 +79,22 @@ Journal papers
 
     [Annals of Pure and Applied Logic (APAL)](http://www.elsevier.com/wps/find/journaldescription.cws_home/505603/description#description),
     (in preparation).
-    [Download (pdf)](APAL-localbeta.pdf)
+    [Download (pdf)](../APAL-localbeta.pdf)
 
 Work, presentations
 -------------------
 
 -   **The Safe Lambda Calculus**
  FOCS group lunchtime meeting.
-[Slides (pdf)](lunchmeeting.pdf)
+[Slides (pdf)](../lunchmeeting.pdf)
 
 -   **The Safe Lambda Calculus**
 [BCTCS 2007](http://cms.brookes.ac.uk/bctcs2007/).
-[Slides (pdf)](bctcs07-slides.pdf)
+[Slides (pdf)](../bctcs07-slides.pdf)
 
 -  **DPhil transfer thesis: The Safe Lambda Calculus**
 Technical report, submitted August 2006.
-[Slides (pdf)](transferThesis.pdf) |
+[Slides (pdf)](../transferThesis.pdf) |
 [Bibtex](javascript:toggle('transfer.bib'))
 
     <pre id="transfer.bib" style="display: none;">
@@ -114,8 +111,8 @@ Technical report, submitted August 2006.
 
 -   **Termination analysis of lambda calculus and a subset of core ML**
 Master's Thesis. 2004.
-[Download (pdf)](mscthesis.pdf)
-| [Sources (Objective Caml)](https://www.famille-blum.org/~william/mscthesis/sct-sources-latest.tar.gz)
+[Download (pdf)](../mscthesis.pdf)
+| [Sources (Objective Caml)](../mscthesis/sct-sources-latest.tar.gz)
 | [Bibtex](javascript:toggle('msc.bib'))
 
     <pre id="msc.bib" style="display: none;">

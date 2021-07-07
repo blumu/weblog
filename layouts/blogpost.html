@@ -1,0 +1,102 @@
+﻿{% extends "page_template.html" %}
+
+{% block head %}
+<title>{{ model.Article.Title }} - William Blum</title>
+
+<meta name="description" content="{{ model.Article.Description | trimHtml }}" />
+<meta name="keywords" content="{% for t in model.Article.Tags %}{{ t }}, {% endfor %}" />
+<meta name="author" content="William Blum" />
+<meta name="copyright" content="William Blum" />
+
+<meta property="og:title" content="{{ model.Article.Title }}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="{{ model.Article.Url }}" />
+<meta property="og:image" content="{{ model.Article.Image }}" />
+<meta property="og:description" content="{{ model.Article.Description | trimHtml }}" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+<link href="/common/download.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<link href="/perso.css" rel="stylesheet" type="text/css" />
+
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8" id="main">
+      <div id="before-post"></div>
+      {{ model.Article.Body }}
+      
+      <p class="details post-meta">
+        <strong>Published:</strong> {{ model.Article.Date | dateNice }}<br />
+        <strong>Author:</strong>William Blum<br />
+        <strong>Typos:</strong> <a href="https://github.com/blumu/weblog">Send me a pull request</a>!<br />
+        {% if model.Article.Tags contains "publication" %}
+        {% else %}
+        <strong>Tags:</strong> {% assign next=false %}{% for tag in model.Article.Tags %}{% if next %}, {% endif %}<a
+          href="/blog/tag/{{ tag | tagUrl }}/">{{ tag }}</a>{% assign next=true %}{% endfor tag %}</span><br />
+        {% endif %}
+        {% if LegacyViews >0 %}
+        <span>{{LegacyViews}} views as of Oct 30th 2015</span>
+        {% endif %}
+      </p>
+
+
+
+      <p id="after-post" style="padding-bottom: 1cm;" />
+
+        {% if !String.IsNullOrEmpty(EntryId) %} 
+            {% if System.Text.RegularExpressions.Regex.IsMatch(EntryId, @"static\d{6}-\d{6}$") %}
+                <script>
+                var entryType = 'static';
+                var blogVersion = 1;
+                </script>
+            {% else if System.Text.RegularExpressions.Regex.IsMatch(EntryId, @"entry\d{6}-\d{6}$") %}
+                <script>
+                var entryType = 'entry';
+                var blogVersion = 1;
+                </script>
+            {% else %}
+                <script>
+                var entryType = 'entry';
+                var blogVersion = 2;
+                </script>
+            {% endif %}
+      {% endif %}
+
+      {% if !String.IsNullOrEmpty(EntryId) %}
+        <!-- BEGIN DISQUS BLOB -->
+        <div id="disqus_thread"></div>
+        <script>
+              /**
+              *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+              *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+              */
+              var disqus_config = function () {
+                  if(blogVersion == 1) {
+                    this.page.url = 'https://william.famille-blum.org/blog/index.php?' + entryType + '=@EntryId';  // Replace PAGE_URL with your page's canonical URL variable
+                  } else {
+                    this.page.url = 'https://william.famille-blum.org/blog/@EntryId' + '.html';
+                  }
+                  this.page.identifier = '@EntryId'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+              };
+              (function() {  // DON'T EDIT BELOW THIS LINE
+              var d = document, s = d.createElement('script');
+              s.src = 'https://williamblum.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+              })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        <!-- END DISQUS BLOB -->
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+

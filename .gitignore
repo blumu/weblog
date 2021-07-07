@@ -8,11 +8,15 @@ obj/
 release/
 packages/
 .suo
-output/
 .paket/paket.exe
 FSharp.Formatting.svclog
-wwwroot/*
 .fake/*
 sources/blog/abstracts/cached/*
 .ionide/symbolCache.db
 .build/*
+
+.fake
+.ionide
+tmp/**
+
+output/

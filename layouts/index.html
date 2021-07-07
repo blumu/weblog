@@ -1,0 +1,74 @@
+﻿{% extends "page_template.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+
+Welcome to my blog. Here I write about software I develop in my spare time and
+other things...
+
+
+<!-- Print more details about the first blog post -->
+{% for post in model.Posts limit:1 %}
+
+<h1><a href="{{ post.Url }}">{{ post.Title }}</a></h1>
+{{ @post.Abstract }}
+
+<p class="meta">
+  <span><strong>Published</strong>: {{ post.Date | dateNice }}</span>
+  {% if post.Tags != "" %}
+    <br />    
+    <strong>Tags</strong>:
+    {% assign next=false %}
+      {% for tag in post.Tags %}{% if next %}, {% endif %}<a href="/blog/tag/{{ tag | tagUrl }}/">{{ tag }}</a>{% assign next=true %}{% endfor tag %}
+    <br />
+  {% endif %}
+  <a href="{{ post.Url }}">Read the complete article</a>
+</p>
+  {% endfor %}
+
+<!-- For remaining articles, just print short summary with abstract -->
+<h1><a href="/blog/index.html">Past articles</a></h1>
+
+  {% for post in model.Posts offset:2 %}
+  <h3 style="margin-bottom:0px"><a href="{{ post.Url }}">{{ post.Title }}</a></h3>
+  {{ @post.Abstract }}
+  <div class="info">
+    <p class="details">
+      <!-- <strong>Published</strong>:  -->
+      <span class="smdate">{{ post.Date | dateNice }}</span>
+      <!-- 
+      {% if post.Tags != "" %}
+      <br />
+      <strong>Tags</strong>:
+      {% assign next=false %}
+        {% for tag in post.Tags %}{% if next %}, {% endif %}
+          <a href="/blog/tag/{{ tag | tagUrl }}/">{{ tag }}</a>
+          {% assign next=true %}
+        {% endfor tag %}
+      {% endif %} 
+      <br />
+      <a href="{{ post.Url }}">Read the complete article</a><br /><br />
+      -->
+    </p>
+  </div>
+  {% endfor %}
+
+  <h1>All blog posts by tag</h1>
+  {% assign next=false %}
+  {% for tag in model.Archives.Tags %}
+    {% if next %}, {% endif %}
+    <a href="/blog/tag/{{ tag.Url | tagUrl }}/">
+    {{ tag.Name }} ({{ tag.Count }})</a>
+    {% assign next=true %}
+  {% endfor tag %}
+
+
+<br />
+<p class="meta">
+  <a href="/blog/index.html">Find older blog articles here.</a>
+</p>
+
+{% endblock %}
+

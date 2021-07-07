@@ -1,12 +1,19 @@
-@{
-  Layout = "blogpost";
-  Title = "Website design overhaul";
-  Tags = "Website, blog, fsharp, F#";
-  Date = "2015-11-05T02:11:00-08:00";
-  Description = "This website is getting an overhaul";
-  EntryId = "website-design-overhaul";
-}
 # Website design overhaul
+
+- layout: blogpost
+- title: Website design overhaul
+- tags: Website, blog, fsharp, F#
+- date: 2015-11-05T02:11:00-08:00
+- description: This website is getting an overhaul
+- entryId: website-design-overhaul
+
+----------------------------------------------------------------------------------------------------
+
+About 17 years have passed since I created this website. Because I have a thing 
+for prime numbers I decided to celebrate this special anniversary with a design refresh.
+In the process I took the opportunity to perform a full overhaul of the technologies used to power the site. 
+
+----------------------------------------------------------------------------------------------------
 
 About 17 years have passed since I created this website. Because I have a thing 
 for prime numbers I decided to celebrate this special anniversary with a design refresh.

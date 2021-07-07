@@ -1,12 +1,12 @@
-@{
-  Layout = "page";
-  Title = "Cracklock documentation";
-  Tags = "Cracklock";
-  Date = "";
-  Description = "Cracklock documentation";
-}
 Cracklock documentation
 =======================
+
+ - layout: page
+ - title: Cracklock documentation
+ - tags: Cracklock
+ - description: Cracklock documentation
+
+------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 

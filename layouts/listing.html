@@ -1,0 +1,33 @@
+{% extends "page_template.html" %}
+{% block head %}
+  <title>{% if model.PostsTitle == "" %}{% else %}{{ model.PostsTitle}} - {% endif %} - WB</title>
+  <meta name="description" content="" />
+  <meta name="author" content="WB" />
+{% endblock %}
+
+{% block body %}
+<article>    
+  {% for post in model.Posts %}
+    <h1><a href="{{ post.Url }}">{{ post.Title }}</a></h1>
+    {{ @post.Abstract }}
+    <div class="info">
+      <p class="details">
+        <strong>Published</strong>: <span>{{ post.Date | dateNice }}</span>
+        {% if post.Tags != "" %}
+          <br />      
+          <strong>Tags</strong>: 
+            {% assign next=false %}{% for tag in post.Tags %}{% if next %}, {% endif %}<a
+              href="/blog/tag/{{ tag | tagUrl }}/">{{ tag }}</a>{% assign next=true %}{% endfor tag %}
+        {% endif %}
+        <br />
+        <a href="{{ post.Url }}">Read the complete article</a><br /><br />
+      </p>
+    </div>    
+  {% endfor %}
+  
+  <h1>All blog posts by tag</h1>
+  {% assign next=false %}
+  {% for tag in model.Archives.Tags %}{% if next %}, {% endif %}<a 
+    href="/blog/tag/{{ tag.Url | tagUrl }}/">{{ tag.Name }} ({{ tag.Count }})</a>{% assign next=true %}{% endfor tag %}
+</article>
+{% endblock %}

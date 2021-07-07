@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ model.Article.Title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="@Description">
+    <meta name="author" content="William Blum">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <link href="/perso.css" rel="stylesheet" type="text/css" />
+    <link href="/common/download.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!-- analyticsmarkers ------------------------>
+    <!-- 
+    To collect end-user usage analytics about your application, 
+    insert the following script into each page you want to track.
+    Place this code immediately before the closing </head> tag,
+    and before any other scripts. Your first data will appear 
+    automatically in just a few seconds.
+    -->
+    <script type="text/javascript">
+      var appInsights = window.appInsights || function (config) {
+        function r(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } } var t = { config: config }, u = document, e = window, o = "script", s = u.createElement(o), i, f; for (s.src = config.url || "//az416426.vo.msecnd.net/scripts/a/ai.0.js", u.getElementsByTagName(o)[0].parentNode.appendChild(s), t.cookie = u.cookie, t.queue = [], i = ["Event", "Exception", "Metric", "PageView", "Trace"]; i.length;)r("track" + i.pop()); return r("setAuthenticatedUserContext"), r("clearAuthenticatedUserContext"), config.disableExceptionTracking || (i = "onerror", r("_" + i), f = e[i], e[i] = function (config, r, u, e, o) { var s = f && f(config, r, u, e, o); return s !== !0 && t["_" + i](config, r, u, e, o), s }), t
+      }({
+        instrumentationKey: "c6f72da9-002a-46ac-8dd9-97379dcea6d9"
+      });
+
+      window.appInsights = appInsights;
+      appInsights.trackPageView();
+    </script>
+    
+    
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'http://www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-77730-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!-- analyticsmarkers ------------------------>
+
+    {% block head %}
+    {% endblock %}
+  </head>
+  <body class="{% block bodyclass %}default{% endblock %}">
+
+    
+    <div class="container">
+        <header>
+          <a href="/">William Blum's website</a>
+        </header>
+
+        <div class="masthead contain-to-grid sticky">
+          <ul class="nav nav-pills pull-left">
+            <li><a href="/index.html"><img src="/images/notepad60.png" />Blog</a></li>
+            <li><a href="/research/"><img
+                  src="/images/cogwheels_60.png" />Research</a></li>
+            <li><a href="/software/"><img
+                  src="/images/usbflashdisk.png" />Software</a></li>
+            <li><a href="/links/"><img src="/images/tree2_60.png" />Links</a></li>
+            <li><a href="/aboutme/"><img alt="William Blum"
+                  src="/images/myprofile60.png" />About me</a></li>
+            <li>
+              <!-- SiteSearch Google -->
+              <script>
+                (function () {
+                  var cx = '004438261549467276284:jcchzdksgwc';
+                  var gcse = document.createElement('script');
+                  gcse.type = 'text/javascript';
+                  gcse.async = true;
+                  gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                    '//cse.google.com/cse.js?cx=' + cx;
+                  var s = document.getElementsByTagName('script')[0];
+                  s.parentNode.insertBefore(gcse, s);
+                })();
+              </script>
+              <div style="width:250px;margin-top:10px">
+                <gcse:searchbox-only resultsUrl="/search/" />
+              </div>
+              <!-- SiteSearch Google -->
+            </li>
+          </ul>
+        </div>
+
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+        </ul>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-8" id="main">
+              {% block body %}
+              {% endblock %}
+        </div>
+        <div class="col-sm-3 col-sm-offset1">
+          <nav style="margin-top:60px">
+            <ul class="nav nav-list list-unstyled" id="menu">
+              <li class="nav-header">
+                <a href="/index.html">Blog</a>
+              </li>
+              <li class="divider"></li>
+              <li class="nav-header"><a href="/research/">Research</a></li>
+              <li><a href="/research/publications/">Publications</a></li>
+              <li><a href="/research/tools/">Tools</a></li>
+              <li><a href="/research/references/">References</a></li>
+              <li class="divider"></li>
+              <li class="nav-header"><a href="/software/">Software</a></li>
+              <li><a href="/software/sumatra/">SumatraPDF</a></li>
+              <li><a href="/software/cracklock/">Cracklock</a></li>
+              <li><a href="/software/latexdaemon/">LaTeXDaemon</a></li>
+              <li><a href="/software/domenico/">Domenico</a></li>
+              <li><a href="/software/oncelesgl/">OncelesGL</a></li>
+              <li><a href="/software/latex/">LaTeX tools</a></li>
+              <li><a href="/software/latexttf/">TrueType for LaTeX</a></li>
+              <li><a href="/software/others/">Others</a></li>
+              <li class="nav-header">Personal</li>
+              <li><a href="/aboutme/">About me</a></li>
+              <li><a href="/links/">Links</a></li>
+              <li><a href="http://github.com/blumu/">Github page</a></li>
+              <li class="nav-header">Top downloads</li>
+              <li><a href="/software/cracklock/">Cracklock</a></li>
+              <li><a href="/software/latex/">pstring</a></li>
+              <li><a href="/software/latexdaemon/">LatexDaemon</a></li>
+        
+              <li class="nav-header">Credits</li>
+              <li><a href="https://fsprojects.github.io/FSharp.Formatting">F# Formatting</a></li>
+              <li><a href="https://github.com/tpetricek/tomasp.net">Tomas Petricek's blog</a></li>
+              <li><a href="http://qianhanlin.blogspot.com/">Artwork</a></li>
+            </ul>
+          </nav>
+        </div>
+
+      </div> 
+    </div>
+
+    <!--
+        
+        Footers are buggy on IE and Edge...
+    footer class="footer">
+    <div class="container">
+    <p class="text-muted">
+    This is a disturbance, if you are reading this you have just been disturbed.
+    (This is an outdated warning that predates the invention of Facebook, twitter,...)
+    </p>
+    </div>
+    </div>
+    
+    -->
+    <p style="padding-bottom: 3cm;" />
+  </body>
+  </html>

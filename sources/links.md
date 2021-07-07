@@ -1,12 +1,9 @@
-@{
-  Layout = "page";
-  Title = "Links";
-  Tags = "";
-  Date = "";
-  Description = "Links";
-}
 Links
 =====
+
+- layout: page
+- title: Links
+- description: Links
 
 Some links to some useful websites and software.
 

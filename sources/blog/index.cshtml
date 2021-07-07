@@ -7,7 +7,7 @@
 
 @foreach(var post in Model.GenerateAll?Model.Posts:Enumerable.Take(Model.Posts, 15)) {
   <div>
-  <h1><a href="@Model.Root/blog/@(post.Url).html">@post.Title</a></h1>
+  <h1><a href="/blog/@(post.Url).html">@post.Title</a></h1>
   @post.Abstract
       
   <p class="meta">
@@ -17,7 +17,7 @@
       <span class="tags"><strong>Tags</strong>: @String.Join(", ", post.Tags).ToLower() </span> 
     }
     <br />
-    <a href="@Model.Root/blog/@(post.Url).html">Read the complete article</a>
+    <a href="/blog/@(post.Url).html">Read the complete article</a>
   </p>
   </div>
 }
