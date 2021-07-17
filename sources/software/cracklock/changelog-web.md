@@ -1,5 +1,5 @@
-<span id="id256149"></span>Cracklock Change Log
-===============================================
+Cracklock Change Log
+====================
 
  - layout: page
  - title: Cracklock Change Log

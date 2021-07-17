@@ -39,8 +39,8 @@ Lastly Cracklock offers a [new feature](changelog-web/) to work around the
   </li>
 </ul>
 <div class="download-other"><span class="other">
-  <a href="changelog-web.html">Change logs</a>-
-  <a href="cracklock-webfaq.html">Faq</a>-
+  <a href="changelog-web/">Change logs</a>-
+  <a href="cracklock-webfaq/">Faq</a>-
   <a href="xmldoc/cracklock-doc-web/">Documentation</a></span>
 </div>
 

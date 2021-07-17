@@ -12,7 +12,7 @@ Cracklock documentation
 
 ### <span id="id685009"></span>Introduction
 
-![](title.png)
+![](../title.png)
 
 Freeware, No Adware, No Spyware.
 
@@ -77,7 +77,7 @@ Start the manager (shortcut <span class="bold">**Cracklock Manager**</span> in s
 <span id="id685227"></span>
 **Figure 1. The manager**
 
-![The manager](fen_gestio.png)
+![The manager](../fen_gestio.png)
 
 The Manager lets you add and configure application to be controlled by Cracklock. It lets you do the following 3 basic functions: adding a new application, configure the date and time parameters for an application, and execute the program (though it is not required to launch your applications from the manager).
 
@@ -94,14 +94,14 @@ Select the program that you want to configure in the manager list. Click on the 
 <span id="id685279"></span>
 **Figure 2. Program menu**
 
-![Program menu](menu_prog.png)
+![Program menu](../menu_prog.png)
 
 This brings you the configuration dialog box:
 
 <span id="id685302"></span>
 **Figure 3. Configuration window**
 
-![Configuration window](fen_options.png)
+![Configuration window](../fen_options.png)
 
 Choose a date and time using the calendar and clock controls.
 
@@ -116,21 +116,21 @@ You can configure application for Cracklock directly from the Windows Explorer w
 <span id="id685347"></span>
 **Figure 4. Windows Explorer**
 
-![Windows Explorer](explorer.png)
+![Windows Explorer](../explorer.png)
 
 Right-click on the executable file. A contextual menu appears:
 
 <span id="id685371"></span>
 **Figure 5. Context menu in Windows Explorer**
 
-![Context menu in Windows Explorer](contextmenu.png)
+![Context menu in Windows Explorer](../contextmenu.png)
 
 In this menu, select "Properties". A window with several tabs show up, select the tab named Cracklock:
 
 <span id="id685394"></span>
 **Figure 6. Cracklock configuration window**
 
-![Cracklock configuration window](fen_general.png)
+![Cracklock configuration window](../fen_general.png)
 
 If you want to enable Cracklock for this program, check the box <span class="bold">**Cure this program with Cracklock**</span>. Check <span class="bold">**Show advanced options**</span> to show the tabs from the configuration dialog box from the manager.
 
@@ -157,7 +157,7 @@ With static-injection, Cracklock will alter the executable file of your applicat
 
 The other mode is "run-time injection":
 
-![](injectionmode_window.png)
+![](../injectionmode_window.png)
 
 Using the run-time injection, Cracklock does not modify any executable file from your application, everything happens at run-time. Note that in this case you need to make sure that the system-wide injection is activated otherwise you will have to start the program from a special shortcut or from wihtin the manager.
 
@@ -181,11 +181,11 @@ To execute a program under the control of Cracklock, you can either run it as us
 
     From the Windows Explorer, go to the folder containing your application executable file:
 
-    ![](explorer.png)
+    ![](../explorer.png)
 
 -   Right-click on the executable file to bring up the context menu:
 
-    ![](menu_context_demarrer.png)
+    ![](../menu_context_demarrer.png)
 
     and select the <span class="bold">**"Start with Cracklock"**</span> option.
 

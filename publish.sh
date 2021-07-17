@@ -38,6 +38,6 @@ read -p "Press enter to continue"
 
 pushd $wwwroot
 git add .
-git commit -a -m "Updating site ($(date))" 
+git commit -a -m "Updating site ($(date))" || echo "Nothing commited"
 git push
 popd
