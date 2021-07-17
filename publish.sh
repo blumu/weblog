@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-#set -eu
 set -o pipefail
 
 wwwroot=../output
@@ -11,6 +10,8 @@ then
     echo "Purging $wwwroot"
     rm -Rf $wwwroot
 fi
+
+set -eu
 
 if [[ "$CODESPACES" == "true" ]];
 then

@@ -9,7 +9,6 @@ Cracklock
 -----------------------------------------------
 
 -----------------------------------------------
-
 ![](cracklock.png)
 
 <script text="text/javascript" src="latestVersion.js" > </script>

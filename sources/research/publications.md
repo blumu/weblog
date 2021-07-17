@@ -15,20 +15,20 @@ if (document.getElementById(element).style.display == "none") {
 }
 </script>
 
-Conference papers and talks
----------------------------
+Conferences
+-----------
 
--   **Type homogeneity is not a restriction for safe recursion schemes**, 2009
+- **Type homogeneity is not a restriction for safe recursion schemes**, 2009
     *To be published.*
     [Paper (pdf)](../safecpda.pdf)
 
--   **The Safe Lambda Calculus (extended version)**
+- **The Safe Lambda Calculus (extended version)**
     With C.-H. Luke Ong.
     Technical report. Long version of the TLCA07 paper.
     [Download paper (pdf)](../tlca07-long.pdf)
      | [Download slides (pdf)](../tlca07-talk.pdf)
 
--   **The Safe Lambda Calculus**
+- **The Safe Lambda Calculus**
     With C.-H. Luke Ong.
     In *Lecture Notes in Computer Science* Vol. 4583 of [Proceedings of
     the 8th International Conference on Typed Lambda Calculi and
@@ -52,22 +52,33 @@ Conference papers and talks
     </pre>
 
 - **A concrete presentation of Game Semantics**
-
-    Talk given at [](http://www.dur.ac.uk/bctcs.2008/)[Galop
-    workshop](http://www.cs.bham.ac.uk/~drg/galop.html) ([ETAPS
+    Talk given at [](http://www.dur.ac.uk/bctcs.2008/)
+    [Galop workshop](http://www.cs.bham.ac.uk/~drg/galop.html) ([ETAPS
     2008](http://etaps08.mit.bme.hu/))
-
     [Slides (pdf)](../bctcs08-slides.pdf)
 
--  **A concrete presentation of Game Semantics**
+- **A concrete presentation of Game Semantics**
     Talk given at [BCTCS 2008](http://www.dur.ac.uk/bctcs.2008/)
     [Slides (pdf)](../galop08-slides.pdf)
 
 - **Termination analysis of lambda calculus and a subset of core ML**
     Talk given at [BCTCS 2005](http://www.cs.nott.ac.uk/~gmh/bctcs05.html)
 
-Journal papers
---------------
+- **The Safe Lambda Calculus**
+  [BCTCS 2007](http://cms.brookes.ac.uk/bctcs2007/).
+  [Slides (pdf)](../bctcs07-slides.pdf)
+
+- **The Safe Lambda Calculus**
+ FOCS group lunchtime meeting.
+[Slides (pdf)](../lunchmeeting.pdf)
+
+Journals
+--------
+
+- **Evaluating Lambda Terms with Traversals**
+    Theoretical Computer Science | September 2019
+    https://www.sciencedirect.com/science/article/abs/pii/S0304397519305316?via%3Dihub
+
 
 -   **The Safe Lambda Calculus**
     With C.-H. Luke Ong.
@@ -81,18 +92,14 @@ Journal papers
     (in preparation).
     [Download (pdf)](../APAL-localbeta.pdf)
 
-Work, presentations
--------------------
+Theses
+------
 
--   **The Safe Lambda Calculus**
- FOCS group lunchtime meeting.
-[Slides (pdf)](../lunchmeeting.pdf)
+- D.Phil. Thesis: **The Safe Lambda Calculus**
+[2009, Oxford University Research Archive](https://ora.ox.ac.uk/objects/uuid:537d45e0-01ac-4645-8aba-ce284ca02673/)
+[Download (pdf)](https://ora.ox.ac.uk/objects/uuid:537d45e0-01ac-4645-8aba-ce284ca02673/download_file?file_format=pdf&safe_filename=Blum%2Bthesis&type_of_work=Thesis)
 
--   **The Safe Lambda Calculus**
-[BCTCS 2007](http://cms.brookes.ac.uk/bctcs2007/).
-[Slides (pdf)](../bctcs07-slides.pdf)
-
--  **DPhil transfer thesis: The Safe Lambda Calculus**
+- DPhil transfer thesis: **The Safe Lambda Calculus**
 Technical report, submitted August 2006.
 [Slides (pdf)](../transferThesis.pdf) |
 [Bibtex](javascript:toggle('transfer.bib'))
@@ -109,8 +116,8 @@ Technical report, submitted August 2006.
     }
     </pre>
 
--   **Termination analysis of lambda calculus and a subset of core ML**
-Master's Thesis. 2004.
+- Master's Thesis: **Termination analysis of lambda calculus and a subset of core ML**
+2004.
 [Download (pdf)](../mscthesis.pdf)
 | [Sources (Objective Caml)](../mscthesis/sct-sources-latest.tar.gz)
 | [Bibtex](javascript:toggle('msc.bib'))
@@ -138,10 +145,3 @@ Master's Thesis. 2004.
         }
     </pre>
 
-
-DPhil thesis
-------------
-
--   **The Safe Lambda Calculus**
-[D.Phil. thesis, Oxford University Research Archive](http://ora.ouls.ox.ac.uk/objects/uuid:537d45e0-01ac-4645-8aba-ce284ca02673)
-[Download (pdf)](http://ora.ouls.ox.ac.uk/objects/uuid%3A537d45e0-01ac-4645-8aba-ce284ca02673/datastreams/THESIS04)

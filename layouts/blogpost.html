@@ -26,9 +26,6 @@
 
 
 {% block body %}
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8" id="main">
       <div id="before-post"></div>
       {{ model.Article.Body }}
       
@@ -95,8 +92,5 @@
         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
         <!-- END DISQUS BLOB -->
       {% endif %}
-    </div>
-  </div>
-</div>
 {% endblock %}
 
