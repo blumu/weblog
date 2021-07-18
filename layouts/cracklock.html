@@ -1,18 +1,19 @@
 {% extends "page_template.html" %}
 
 {% block head %}
-    <link href="/common/download.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="/common/downloadtable.css" rel="stylesheet" type="text/css" media="screen" />
 {% endblock %}
 
 {% block body %}
   <div id="before-post"></div>
   {{ model.Article.Body }}
   
-  <p id="after-post" style="padding-bottom: 1cm;" />
-
-  <table class="mytable" cellspacing="0"  summary="Previous versions of Cracklock">
+  <span class="downloadtable">
+  <table cellspacing="0"  summary="Previous versions of Cracklock">
       <caption>Previous versions of Cracklock</caption>
       {{ 'sources/software/cracklock/filesdescr.csv' | downloadtableFromCsv }}
   </table>
+  </span> 
+
+  <p id="after-post" style="padding-bottom: 1cm;"></p>
+
 {% endblock %}

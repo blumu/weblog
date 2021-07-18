@@ -8,10 +8,10 @@ Other software
 
 ![](download.png)
 
-<link href="../../common/downloadtable.css" rel="stylesheet" type="text/css" media="screen" />
-
 Here is some software I developed many years ago and which I don't have time
 to maintain anymore.
+
+<span class="downloadtable">
 
 Domenico
 --------
@@ -67,3 +67,4 @@ When you are wired to the Internet via a shared phone connection, you don't know
 |--------------------------|---------------|-------|-------------------------------------------------------------------------------------------------------|
 | [netn20.zip](netn20.zip) | 5th July 2000 | 37 kb | **NetNotifier** [Requires Visual Basic 6.0 Runtimes](http://support.microsoft.com/default.aspx?scid=kb;en-us;290887)   |
 
+</span>

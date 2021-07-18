@@ -1,17 +1,17 @@
-table {
+.downloadtable table {
   width: 100%;
   padding: 0;
   margin: 0;
 }
 
-caption {
+.downloadtable caption {
   padding: 0 0 5px 0;
   width: 700px;	 
   font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
   text-align: right;
 }
 
-table th {
+.downloadtable  table th {
   font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
   color: #4f6b72;
   border-right: 1px solid #C1DAD7;
@@ -24,14 +24,14 @@ table th {
   background: #CAE8EA url(../images/bg_header.jpg) no-repeat;
 }
 
-table th.nobg {
+.downloadtable table th.nobg {
   border-top: 0;
   border-left: 0;
   border-right: 1px solid #C1DAD7;
   background: none;
 }
 
-table td {
+.downloadtable table td {
   border-right: 1px solid #C1DAD7;
   border-bottom: 1px solid #C1DAD7;
   background: #fff;
@@ -40,12 +40,12 @@ table td {
 }
 
 
-table td.alt {
+.downloadtable table td.alt {
   background: #F5FAFA;
   color: #797268;
 }
 
-table td.nobg {
+.downloadtable table td.nobg {
   border-right: 0;
   border-bottom: 0;
   background: none;
@@ -53,14 +53,14 @@ table td.nobg {
   color: #4f6b72;
 }
 
-table th.filename {
+.downloadtable table th.filename {
   border-left: 1px solid #C1DAD7;
   border-top: 0;
   background: #fff url(images/bullet1.gif) no-repeat;
   font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
 }
 
-table th.filenamealt {
+.downloadtable table th.filenamealt {
   border-left: 1px solid #C1DAD7;
   border-top: 0;
   background: #f5fafa url(images/bullet2.gif) no-repeat;

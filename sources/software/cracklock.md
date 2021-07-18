@@ -9,26 +9,25 @@ Cracklock
 -----------------------------------------------
 
 -----------------------------------------------
-![](cracklock.png)
+<img style="float: left; margin-right:5px;" src="cracklock.png">
 
 <script text="text/javascript" src="latestVersion.js" > </script>
 
-Cracklock is a unique tool designed to protect you from a particularly vicious polymorphic virus
+Cracklock is a unique tool that protects you from a particularly vicious polymorphic virus
 affecting an ever-growing number of shareware programs.
-This virus, known as the "30th day virus", typically manifests itself 30 days after the installation of your
-infected software and basically prevents it from starting up! Often a warning message accompanies this suspicious behaviour.
+This virus, known as the "30th day virus", typically manifests itself 30 days after the installation of the
+infected software at which point it prevents it from running. Often a warning message accompanies this suspicious behaviour.
 Cracklock cures your programs using cutting-edge technology that are still unknown to other anti-virus vendors (McAfee, Norton,
 Sophos, Thunderbyte, F-Proot...).
 
-![Cracklock Screenshot](cracklock-config-tabs.gif)
+<img style="float: right;" src="cracklock-config-tabs.gif">
 
-Cracklock can be used for other purposes as well, for instance developers have used it to certify their
-software for "Year 2000" compliance. Since then we've improved Cracklock and are now proud to announce that
-it can also certify your software against the Y10K bug (aka "bug of the year 10000"). Thanks to Cracklock those bugs
-have all become a problem of the past.
+Software developers have also used it to certify their
+applications for "Year 2000" compliance. Since then we've improved Cracklock and are proud to announce that it can also help certify your software against the Y10K bug (aka "bug of the year 10000"). Thanks to Cracklock those bugs have all become problems of the past.
 
-Lastly Cracklock offers a [new feature](changelog-web/) to work around the
-["Microsoft Outlook timezone bug"](http://www.google.com/search?hl=en&q=outlook%20timezone%20problem)!
+Lastly Cracklock has a [feature](changelog-web/) specifically
+designed to work around the
+["Microsoft Outlook timezone bug"](http://www.google.com/search?hl=en&q=outlook%20timezone%20problem).
 
 <ul class="home-download os_windows">
   <li class="os_windows">
@@ -58,31 +57,16 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 </div>
 
-64-bit support and open source
-------------------------------
+What's new
+----------
 
-Need Cracklock for 64-bit programs?
-Help contribute to the crowdsourcing effort below, if the goal is reached
-I'll release a 64-bit version of Cracklock.
-All proceeds go to the [Leukemia & Lymphoma Society (LLS)](http://www.lls.org/).
-Help reach the stretch goal and I'll put all Cracklock sources on GitHub for everyone to use and modify.
-Find more about the program at the [_Cracklock Beats Leukemia_ blog post](../../blog/cracklock-beats-leukemia/).
-<br/>
+See the [change log](changelog-web/) to see the list of recent changes.
+The following features were introduced since version 3.9:
 
-<div class="progress progress-striped"
-style="width:500px; height:65px; margin-bottom:0px;">
-    <div class="progress-bar" role="progressbar" style="width: 1.17%; font-size:medium; line-height:1.8">
-      <a href="https://secure3.convio.net/llswa/site/Donation2?df_id=2220&PROXY_ID=1696060&PROXY_TYPE=20&FR_ID=1510">
-      <div style="width:500px">
-        Donate for <b>64bit support</b> <br/>
-        and <b>GitHub open-sourcing</b>.
-      </div>
-      </a>
-    </div>
-</div>
-<div style="font-size:small; width:500px">
-Specify <b>Cracklock Beats Leukemia</b> as  personal notes on the donation page.</i>
-</div>
+- Cracklock can now be run from a flashdisk
+- You can choose whether to store settings in the Windows Registry or in an INI file.
+- Translation in the following languages: French, English, Spanish, Arabic, Serbo Croatian, Hungarian, Korean, German, Simplified chinese and Portuguese.
+
 
 Frequently Asked Questions
 --------------------------
@@ -94,44 +78,32 @@ Google Groups
 
 For discussions about Cracklock, visit [the Cracklock group.](http://groups.google.com/group/cracklock)
 
-What's new
-----------
-
-See the [change log](changelog-web/) to see the list of recent changes.
-The following features were introduced since version 3.9:
-
-- Cracklock can now be run from a flashdisk
-- It is possible to choose whether to store informations in the Windows Registry or in an INI file.
-- Cracklock still (partial translation) of the following languages: french, english, spanish, arabic, serbo croatian, hungarian, korean, german, simplified chinese and portuguese.
-
-![Help](images/help.gif) Documentation 
---------------------------------------
+Documentation 
+-------------
 
 The english documentation is available [here](xmldoc/cracklock-doc-web/).
 For other languages an older version of the documentation is available:
 
-- [English](help/english/index.html)
-- [Spanish](help/spanish/index.html)
-- [French](help/french/index.html)
-- [Arabic](help/arabic/index.html)
+- ![Help](images/help.gif) [English](help/english/index.html)
+- ![Help](images/help.gif) [Spanish](help/spanish/index.html)
+- ![Help](images/help.gif) [French](help/french/index.html)
+- ![Help](images/help.gif) [Arabic](help/arabic/index.html)
 
 Contributing to the translation
 -------------------------------
 
-The translation tool I once developped ([RLGui](../others/index.html#rlgui)) is now deprecated.
+The translation tool I once developed ([RLGui](../others/index.html#rlgui)) is now deprecated.
 Although it had nice features (for instance it can automatically reuse strings translated for version *n* of a
-program to generate translation for version *n+1*), it required me to do some postprocessing each time a translator
-submitted his translated strings.
+program to generate translation for version *n+1*), it required some postprocessing every time a translator
+submitted translated strings.
 
-From now on, if you want to make a new translation of Cracklock, use any resource editor available on the net.
-I recommened [Resource Hacker](http://www.users.on.net/johnson/resourcehacker/),
-[Resource Explorer](http://www.wilsonc.demon.co.uk/d7resourceexplorer.htm), or even Microsoft Visual Studio.
-You can use those tools to edit one of the file in the 'Language' subdirectory of Cracklock
-(e.g. CLRESUS.DLL for the english version) then save it under another name
-(e.g. CLRESGE.DLL for german) in the same directory.
-  After restarting Cracklock Manager, the newly created language will appear under the Language menu.
+Going forward, you can author new translations of Cracklock using any resource file editor available on the net.
+I recommend [Resource Hacker](http://www.users.on.net/johnson/resourcehacker/),
+[Resource Explorer](http://www.wilsonc.demon.co.uk/d7resourceexplorer.htm), or Microsoft Visual Studio.
+You can use those tools to edit any file under the `Language` subdirectory of Cracklock 
+(e.g. `CLRESUS.DLL` for the English version) then save it under another name
+(e.g. `CLRESGE.DLL` for German) in the same directory.
+After restarting Cracklock Manager, the newly created language will appear under the Language menu.
 
 ![Download previous versions](../cracklock/images/download.gif) Previous versions
 ---------------------------------------------------------------------------------
-
-You can download here older versions of Cracklock.
