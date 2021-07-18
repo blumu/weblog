@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{ model.Article.Title }} - William Blum</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="@Description">
     <meta name="author" content="William Blum">
@@ -53,6 +52,8 @@
 
     {% block head %}
     {% endblock %}
+        <title>{{ model.Article.Title }} - William Blum</title>
+
   </head>
   <body class="{% block bodyclass %}default{% endblock %}">
 
@@ -64,11 +65,25 @@
 
         <div class="masthead contain-to-grid sticky">
           <ul class="nav nav-pills">
-            <li><a href="/index.html"><img src="/images/notepad60.png" />Blog</a></li>
-            <li><a href="/research/"><img src="/images/cogwheels_60.png" />Research</a></li>
-            <li><a href="/software/"><img src="/images/usbflashdisk.png" />Software</a></li>
-            <li><a href="/links/"><img src="/images/tree2_60.png" />Links</a></li>
-            <li><a href="/aboutme/"><img alt="William Blum mugshot" src="/images/myprofile60.png" />About</a></li>
+            <li>
+              <a href="/index.html">
+                <div align="center">
+                  <img src="/images/notepad60.png" />
+                  <div>Blog</div>
+                </div>
+              </a>
+              </li>
+            <li>
+                <a href="/research/">
+                  <div align="center">
+                    <img src="/images/cogwheels_60.png" />
+                    <div>Research</div>
+                  </div>
+                </a>
+            </li>
+            <li><a href="/software/"><div align="center"><img src="/images/usbflashdisk.png" /> <div>Software</div></div></a></li>
+            <li><a href="/links/"><div align="center"><img src="/images/tree2_60.png" /> <div> Links</div></div></a></li>
+            <li><a href="/aboutme/" style="margin-right:15px;"><div align="center"><img alt="William Blum mugshot" src="/images/myprofile60.png" /><div>About</div></div></a></li>
             <li>
               <!-- SiteSearch Google -->
               <script>

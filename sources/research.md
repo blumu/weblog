@@ -50,6 +50,7 @@ Resumable expressions make it simpler to write idempotent and resumable code whi
 
 - http://blumu.github.io/ResumableMonad/
 - https://github.com/blumu/ResumableMonad/
+
 Game semantics
 --------------
 
@@ -68,14 +69,19 @@ of a lambda term and its set of traversals.
 >   \newcommand{\sem}[1]{{[\![#1]\!]}}
 >   \newcommand\travset{\mathcal{T}rav}
 >   \newcommand{\filter}{\upharpoonright}
->   \newcommand{\syntrevsem}[1]{{\langle\!\langle #1 > \rangle\!\rangle}_{\sf s}}$
+>   \newcommand{\syntrevsem}[1]{{\langle\!\langle #1 \rangle\!\rangle}_{\sf s}}$
 > 
-> For every simply-typed term $\Gamma \vdash M :T$, we can > construct a bijection $\varphi_M$ from the set of traversals > over some abstract syntax representation
-> of $M$ and the revealed game semantic denotation of $M$. > Further, we can construct a bijection $\psi_M$ from the set > of traversals projected
-> at the root $\theroot$ of the abstract syntax tree of $M$ > and the standard game semantic denotation of $M$:
+> Given a simply-typed term $\Gamma \vdash M :T$, we can construct a bijection $\varphi_M$ 
+> from the set of traversals over the abstract syntax representation
+> to the revealed game semantic denotation of the term:
 > $$\begin{eqnarray*}
->  \varphi_M  &:& \travset(M : T)^\star \stackrel{\cong}> {\longrightarrow} \syntrevsem{M} \\
->  \psi_M  &:& \travset(M : T)\filter \theroot \stackrel{\cong}> {\longrightarrow} \sem{M} \enspace .
+>  \varphi_M  &:& \travset(M)^\star \stackrel{\cong} {\longrightarrow} \syntrevsem{M} \\
+> \end{eqnarray*}
+> $$
+> Further, we can construct a bijection $\psi_M$ from the traversals projected
+> at the abstract syntax tree root $\theroot$ to its standard game semantic denotation:
+> $$\begin{eqnarray*}
+>  \psi_M  &:& \travset(M)\filter \theroot \stackrel{\cong} {\longrightarrow} \sem{M} \enspace .
 > \end{eqnarray*}
 > $$
 
@@ -85,7 +91,6 @@ I also gave an [overview of the correspondence result and its proof](galop08-sli
 
 Based on this result, I implemented a pedagogic tool for teaching Game semantics and the theory of traversals.
 The tool, written in F# and OCaml, can be downloaded [here](tools/).
-
 
 Higher-order recursion schemes
 ------------------------------
@@ -120,6 +125,5 @@ non-trivial higher-order programs of both ground and higher-order types.
 This gives a termination decision tool for some subset of recursively
 defined function on natural numbers.
 
- This is research was pursued as part of my Master in Computer Science
+This is research was pursued as part of my Master in Computer Science
 (2004).
-
