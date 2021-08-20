@@ -97,7 +97,8 @@ Theses
 
 - D.Phil. Thesis: **The Safe Lambda Calculus**
 [2009, Oxford University Research Archive](https://ora.ox.ac.uk/objects/uuid:537d45e0-01ac-4645-8aba-ce284ca02673/)
-[Download (pdf)](https://ora.ox.ac.uk/objects/uuid:537d45e0-01ac-4645-8aba-ce284ca02673/download_file?file_format=pdf&safe_filename=Blum%2Bthesis&type_of_work=Thesis)
+[Download thesis (pdf)](https://ora.ox.ac.uk/objects/uuid:537d45e0-01ac-4645-8aba-ce284ca02673/download_file?file_format=pdf&safe_filename=Blum%2Bthesis&type_of_work=Thesis), 
+[Download Erratum (pdf)](https://github.com/blumu/dphil.thesis/raw/erratum/Current/thesis-erratum/dphilerratum.pdf)
 
 - DPhil transfer thesis: **The Safe Lambda Calculus**
 Technical report, submitted August 2006.
