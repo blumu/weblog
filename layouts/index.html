@@ -6,7 +6,7 @@
 
 {% block body %}
 
-Welcome! This is a website where I share some tools and software 
+Welcome! This is a website where I share some tools and software
 I wrote as well as some of my research interests.
 
 <!-- Print more details about the first blog post -->
@@ -14,17 +14,17 @@ I wrote as well as some of my research interests.
 
 <h1><a href="{{ post.Url }}">{{ post.Title }}</a></h1>
 {{ @post.Abstract }}
-
+<a href="{{ post.Url }}">Read the complete article</a>
+<br/><br />
 <p class="meta">
-  <span><strong>Published</strong>: {{ post.Date | dateNice }}</span>
+  <span><i>Published</i>: {{ post.Date | dateNice }}</span>
   {% if post.Tags != "" %}
-    <br />    
-    <strong>Tags</strong>:
+    <br />
+    <i>Tags</i>:
     {% assign next=false %}
       {% for tag in post.Tags %}{% if next %}, {% endif %}<a href="/blog/tag/{{ tag | tagUrl }}/">{{ tag }}</a>{% assign next=true %}{% endfor tag %}
     <br />
   {% endif %}
-  <a href="{{ post.Url }}">Read the complete article</a>
 </p>
   {% endfor %}
 
@@ -36,9 +36,8 @@ I wrote as well as some of my research interests.
   {{ @post.Abstract }}
   <div class="info">
     <p class="details">
-      <!-- <strong>Published</strong>:  -->
-      <span class="smdate">{{ post.Date | dateNice }}</span>
-      <!-- 
+      <i>Published: <span class="smdate">{{ post.Date | dateNice }}</span> </i>
+      <!--
       {% if post.Tags != "" %}
       <br />
       <strong>Tags</strong>:
@@ -47,7 +46,7 @@ I wrote as well as some of my research interests.
           <a href="/blog/tag/{{ tag | tagUrl }}/">{{ tag }}</a>
           {% assign next=true %}
         {% endfor tag %}
-      {% endif %} 
+      {% endif %}
       <br />
       <a href="{{ post.Url }}">Read the complete article</a><br /><br />
       -->
@@ -71,4 +70,3 @@ I wrote as well as some of my research interests.
 </p>
 
 {% endblock %}
-
