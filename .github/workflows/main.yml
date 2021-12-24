@@ -5,7 +5,10 @@ name: Deploy to Azure WebApp
 on:
   pull_request:
     types: [closed]
-    branches: [ master ]
+    branches: [ main ]
+
+  push:
+    branches: [ main ]
 
 jobs:
   build:
@@ -17,7 +20,7 @@ jobs:
           submodules: False
 
       - name: Add msbuild to PATH
-        uses: microsoft/setup-msbuild@v1.0.1
+        uses: microsoft/setup-msbuild@v1.1
 
       - name: Get paket
         shell: cmd
