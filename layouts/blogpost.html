@@ -28,10 +28,10 @@
 {% block body %}
       <div id="before-post"></div>
       {{ model.Article.Body }}
-      
+      <br/>
       <p class="details post-meta">
         <strong>Published:</strong> {{ model.Article.Date | dateNice }}<br />
-        <strong>Author:</strong>William Blum<br />
+        <strong>Author:</strong> William Blum<br />
         <strong>Typos:</strong> <a href="https://github.com/blumu/weblog">Send me a pull request</a>!<br />
         {% if model.Article.Tags contains "publication" %}
         {% else %}
@@ -47,7 +47,7 @@
 
       <p id="after-post" style="padding-bottom: 1cm;" />
 
-        {% if !String.IsNullOrEmpty(EntryId) %} 
+        {% if !String.IsNullOrEmpty(EntryId) %}
             {% if System.Text.RegularExpressions.Regex.IsMatch(EntryId, @"static\d{6}-\d{6}$") %}
                 <script>
                 var entryType = 'static';
@@ -93,4 +93,3 @@
         <!-- END DISQUS BLOB -->
       {% endif %}
 {% endblock %}
-

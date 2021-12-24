@@ -4,7 +4,7 @@
 ```bash
 dotnet tool restore
 dotnet paket add FSharp.DependencyManager.Paket
-``
+```
 
 ## Run server
 
