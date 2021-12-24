@@ -18,7 +18,7 @@ open FsBlog
 
 printfn "%A" (Environment.GetCommandLineArgs())
 // --------------------------------------------------------------------------------------
-// Blog configuration 
+// Blog configuration
 // --------------------------------------------------------------------------------------
 
 let (</>) a b = Path.Combine(a, b)
@@ -27,16 +27,16 @@ let fullPath p = Path.GetFullPath(__SOURCE_DIRECTORY__ </> p)
 let config =
   { // Where the site is hosted (without trailing '/')
     Root = "https://william.famille-blum.org/"
-    // Directory with DotLiquid templates  
+    // Directory with DotLiquid templates
     Layouts = fullPath "../layouts"
 
     // Cache and outptu directory (can be outside of the repo)
-    Cache = fullPath "../../cache" 
+    Cache = fullPath "../../cache"
     Output = fullPath "../../output"
 
     // Files from source are transformed/copied to the output
     // Blog & Academic are also parsed and available in DotLiquid templates
-    Source = fullPath "../sources" 
+    Source = fullPath "../sources"
     Blog = fullPath "../sources/blog"
     Academic = fullPath "../sources/academic"
     }
@@ -61,15 +61,15 @@ let updateSite full changes =
   printfn "Copying static files"
   Blog.copyFiles config changes
   printfn "Processing site source"
-  if Blog.processFiles config site.Archives changes then 
+  if Blog.processFiles config site.Archives changes then
     site <- loadSite()
-    
+
   printfn "Processing special files"
-  let specialFiles = 
+  let specialFiles =
     [ "404.html", "404.html", site
       "index.html", "index.html", site
-      "blog/index.html", "listing.html", 
-        { site with Posts = Seq.truncate 20 site.Posts } 
+      "blog/index.html", "listing.html",
+        { site with Posts = Seq.truncate 20 site.Posts }
         ]
   for target, layout, model in specialFiles do
     DotLiquid.transform (config.Output </> target) (config.Layouts </> layout) model
@@ -79,16 +79,16 @@ let updateSite full changes =
     Blog.generateRss (config.Output </> "rss.xml") config
       "William Blum"
       ( "A website where I share my interests in compter science, programming and research." )
-      site.Posts 
+      site.Posts
     printfn "Generating archives"
     Blog.generateBlogArchives config site
     Blog.generateTagArchives config site
 
 /// Regenerate site - clean the output folder & regenerate (does not clean cache)
-let regenerateSite () = 
+let regenerateSite () =
   printfn "Regenerating site from scratch"
   for dir in Directory.GetDirectories(config.Output) do
-    if not (dir.EndsWith(".git")) then 
+    if not (dir.EndsWith(".git")) then
       Directory.Delete(dir, true)
   for f in Directory.GetFiles(config.Output) do
     if f <> "README.TXT" then
@@ -100,7 +100,7 @@ let mutable cmd = ""
 while not (isNull cmd) do
   cmd <- Console.ReadLine()
   if not (isNull cmd) then
-    let args = cmd.Split([|' '|], StringSplitOptions.RemoveEmptyEntries) |> List.ofSeq 
+    let args = cmd.Split([|' '|], StringSplitOptions.RemoveEmptyEntries) |> List.ofSeq
     printfn "Running command: %A" args
     try
       match args with
@@ -110,4 +110,5 @@ while not (isNull cmd) do
       | _ -> printfn "Unrecognized command"
      with e ->
       eprintf "Exception occured %O" e
+      exit 1
     printfn "DONE"

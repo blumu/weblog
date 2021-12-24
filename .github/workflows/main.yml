@@ -1,48 +1,31 @@
 name: Deploy to Azure WebApp
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
-  pull_request:
-    types: [closed]
-    branches: [ main ]
-
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build:
-    runs-on: windows-2019
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
         with:
           submodules: False
 
-      - name: Add msbuild to PATH
-        uses: microsoft/setup-msbuild@v1.1
-
       - name: Get paket
-        shell: cmd
+        shell: bash
         run:
-          .paket\paket.bootstrapper.exe
-
-      - name: Restore dependencies
-        shell: cmd
-        run:
-          .paket\paket.exe restore
-
-      - name: Build fsbloglib
-        shell: cmd
-        run: MSBuild.exe FsBlogLib\FsBlogLib.fsproj /t:Build /m /p:RestorePackages="False" /p:OutputPath="..\.build\FsBlogLib" /p:Configuration="Debug"
+          dotnet tool restore
 
       - name: Generate website content
-        shell: cmd
-        run: packages\FAKE\tools\FAKE.exe build.fsx Stage
+        shell: bash
+        run: mkdir ../output/ && echo 'regenerate' | dotnet fsi tools/update.fsx
 
       - name: Publish to Azure
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'luweiblog'
           publish-profile: ${{ secrets.azureWebAppPublishProfile }}
-          package: 'wwwroot'
+          package: '../output'
